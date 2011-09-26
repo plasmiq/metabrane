@@ -1,22 +1,27 @@
-set :application, "set your application name here"
-set :repository,  "set your repository location here"
+set :application, :metabrane
+set :repository,  'git@178.63.75.143:dieta-bialkowa.git'
+set :scm, :git
+set :user, 'metabrane'
+set :use_sudo, false
+set :app_symlinks, %w(config/database.yml)
+set :stages, %w(beta)
+set :default_stage, 'beta'
 
-set :scm, :subversion
-# Or: `accurev`, `bzr`, `cvs`, `darcs`, `git`, `mercurial`, `perforce`, `subversion` or `none`
 
-role :web, "your web-server here"                          # Your HTTP server, Apache/etc
-role :app, "your app-server here"                          # This may be the same as your `Web` server
-role :db,  "your primary db-server here", :primary => true # This is where Rails migrations will run
-role :db,  "your slave db-server here"
+role :web, '178.63.75.143'
+role :app, '178.63.75.143'
+role :db,  '178.63.75.143', :primary => true
 
-# if you're still using the script/reaper helper you will need
-# these http://github.com/rails/irs_process_scripts
+desc 'Symlinks the :app_symlinks'
+  task :after_update_code do
+    app_symlinks.each do |link|
+    run "ln -nfs #{shared_path}/#{link} #{release_path}/#{link}"
+  end
+end
 
-# If you are using Passenger mod_rails uncomment this:
-# namespace :deploy do
-#   task :start do ; end
-#   task :stop do ; end
-#   task :restart, :roles => :app, :except => { :no_release => true } do
-#     run "#{try_sudo} touch #{File.join(current_path,'tmp','restart.txt')}"
-#   end
-# end
+namespace :deploy do
+  desc 'Restart Apache'
+    task :restart, :roles => :app do
+    run "touch #{current_path}/tmp/restart.txt"
+  end
+end
