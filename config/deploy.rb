@@ -1,5 +1,5 @@
 set :application, :metabrane
-set :repository,  'git@178.63.75.143:dieta-bialkowa.git'
+set :repository,  'git@178.63.75.143:metabrane'
 set :scm, :git
 set :user, 'metabrane'
 set :use_sudo, false
