@@ -1,11 +1,15 @@
+$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+require "rvm/capistrano"     
+
 set :application, :metabrane
 set :repository,  'git@178.63.75.143:metabrane'
 set :scm, :git
 set :user, 'metabrane'
 set :use_sudo, false
 set :app_symlinks, %w(config/database.yml)
-set :stages, %w(beta)
-set :default_stage, 'beta'
+set :rvm_type, :user
+#set :stages, %w(beta)
+#set :default_stage, 'beta'
 
 
 role :web, '178.63.75.143'
@@ -20,8 +24,13 @@ desc 'Symlinks the :app_symlinks'
 end
 
 namespace :deploy do
-  desc 'Restart Apache'
-    task :restart, :roles => :app do
-    run "touch #{current_path}/tmp/restart.txt"
+  task :start, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && bundle exec passenger start --socket tmp/passenger.socket --daemonize --environment production -p 13001"
+  end
+  task :stop, :roles => :app, :except => { :no_release => true } do
+    run "cd #{current_path} && bundle exec passenger stop --pid-file tmp/pids/passenger.pid"
+  end
+  task :restart, :roles => :app, :except => { :no_release => true } do
+    run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
   end
 end
