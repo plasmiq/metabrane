@@ -2,6 +2,34 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+
+.working_pair {
+  
+  background-color: #ccc;
+  margin-bottom: 20px;
+  margin-top: 20px;
+  
+  .relation {
+    font-family: 'IM Fell DW Pica', serif;
+    text-align: center;
+    font-size: 16pt;
+    padding: 10px;
+    clear: both;
+  }
+  
+  img {
+    margin: 20px;
+  }
+  
+  .left {
+    float: left;
+  }
+  
+  .right {
+    float: right;
+  }
+}
+
 #new_working_pair {
   
   .image {

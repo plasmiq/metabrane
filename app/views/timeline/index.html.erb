@@ -1,5 +1,3 @@
 <% @pairs.each do |pair| %>
-  <%= image_tag pair.image1_url %>
-  <%= image_tag pair.image2_url %>
-  <p><%= pair.relation %></p>
+  <%= render :partial => "working_pair", :locals => {:pair => pair} %>
 <% end %>
