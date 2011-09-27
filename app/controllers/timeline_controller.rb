@@ -4,5 +4,4 @@ class TimelineController < ApplicationController
     @pairs = WorkingPair.find(:all,:order => "created_at desc")
   end
   
-  
 end

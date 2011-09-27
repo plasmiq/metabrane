@@ -23,11 +23,7 @@ desc 'Symlinks the :app_symlinks'
   end
 end
 
-desc "precompile the assets"
-task :precompile_assets, :roles => :web, :except => { :no_release => true } do
-  run "cd #{current_path}; rm -rf public/assets/*"
-  run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
-end
+after "deploy:restart", "deploy:precompile_assets"
 
 namespace :deploy do
   task :start, :roles => :app, :except => { :no_release => true } do
@@ -38,5 +34,11 @@ namespace :deploy do
   end
   task :restart, :roles => :app, :except => { :no_release => true } do
     run "#{try_sudo} touch #{File.join(current_path, 'tmp', 'restart.txt')}"
+  end
+  
+  desc "precompile the assets"
+  task :precompile_assets, :roles => :web, :except => { :no_release => true } do
+    run "cd #{current_path}; rm -rf public/assets/*"
+    run "cd #{current_path}; RAILS_ENV=production bundle exec rake assets:precompile"
   end
 end
