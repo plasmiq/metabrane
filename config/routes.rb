@@ -1,4 +1,6 @@
 MetabraneCo::Application.routes.draw do
+  get "weaves/create"
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -11,7 +13,7 @@ MetabraneCo::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   resources :products
+  resources :weaves
 
   # Sample resource route with options:
   #   resources :products do
@@ -47,8 +49,8 @@ MetabraneCo::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  # just remember to delete public/index.html.
   root :to => 'timeline#index'
+  # just remember to delete public/index.html.
 
   # See how all your routes lay out with "rake routes"
 

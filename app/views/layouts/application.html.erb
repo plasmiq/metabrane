@@ -7,8 +7,19 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<%= yield %>
-
+<menu>
+  <ul>
+    <li><%= link_to "Live infrowave", :controller => "timeline" %></li>
+    <li><%= link_to "Your weaves", :controller => "timeline" %></li>
+    <li><%= link_to "New weave", :controller => "weaves", :action => :new %></li>
+  </ul>
+  <br class="clear"/>
+</menu>
+<div id="content">
+  <%= yield %>
+</div>
+<footer>
+  footer
+</footer>
 </body>
 </html>

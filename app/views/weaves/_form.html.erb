@@ -1,0 +1,22 @@
+<div id="new_working_pair">
+  <%= form_tag :controller => :weaves do %>
+    <p>New WorkingPair</p>
+    <div class="image">
+      <%= label_tag(:image1_url, "Image1 URL") %>
+      <%= url_field(:working_pair, :image1_url) %>
+      <img id="new_img1"/>
+    </div>
+    <div class="image">
+      <%= label_tag(:image2_url, "Image2 URL") %>
+      <%= url_field(:working_pair,:image2_url) %>
+      <img id="new_img1"/>
+    </div>
+    <div id="relation">
+      <%= label_tag("working_pair[relation]", "Relation") %>
+      <br/>
+      <%= text_field(:working_pair, :relation) %>
+      <br/>
+      <%= submit_tag("Create"); %>
+    </div>
+  <% end %>
+</div>

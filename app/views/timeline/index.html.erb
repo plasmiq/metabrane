@@ -1,1 +1,5 @@
-hello world!
+<% @pairs.each do |pair| %>
+  <%= image_tag pair.image1_url %>
+  <%= image_tag pair.image2_url %>
+  <p><%= pair.relation %></p>
+<% end %>
