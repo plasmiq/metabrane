@@ -7,6 +7,6 @@ class WorkingPair < ActiveRecord::Base
   end
   
   def object2
-    substrate1 ? substrate1.image : image1_url
+    substrate1 ? substrate2.image : image2_url
   end
 end
