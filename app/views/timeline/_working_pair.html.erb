@@ -1,7 +1,17 @@
 <div class="working_pair">
-  <div>
-    <%= image_tag pair.image1_url, :class => "left" %>
-    <%= image_tag pair.image2_url, :class => "right" %>
+  <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %></span></div>
+  <div class="content">
+    <div class="object left">
+      <%= image_tag pair.image1_url %>
+    </div>
+    <div  class="object right">
+      <%= image_tag pair.image2_url %>
+    </div>
   </div>
-  <p class="relation"><%= pair.relation %></p>
+  <div class="relation">
+    <span><%= pair.relation %></span>
+    <a href="/">
+      <%= image_tag "btn_clusterList.png" %>
+    </a>
+  </div>
 </div>

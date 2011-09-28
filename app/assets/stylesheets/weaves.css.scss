@@ -3,42 +3,92 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
-$content_width: 345px;
+$content_width: 229px;
 
 .working_pair {
-  
-  background-color: #ccc;
+  font-family: 'IM Fell DW Pica', serif;
+  background: url("weavement_cell.png") no-repeat 0 0;
+  height: 547px;
   margin-bottom: 20px;
   margin-top: 20px;
   
+  .timestamp {
+    text-align: right;
+    padding: 20px 30px 0 0;
+    font-size: 14px;
+    color: #939393;
+  }
+  
   .relation {
-    font-family: 'IM Fell DW Pica', serif;
     text-align: center;
     font-size: 16pt;
-    padding: 10px;
+    position: relative;
     clear: both;
+    width: 878px;
+    height: 80px;
+    background: url("input_metatagWeave.png") no-repeat 0 0;
+    margin: 0 auto;
+    span {
+      font-size: 32px;
+      color: #2e2d2c;
+      position: relative;
+      top: 22px;
+    }
+    a {
+      display: block;
+      width: 51px;
+      height: 51px;
+      position: absolute;
+      top: 13px;
+      right: 15px;
+      img {
+        width: inherit;
+        height: inherit; 
+        display: inherit;
+      }
+    }
   }
-  
-  img {
-    margin: 20px;
-    width: $content_width;
-  }
-  
-  .left {
-    float: left;
-  }
-  
-  .right {
-    float: right;
+  .content {
+    height: 350px;
+    padding-top: 20px;
+    margin-bottom: 40px;
+    position: relative;
+    background: url("icon_workingPair.png") no-repeat;
+    background-position:center; 
+    
+    .object {
+      width: 356px;
+      background: url("object_shadow.png") no-repeat;
+      background-position-x: center; 
+      background-position-y: bottom; 
+      text-align: center;
+      padding-bottom: 13px;
+      img {
+        width: $content_width;
+        
+      }
+    }
+    .left {
+      float: left;
+      margin-left: 40px;
+    }
+    
+    .right {
+      float: right;
+      margin-right: 40px;
+    } 
   }
 }
 
 #new_working_pair {
-  
+   background-image: url("weavement_cell.png");
+   
+   width: 928px;
+  height: 547px;
   .image {
     margin: 0;
     padding: 0;
-    width: 480px;
+    width: 450px;
     float: left;
   }
   

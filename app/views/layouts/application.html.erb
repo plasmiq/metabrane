@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>MetabraneCo</title>
+  <title>Metabrane.co - Weave a thread between ...</title>
   <link href='http://fonts.googleapis.com/css?family=IM+Fell+DW+Pica' rel='stylesheet' type='text/css'>
   <%= stylesheet_link_tag    "application" %>
   <%= javascript_include_tag "application" %>
@@ -9,18 +9,29 @@
 </head>
 <body>
 <menu>
-  <ul>
-    <li><%= link_to "Live infrowave", :controller => "timeline" %></li>
-    <li><%= link_to "Your weaves", :controller => "timeline" %></li>
-    <li><%= link_to "New weave", :controller => "weaves", :action => :new %></li>
-  </ul>
-  <br class="clear"/>
+  <div class="center">
+    <h1><a href="/"><span>Metabrane.co</span></a></h1>
+    <ul>
+      <li>
+        <%= menu_element "l_live_infowave", "Live Infowave", {:controller => 'timeline'} %>
+      </li>
+      <!--
+      <li>
+        <%= menu_element "l_your_weaves", "Your Weaves", {:controller => 'timeline'} %>
+      </li>
+      -->
+      <li>
+        <%= menu_element "l_create_weaves", "Create Weaves", {:controller => 'weaves', :action => "new"} %>
+      </li>
+    </ul>
+    <div id="tagline"><h2><span>Weave a thread between ...</span></h2></div>
+  </div>
 </menu>
 <div id="content">
   <%= yield %>
 </div>
 <footer>
-  footer
+  
 </footer>
 </body>
 </html>

@@ -1,27 +1,118 @@
 @mixin full_width {
   margin: 0 auto;
-  width: 960px;
+  width: 928px;
   clear: both;
+}
+
+img {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  img {
+    border: 0px;
+  }
 }
 
 body {
   margin: 0;
   padding: 0;
   font-family: Arial;
-}
-
+  background: url("background_tile.jpg") repeat;
+}  
+  
 menu {
-  @include full_width;
   
-  border-bottom: 1px solid black;
+  background: url("header_navigationStrip.png") repeat-x;
+  display:  block;
+  height: 157px;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
   
-  ul {
-    li {
-      list-style: none;
-      margin: 0;
-      padding: 0 20px;
-      display: block;
+  div.center {
+    @include full_width;
+    position: relative;
+    
+    
+    h1 {
+      margin: 15px 0 0 0;
+      padding: 0;
       float: left;
+      a {
+        display: block;
+        background: url("metabrane_logo.png") 0 0 no-repeat;
+        width: 177px;
+        height: 105px;
+        span {
+          display: none;
+        }
+      }
+    }
+    
+    #tagline {
+      background: url("header_tagline.png") 0 0 no-repeat;
+      width: 233px;
+      height: 18px;
+      position: absolute;
+      right: 0px;
+      top: 90px;
+      display: block;
+      overflow: hidden;
+      span {
+        display: none;
+      }
+    }
+    
+    ul {
+      float: left;
+      margin-top: 30px;
+      padding: 0 0 0 20px;
+      li {
+        list-style: none;
+        padding: 0;
+        margin: 0 0px;
+        display: block;
+        float: left;
+        width: 183px;
+        height: 44px;
+        a {
+          width: inherit;
+          height: inherit;
+          display: block;
+          background-repeat: no-repeat;
+          background-position-x: 8px;
+          &:hover, &.selected {
+            background-position-x: 0;
+          }
+          span {
+            display: none;
+          }
+        }
+      }
+      
+      #l_live_infowave {
+        background-image: url("nav_inactive_liveInfowave.png");
+        &:hover, &.selected {
+          background-image: url("nav_active_liveInfowave.png");
+        }
+      }
+      
+      #l_your_weaves {
+        background-image: url("nav_inactive_yourWeaves.png");
+        &:hover, &.selected {
+          background-image: url("nav_active_yourWeaves.png");
+        }
+      }
+      
+      #l_create_weaves {
+        background-image: url("nav_inactive_createWeaves.png");
+        &:hover, &.selected {
+          background-image: url("nav_active_createWeaves.png");
+        }
+      }
+      
     }
   }
 }
