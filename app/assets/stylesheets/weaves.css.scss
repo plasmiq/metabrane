@@ -3,6 +3,8 @@
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
 
+$content_width: 345px;
+
 .working_pair {
   
   background-color: #ccc;
@@ -19,6 +21,7 @@
   
   img {
     margin: 20px;
+    width: $content_width;
   }
   
   .left {
@@ -37,7 +40,11 @@
     padding: 0;
     width: 480px;
     float: left;
-    height: 400px;
+  }
+  
+  img {
+    width: $content_width;
+    clear: both;
   }
   
   #relation {
