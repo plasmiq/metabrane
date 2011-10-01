@@ -28,11 +28,12 @@ $strong_colour: #2e2d2c;
         margin: 0 5px;
         position: relative;
         top: -2px;
+        background-position-x: -20px;
         &.delete_weave {
           background-position-y: -100px;
         }
         &:hover {
-          background-position-x: -20px;
+          background-position-x: -0px;
         }
       }
     }
