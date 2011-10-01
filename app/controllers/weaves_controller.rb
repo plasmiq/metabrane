@@ -28,15 +28,6 @@ class WeavesController < ApplicationController
     @wp = @wp.newer.first if direction == 1
     @wp = @wp.older.first if direction == -1
          
-    @home_id = @home.id if @home
-    
-    #not show home if you are there already
-    @home = nil if @wp == @home
-   
-    #respond_to do |format|  
-    #  format.html { render :layout => false }  
-    #  format.js   { render :layout => false }  
-    #end 
     render :layout => false
   end
 

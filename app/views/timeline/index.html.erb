@@ -1,3 +1,5 @@
 <% @pairs.each do |pair| %>
-  <%= render :partial => "working_pair", :locals => {:pair => pair} %>
+  <div class="container" id="container_<%= pair.id %>">
+  <%= render :partial => "working_pair", :locals => {:pair => pair, :home_id => pair.id} %>
+  </div>
 <% end %>

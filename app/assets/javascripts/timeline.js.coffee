@@ -9,8 +9,9 @@ bind_time_arrows = () ->
   $(".timearrow, .homebutton")
     .bind "ajax:before", (event,data) -> 
       id = this.id.split("_")[1]
-      $("#working_pair_"+id).fadeOut
+      #$("#working_pair_"+id).fadeOut
     .bind "ajax:success", (event, data) ->
       id = this.id.split("_")[1]
-      $("#working_pair_"+id).replaceWith(data)
+      #$("#working_pair_"+id).replaceWith(data)
+      $("#container_"+id).html(data)
       bind_time_arrows()

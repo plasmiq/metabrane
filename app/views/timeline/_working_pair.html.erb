@@ -16,25 +16,25 @@
   </div>
   <% if pair.older.count > 0%>
     <%= link_to content_tag(:span, pair.older.count),
-      {:controller => :weaves, :action => :show, :id => pair.id, :direction => -1, :home_id => @home_id },
+      {:controller => :weaves, :action => :show, :id => pair.id, :direction => -1, :home_id => home_id },
       :remote => true,
       :class => "timearrow leftarrow",
-      :id => "olderthan_#{pair.id}" %>
+      :id => "olderthan_#{home_id}" %>
   <% end %>
   <% if pair.newer.count > 0%>
     <%= link_to content_tag(:span, pair.newer.count),
-      {:controller => :weaves, :action => :show, :id => pair.id, :direction => 1, :home_id => @home_id },
+      {:controller => :weaves, :action => :show, :id => pair.id, :direction => 1, :home_id => home_id },
       :remote => true,
       :class => "timearrow rightarrow",
-      :id => "newerthan_#{pair.id}"
+      :id => "newerthan_#{home_id}"
     %>
   <% end %>
-  <% if @home %>
+  <% if @home and @home != pair %>
     <%= link_to content_tag(:span, ""),
       {:controller => :weaves, :action => :show, :id => @home.id },
       :remote => true,
       :class => "homebutton",
-      :id => "hometo_#{pair.id}"
+      :id => "hometo_#{home_id}"
     %>
   <% end %>
 </div>
