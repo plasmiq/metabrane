@@ -30,5 +30,15 @@ class WeavesController < ApplicationController
          
     render :layout => false
   end
+  
+  def destroy 
+    @wp = WorkingPair.find( params[:id] )
+    @wp.destroy
+    
+    respond_to do |format|  
+      format.html { redirect_to(posts_url) }  
+      format.js   { render :nothing => true }  
+    end  
+  end
 
 end

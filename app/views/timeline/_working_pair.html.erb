@@ -1,5 +1,11 @@
 <div class="working_pair" id="working_pair_<%= pair.id %>">
-  <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
+  <div class="header">
+    <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
+    <div class="toggles">
+      <%= link_to '', {:controller => :weaves, :action => :destroy, :id => pair.id}, :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'delete_weave' %>
+    </div>
+    <br style="clear: both"/>
+  </div>
   <div class="content">
     <table>
       <tr>

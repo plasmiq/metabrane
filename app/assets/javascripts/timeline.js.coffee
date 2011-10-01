@@ -4,6 +4,9 @@
 
 $(document).ready -> 
   bind_time_arrows()
+  $(".delete_weave")
+    .bind "ajax:success", (event, data) ->
+      $(this).closest(".container").fadeOut()
 
 bind_time_arrows = () ->   
   $(".timearrow, .homebutton")
