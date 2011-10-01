@@ -1,4 +1,4 @@
-<div class="working_pair">
+<div class="working_pair" id="working_pair_<%= pair.id %>">
   <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
   <div class="content">
     <div class="object left">
@@ -14,4 +14,19 @@
       <%= image_tag "btn_clusterList.png" %>
     </a>
   </div>
+  <% if pair.older.count > 0%>
+    <%= link_to content_tag(:span, pair.older.count),
+      {:controller => :weaves, :action => :show, :id => pair.id, :direction => -1 },
+      :remote => true,
+      :class => "timeline leftarrow",
+      :id => "olderthan_#{pair.id}" %>
+  <% end %>
+  <% if pair.newer.count > 0%>
+    <%= link_to content_tag(:span, pair.newer.count),
+      {:controller => :weaves, :action => :show, :id => pair.id, :direction => 1 },
+      :remote => true,
+      :class => "timeline rightarrow",
+      :id => "olderthan_#{pair.id}"
+    %>
+  <% end %>
 </div>

@@ -15,5 +15,15 @@ class WeavesController < ApplicationController
     wp.save  
     redirect_to :controller => :timeline
   end
+  
+  def show
+    @wp = WorkingPair.find(params[:id].to_i + params[:direction].to_i)
+    
+    #respond_to do |format|  
+    #  format.html { render :layout => false }  
+    #  format.js   { render :layout => false }  
+    #end 
+    render :layout => false
+  end
 
 end

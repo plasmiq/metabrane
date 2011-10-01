@@ -4,6 +4,7 @@
 
 
 $content_width: 229px;
+$strong_colour: #2e2d2c;
 
 .working_pair {
   font-family: 'IM Fell DW Pica', serif;
@@ -11,6 +12,43 @@ $content_width: 229px;
   height: 547px;
   margin-bottom: 20px;
   margin-top: 20px;
+  position: relative;
+  
+  .timeline {
+    background: url("nav_timeline_arrows.png") no-repeat 0 0;
+    width: 37px;
+    height: 92px;
+    display: block;
+    position: absolute;
+    top: 200px;  
+    text-decoration: none;
+    color: $strong_colour;
+    
+    &:visitied {
+      color: $strong_colour
+    }
+    
+    span {
+      top: 90px;
+      margin: 0 17px;
+      position: relative;
+    }
+ 
+    
+    &:hover {
+      background-position-y: -91px;
+    }
+    
+    &.leftarrow {
+      left: 0px;    
+    }
+    
+    &.rightarrow {
+      background-position-x: -37px;
+      right: 0px;
+    }
+  
+  }
   
   .timestamp {
     text-align: right;
@@ -30,7 +68,7 @@ $content_width: 229px;
     margin: 0 auto;
     span {
       font-size: 32px;
-      color: #2e2d2c;
+      color: $strong_colour;
       position: relative;
       top: 22px;
     }
@@ -56,6 +94,7 @@ $content_width: 229px;
     background: url("icon_workingPair.png") no-repeat;
     background-position:center; 
     
+    
     .object {
       width: 356px;
       background: url("object_shadow.png") no-repeat;
@@ -65,7 +104,13 @@ $content_width: 229px;
       padding-bottom: 13px;
       img {
         width: $content_width;
-        
+        border: 3px solid transparent;
+        &:hover {
+          border: 3px solid #F34848;
+          -webkit-border-radius: 4px;
+          -moz-border-radius: 4px;
+          border-radius: 4px
+        }
       }
     }
     .left {
