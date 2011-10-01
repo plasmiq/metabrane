@@ -82,9 +82,13 @@ menu {
           height: inherit;
           display: block;
           background-repeat: no-repeat;
-          background-position-x: 8px;
-          &:hover, &.selected {
-            background-position-x: 0;
+          background-position-x: -183px;
+          background-image: url("nav_tabs_sprite.png");
+          &:hover {
+            background-position-x: -366px;          
+          }
+          &.selected {
+            background-position-x: 0px;
           }
           span {
             display: none;
@@ -92,25 +96,12 @@ menu {
         }
       }
       
-      #l_live_infowave {
-        background-image: url("nav_inactive_liveInfowave.png");
-        &:hover, &.selected {
-          background-image: url("nav_active_liveInfowave.png");
-        }
-      }
-      
       #l_your_weaves {
-        background-image: url("nav_inactive_yourWeaves.png");
-        &:hover, &.selected {
-          background-image: url("nav_active_yourWeaves.png");
-        }
+        background-position-y: -88px;
       }
       
       #l_create_weaves {
-        background-image: url("nav_inactive_createWeaves.png");
-        &:hover, &.selected {
-          background-image: url("nav_active_createWeaves.png");
-        }
+        background-position-y: -44px;
       }
       
     }
