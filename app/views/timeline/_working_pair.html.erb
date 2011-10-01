@@ -1,12 +1,20 @@
 <div class="working_pair" id="working_pair_<%= pair.id %>">
   <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
   <div class="content">
-    <div class="object left">
-      <%= image_tag pair.object1 %>
-    </div>
-    <div  class="object right">
-      <%= image_tag pair.object2 %>
-    </div>
+    <table>
+      <tr>
+        <td>
+          <div class="object left">
+            <%= image_tag pair.object1 %>
+          </div>
+        </td>
+        <td>
+          <div  class="object right">
+            <%= image_tag pair.object2 %>
+          </div>
+        </td>
+      </tr>
+    </table>
   </div>
   <div class="relation">
     <span><%= pair.relation %></span>

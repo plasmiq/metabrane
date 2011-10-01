@@ -34,7 +34,7 @@ $strong_colour: #2e2d2c;
     height: 92px;
     display: block;
     position: absolute;
-    top: 200px;  
+    top: 177px;  
     text-decoration: none;
     color: $strong_colour;
     
@@ -106,6 +106,10 @@ $strong_colour: #2e2d2c;
     background: url("icon_workingPair.png") no-repeat;
     background-position:center; 
     
+    table {
+      margin: 0 auto;
+      height: inherit;
+    }
     
     .object {
       width: 356px;
@@ -126,13 +130,11 @@ $strong_colour: #2e2d2c;
       }
     }
     .left {
-      float: left;
-      margin-left: 40px;
+      margin-right: 55px;
     }
     
     .right {
-      float: right;
-      margin-right: 40px;
+      margin-left: 55px;
     } 
   }
 }
