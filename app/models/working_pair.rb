@@ -9,11 +9,11 @@ class WorkingPair < ActiveRecord::Base
   end
   
   def older 
-    entangled.where( "updated_at < ?",updated_at )
+    entangled.where( "updated_at < ?",updated_at ).order("updated_at DESC")
   end
   
   def newer
-    entangled.where( "updated_at > ?",updated_at )
+    entangled.where( "updated_at > ?",updated_at ).order("updated_at ASC")
   end
   
   def object1

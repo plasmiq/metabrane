@@ -6,7 +6,7 @@ $(document).ready ->
   bind_time_arrows()
 
 bind_time_arrows = () ->   
-  $(".timeline")
+  $(".timearrow, .homebutton")
     .bind "ajax:before", (event,data) -> 
       id = this.id.split("_")[1]
       $("#working_pair_"+id).fadeOut
@@ -14,9 +14,3 @@ bind_time_arrows = () ->
       id = this.id.split("_")[1]
       $("#working_pair_"+id).replaceWith(data)
       bind_time_arrows()
-
-#  $(".timearrow").click ->
-#    id = this.id.split("_")[1]
-#    alert(id)
-#    $("#working_pair_"+id).html("dsasdsda")
-    

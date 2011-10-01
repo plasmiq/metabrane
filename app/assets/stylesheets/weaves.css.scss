@@ -14,7 +14,21 @@ $strong_colour: #2e2d2c;
   margin-top: 20px;
   position: relative;
   
-  .timeline {
+  .homebutton {
+    background: url("nav_timeline_homes.png") no-repeat 0 0;
+    width: 37px;
+    height: 53px;
+    display: block;
+    position: absolute;
+    top: 350px;  
+    text-decoration: none;
+    color: $strong_colour;
+    &:hover {
+      background-position-y: -53px;
+    }
+  }
+  
+  .timearrow {
     background: url("nav_timeline_arrows.png") no-repeat 0 0;
     width: 37px;
     height: 92px;
@@ -34,7 +48,6 @@ $strong_colour: #2e2d2c;
       position: relative;
     }
  
-    
     &:hover {
       background-position-y: -91px;
     }
@@ -47,7 +60,6 @@ $strong_colour: #2e2d2c;
       background-position-x: -37px;
       right: 0px;
     }
-  
   }
   
   .timestamp {
