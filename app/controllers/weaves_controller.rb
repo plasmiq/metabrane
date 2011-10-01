@@ -19,31 +19,20 @@ class WeavesController < ApplicationController
   def show
     id = params[:id].to_i
     @wp = WorkingPair.find(id)
-    
+    @home = @wp
+        
     home_id = params[:home_id].to_i
-    if home_id > 0
-      @home = WorkingPair.find( home_id ) 
-    else
-      @home = @wp
-    end
-    
-    
+    @home = WorkingPair.find( home_id ) if home_id > 0
+        
     direction = params[:direction].to_i
-    if direction == 1
-      @wp = @wp.newer.first
-    end
-    #else
-    if direction == -1
-      @wp = @wp.older.first
-    end
-        
+    @wp = @wp.newer.first if direction == 1
+    @wp = @wp.older.first if direction == -1
+         
     @home_id = @home.id if @home
-        
-    if @wp == @home
-      @home = nil
-    end
     
-    
+    #not show home if you are there already
+    @home = nil if @wp == @home
+   
     #respond_to do |format|  
     #  format.html { render :layout => false }  
     #  format.js   { render :layout => false }  
