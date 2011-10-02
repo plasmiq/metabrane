@@ -1,8 +1,14 @@
 <div class="working_pair" id="working_pair_<%= pair.id %>">
   <div class="header">
     <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
+    <% if pair.older.count > 0 || pair.newer.count > 0 %>
+    <div class="timeline toggles">
+      <a href="" class="timeline_weave"></a>
+      <span>view weavement timeline</span>
+    </div>
+    <% end %>
     <div class="toggles">
-      
+    
       <%= link_to '', 
         {:controller => :weaves, :action => :destroy, :id => pair.id}, 
         :confirm => 'Are you sure?', 
