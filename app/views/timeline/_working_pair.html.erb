@@ -11,12 +11,13 @@
       <tr>
         <td>
           <div class="object left">
-            <%= image_tag pair.object1 %>
+            <%= render :partial => "timeline/substrate", :locals => {:substrate => pair.object1} %>
           </div>
         </td>
         <td>
           <div  class="object right">
-            <%= image_tag pair.object2 %>
+            <%= render :partial => "timeline/substrate", :locals => {:substrate => pair.object2} %>
+            <br style="clear: both"/>
           </div>
         </td>
       </tr>

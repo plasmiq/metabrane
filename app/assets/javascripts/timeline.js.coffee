@@ -4,6 +4,7 @@
 
 $(document).ready -> 
   bind_time_arrows()
+  $('a[rel*=facebox]').facebox()
   $(".delete_weave")
     .bind "ajax:success", (event, data) ->
       $(this).closest(".container").fadeOut()
