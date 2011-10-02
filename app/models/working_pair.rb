@@ -4,7 +4,7 @@ class WorkingPair < ActiveRecord::Base
   
   scope :recent, order("working_pairs.updated_at DESC")
   scope :favorited, 
-    lambda { includes(:favorites).where("favorites.working_pair_id == working_pairs.id") }
+    lambda { includes(:favorites).where("favorites.working_pair_id = working_pairs.id") }
   
   has_many :favorites
   
