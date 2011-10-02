@@ -29,9 +29,14 @@ $strong_colour: #2e2d2c;
         position: relative;
         top: -2px;
         background-position-x: -20px;
+        float: right;
         &.delete_weave {
           background-position-y: -100px;
         }
+        &.permalink_weave {
+          background-position-y: -40px;
+        }
+        
         &:hover {
           background-position-x: -0px;
         }

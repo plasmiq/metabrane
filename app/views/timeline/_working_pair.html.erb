@@ -2,7 +2,18 @@
   <div class="header">
     <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
     <div class="toggles">
-      <%= link_to '', {:controller => :weaves, :action => :destroy, :id => pair.id}, :confirm => 'Are you sure?', :method => :delete, :remote=>true, :class=>'delete_weave' %>
+      
+      <%= link_to '', 
+        {:controller => :weaves, :action => :destroy, :id => pair.id}, 
+        :confirm => 'Are you sure?', 
+        :method => :delete, 
+        :remote=>true, 
+        :class=>'delete_weave' %>
+        
+      <%= link_to '', 
+        {:controller => :weaves, :action => :show, :id => pair.id},
+        :taget => "_blank",
+        :class=>'permalink_weave' %>
     </div>
     <br style="clear: both"/>
   </div>
@@ -17,7 +28,6 @@
         <td>
           <div  class="object right">
             <%= render :partial => "timeline/substrate", :locals => {:substrate => pair.object2} %>
-            <br style="clear: both"/>
           </div>
         </td>
       </tr>

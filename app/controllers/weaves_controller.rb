@@ -6,8 +6,8 @@ class WeavesController < ApplicationController
     s1.picture_from_url(wp.image1_url)
     s1.save
     s2 = Substrate.new
-    s2.picture_from_url(wp.image2_url)
     s2.save
+    s2.picture_from_url(wp.image2_url)
     
     wp.substrate1 = s1
     wp.substrate2 = s2
@@ -28,7 +28,10 @@ class WeavesController < ApplicationController
     @wp = @wp.newer.first if direction == 1
     @wp = @wp.older.first if direction == -1
          
-    render :layout => false
+    respond_to do |format|  
+      format.html
+      format.js   
+    end
   end
   
   def destroy 
