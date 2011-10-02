@@ -1,1 +1,61 @@
-<%= render :partial => "weaves/form" %>
+<h3><em>create new</em> working pair weave ...</h3>
+<div class="working_pair">
+  <%= form_tag  :controller => :weaves, :method => :post do %>
+    <div class="header">
+      <div class="timestamp">
+        * take as long as you need to be creative ...
+      </div>
+    </div>
+    <div class="content">
+      <div class="url">
+        <div class="substrate_url left">
+          <%= label_tag(:image1_url, "enter a URL for image one ...") %>
+          <%= url_field(:working_pair, 
+            :image1_url, 
+            :class => "image_url",
+            :value => @wp ? @wp.image1_url : "") %>
+        </div>
+        <div class="substrate_url right">
+          <%= label_tag(:image2_url, "enter a URL for image two ...") %>
+          <%= url_field(:working_pair,
+            :image2_url, 
+            :class => "image_url", 
+            :value => @wp ? @wp.image2_url : "") %>
+        </div>
+      </div>
+      <table>
+        <tr>
+          <td>
+            <div class="object left">
+              <div class="image substrate_container">
+                <img id="new_image1" src="<%= @wp ? @wp.image1_url : '' %>"/>
+              </div>    
+            </div>
+          </td>
+          <td>
+            <div  class="object right">
+              <div class="image substrate_container">
+                <img id="new_image2" src="<%= @wp ? @wp.image1_url : '' %>"/>
+              </div>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+    <div class="relation">
+      <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "") %></span>
+      <%= submit_tag("", :id => "submit_weave"); %>
+    </div>
+    <div class="hints">
+      <% unless @wp and @wp.image1_url  %>
+        <%= image_tag "hint_createWeaves_step1.png", :id => "hint1" %>
+      <% end %>
+      <% unless @wp and @wp.image2_url  %>
+        <%= image_tag "hint_createWeaves_step2.png", :id => "hint2" %>
+      <% end %>
+      <% unless @wp and !@wp.relation.empty? %>
+        <%= image_tag "hint_createWeaves_step3.png", :id => "hint3" %>
+      <% end %>
+    </div>
+  <% end %>
+</div>

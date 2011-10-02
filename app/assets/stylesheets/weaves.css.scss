@@ -126,23 +126,45 @@ $strong_colour: #2e2d2c;
     height: 80px;
     background: url("input_metatagWeave.png") no-repeat 0 0;
     margin: 0 auto;
+    #working_pair_relation {
+      font-size: 32px;
+      color: #ffffff;
+      background-color: #212121;
+      border: 0px;
+      position: relative;
+      top: -5px;
+      padding: 0 10px;
+      width: 300px;
+      text-align: center;
+    }
+     
     span {
       font-size: 32px;
       color: $strong_colour;
       position: relative;
       top: 22px;
     }
-    a {
+    
+    a, #submit_weave {
+      border: 0px;
+      background: url("btn_completeWeave.png") no-repeat;
       display: block;
       width: 51px;
       height: 51px;
       position: absolute;
       top: 13px;
       right: 15px;
+      cursor: pointer;
       img {
         width: inherit;
         height: inherit; 
         display: inherit;
+      }
+    }
+    #submit_weave {
+      background-position-x: -51px;
+      &:hover {
+        background-position-x: 0px;
       }
     }
   }
@@ -166,6 +188,7 @@ $strong_colour: #2e2d2c;
       background-position-y: bottom; 
       text-align: center;
       padding-bottom: 13px;
+      position: relative;
       img {
         width: $content_width;
         border: 3px solid transparent;
@@ -203,9 +226,45 @@ $strong_colour: #2e2d2c;
         }
       }
     }
-    
-    
-    
+    .substrate_url {
+        position: absolute;
+        top: 150px;  
+        width: 385px;
+        height: 78px;
+        z-index: 100;
+        background: url("input_URLweave.png") 0 0 no-repeat;
+        &.invalid {
+          background-image: url("input_URLweave_error.png");
+        }
+        label {
+          display: block;
+          padding: 5px 0 0 10px;
+          color: #ffffff;
+          text-align: left;
+          font-size: 20px;
+        }
+        input {
+          display: block;
+          width: inherit;
+          background: none;
+          height: 26px;
+          width: 355px;
+          margin-left: 7px;
+          border: 0px;
+          margin-top: 4px;
+          padding: 0 6px;
+          font-size: 16px;
+          color: #2e2d2e;
+        }
+        &.left {
+          left: 20px;
+        }
+        &.right {
+          right: 20px;
+        }
+
+      }
+        
     .left {
       margin-right: 55px;
     }
@@ -214,28 +273,22 @@ $strong_colour: #2e2d2c;
       margin-left: 55px;
     } 
   }
+  .hints {
+    img {
+      position: absolute;
+      &#hint1 {
+        top: 60px;
+        left: 30px;
+      }
+      &#hint2 {
+        top: 255px;
+        right: 110px;
+      }
+      &#hint3 {
+        top: 350px;
+        left: 60px;
+      }
+    }
+  }
 }
 
-#new_working_pair {
-   background-image: url("weavement_cell.png");
-   
-   width: 928px;
-  height: 547px;
-  .image {
-    margin: 0;
-    padding: 0;
-    width: 450px;
-    float: left;
-  }
-  
-  img {
-    width: $content_width;
-    clear: both;
-  }
-  
-  #relation {
-    clear: both;
-    text-align: center;
-  }
-  
-}

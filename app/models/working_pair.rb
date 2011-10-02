@@ -8,6 +8,8 @@ class WorkingPair < ActiveRecord::Base
   
   has_many :favorites
   
+  validates :relation, :presence => true
+  
   def favorite?
     favorites.count > 0
   end
