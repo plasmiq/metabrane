@@ -13,7 +13,15 @@ MetabraneCo::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  resources :weaves
+  resources :weaves do
+    member do
+      post 'favorite'
+    end
+    
+    collection do
+      get 'favorites'
+    end
+  end
 
   # Sample resource route with options:
   #   resources :products do

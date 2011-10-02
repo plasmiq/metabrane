@@ -1,0 +1,5 @@
+<% @pairs.each do |pair| %>
+  <div class="container" id="container_<%= pair.id %>">
+  <%= render :partial => "timeline/working_pair", :locals => {:pair => pair, :home_id => pair.id} %>
+  </div>
+<% end %>

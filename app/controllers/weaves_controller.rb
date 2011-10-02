@@ -34,6 +34,23 @@ class WeavesController < ApplicationController
     end
   end
   
+  def favorite
+    @weavement_id = params[:id]
+    @favorite = Favorite.find_or_initialize_by_working_pair_id( @weavement_id )
+    if @favorite.new_record?
+      @favorite.save
+    else
+      @favorite.destroy
+    end
+    respond_to do |format|  
+      format.js   
+    end
+  end
+  
+  def favorites 
+    @pairs = WorkingPair.favorited.recent
+  end
+  
   def destroy 
     @wp = WorkingPair.find( params[:id] )
     @wp.destroy

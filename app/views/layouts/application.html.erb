@@ -15,11 +15,9 @@
       <li>
         <%= menu_element "l_live_infowave", "Live Infowave", {:controller => 'timeline'} %>
       </li>
-      <!--
       <li>
-        <%= menu_element "l_your_weaves", "Your Weaves", {:controller => 'timeline'} %>
+        <%= menu_element "l_your_weaves", "Your Weaves", {:controller => 'weaves', :action => 'favorites'} %>
       </li>
-      -->
       <li>
         <%= menu_element "l_create_weaves", "Create Weaves", {:controller => 'weaves', :action => "new"} %>
       </li>

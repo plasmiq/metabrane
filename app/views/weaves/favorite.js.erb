@@ -1,0 +1,6 @@
+var icon = $(".favorite_<%= @weavement_id %>");
+<% if @favorite.persisted? %>
+  icon.addClass("favorite_true");
+<% else %>
+  icon.removeClass("favorite_true");
+<% end %>

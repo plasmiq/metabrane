@@ -7,13 +7,23 @@
         {:controller => :weaves, :action => :destroy, :id => pair.id}, 
         :confirm => 'Are you sure?', 
         :method => :delete, 
-        :remote=>true, 
+        :remote=> true, 
         :class=>'delete_weave' %>
+      
+      <%= link_to '', 
+        {:controller => :weaves, :action => :favorite, :id => pair.id},
+        :method =>  :post,
+        :remote => true,
+        :taget => '_blank',
+        :class=>"favorite_weave favorite_#{pair.favorite?} favorite_#{pair.id}" %>
+   
         
       <%= link_to '', 
         {:controller => :weaves, :action => :show, :id => pair.id},
         :taget => "_blank",
         :class=>'permalink_weave' %>
+        
+      
     </div>
     <br style="clear: both"/>
   </div>
