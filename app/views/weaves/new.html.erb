@@ -6,23 +6,23 @@
         * take as long as you need to be creative ...
       </div>
     </div>
-    <div class="content">
+    <div class="managment">
       <div class="url">
         <div class="substrate_url left">
-          <%= label_tag(:image1_url, "enter a URL for image one ...") %>
-          <%= url_field(:working_pair, 
-            :image1_url, 
-            :class => "image_url",
-            :value => @wp ? @wp.image1_url : "") %>
+          <textarea class="image_url" id="working_pair_image1_url" name="working_pair[image1_url]">
+            <%= @wp ? @wp.image1_url : "enter a URL for image one ..." %>
+          </textarea>
+          <a id="notification_image1"></a>
         </div>
         <div class="substrate_url right">
-          <%= label_tag(:image2_url, "enter a URL for image two ...") %>
-          <%= url_field(:working_pair,
-            :image2_url, 
-            :class => "image_url", 
-            :value => @wp ? @wp.image2_url : "") %>
+          <textarea class="image_url" id="working_pair_image2_url" name="working_pair[image2_url]">
+            <%= @wp ? @wp.image1_url : "enter a URL for image one ..." %>
+          </textarea>
+          <a id="notification_image2"></a>
         </div>
       </div>
+    </div>
+    <div class="content">
       <table>
         <tr>
           <td>
@@ -43,7 +43,7 @@
       </table>
     </div>
     <div class="relation">
-      <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "") %></span>
+      <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "enter a realation metatag ...") %></span>
       <%= submit_tag("", :id => "submit_weave"); %>
     </div>
     <div class="hints">

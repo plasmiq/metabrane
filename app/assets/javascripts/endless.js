@@ -3,14 +3,10 @@ var currentPage = 1;
 function checkScroll() {
   if (nearBottomOfPage()) {
     currentPage++;
-    //new Ajax.Request('/weaves.js?page=' + currentPage, {asynchronous:true, evalScripts:true, method:'get'});
-    // console.log(currentPage);
     $.get( $(".endless").attr("data-action")+".js?page="+currentPage );
   } else {
-    //console.log(currentPage);
     setTimeout(checkScroll, 250);
   }
-  console.log(currentPage);
 }
 
 function nearBottomOfPage() {
@@ -26,7 +22,7 @@ function pageHeight() {
 }
 
 $(document).ready( function() {
-  if($(".endless")) {
+  if($(".endless").size() > 0) {
     checkScroll();
   }
 });

@@ -29,6 +29,14 @@ input {
   }
 }
 
+textarea {
+  font-family: 'IM Fell DW Pica', serif;
+  resize: none;
+  &:focus {
+    outline: 0px;
+  }
+}
+
 h3 {
   margin: 0 20px;
   font-size: 30px;
