@@ -1,0 +1,8 @@
+<% weaves.each do |weave| %>
+  <div class="container" id="container_<%= weave.id %>">
+  <%= render :partial => "weaves/weave", :locals => {:pair => weave, :home_id => weave.id} %>
+  </div>
+<% end %> 
+<% if @per_page and weaves.size < @per_page %>
+  <div id="timeline_end">No more weaves ...</div>
+<% end %>

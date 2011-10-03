@@ -1,0 +1,5 @@
+var data = "<%= escape_javascript( render( :partial => "weaves/weaves", :locals => {:weaves => @weaves} ) )%>";
+$(".endless").append(data);
+<% if @per_page and !(@weaves.size < @per_page) %>
+checkScroll();
+<% end %>

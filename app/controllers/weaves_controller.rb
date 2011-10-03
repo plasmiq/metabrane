@@ -31,11 +31,6 @@ class WeavesController < ApplicationController
     direction = params[:direction].to_i
     @wp = @wp.newer.first if direction == 1
     @wp = @wp.older.first if direction == -1
-         
-    respond_to do |format|  
-      format.html
-      format.js   
-    end
   end
   
   def favorite
@@ -46,13 +41,12 @@ class WeavesController < ApplicationController
     else
       @favorite.destroy
     end
-    respond_to do |format|  
-      format.js   
-    end
   end
   
   def index 
-    @weaves = WorkingPair.recent
+    @page = params[:page] || 1
+    @per_page = 4
+    @weaves = WorkingPair.recent.paginate(:page => @page, :per_page => @per_page)
   end
   
   def favorites 

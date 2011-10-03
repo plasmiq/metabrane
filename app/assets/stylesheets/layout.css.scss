@@ -133,6 +133,13 @@ menu {
   @include full_width;
 }
 
+#timeline_end {
+  font-size: 180%;
+  text-align: center;
+  margin: 30px 0 30px 0;
+  color: #2E2D2C;
+}
+
 footer {
   @include full_width;
 }

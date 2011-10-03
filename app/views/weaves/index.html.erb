@@ -1,6 +1,4 @@
-<% @weaves.each do |weave| %>
-  <div class="container" id="container_<%= weave.id %>">
-  <%= render :partial => "weaves/weave", :locals => {:pair => weave, :home_id => weave.id} %>
-  </div>
-<% end %>
-<a  id="home_button"></a>
+<div class="<%= "endless" if @page %>" data-page="1" data-action="<%= url_for()%>">
+  <%= render :partial => "weaves/weaves", :locals => {:weaves => @weaves}  %>  
+</div>
+<a id="home_button"></a>
