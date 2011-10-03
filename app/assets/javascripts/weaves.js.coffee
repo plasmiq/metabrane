@@ -3,6 +3,11 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready -> 
+  $('a[rel*=facebox]').facebox()
+  $(".delete_weave")
+    .bind "ajax:success", (event, data) ->
+      $(this).closest(".container").fadeOut()
+
   # 
   # If input field contain the URL, then load a image for preview
   #

@@ -14,7 +14,7 @@ class WeavesController < ApplicationController
     @wp.substrate2 = s2
     
     if @wp.save  
-      redirect_to :controller => :timeline
+      redirect_to :action => :index
     else 
       render :new
     end
@@ -51,8 +51,13 @@ class WeavesController < ApplicationController
     end
   end
   
+  def index 
+    @weaves = WorkingPair.recent
+  end
+  
   def favorites 
-    @pairs = WorkingPair.favorited.recent
+    @weaves = WorkingPair.favorited.recent
+    render "index"
   end
   
   def destroy 

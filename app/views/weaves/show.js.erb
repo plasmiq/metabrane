@@ -1,2 +1,2 @@
-var data = "<%= escape_javascript( render( :partial => "timeline/working_pair", :locals => {:pair => @wp, :home_id => @home.id} ) )%>";
+var data = "<%= escape_javascript( render( :partial => "weaves/weave", :locals => {:pair => @wp, :home_id => @home.id} ) )%>";
 $("#container_<%= @home.id %>").html(data);
