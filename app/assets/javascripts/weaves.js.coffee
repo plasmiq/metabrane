@@ -3,7 +3,14 @@
 # You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
 
 $(document).ready -> 
-  $('a[rel*=facebox]').facebox()
+  $('a[rel*=facebox]').facebox();
+  $('#home_button').topLink {  min: 400 * 5, fadeSpeed: 500 };
+  
+  $('#home_button').click ->
+    $('html, body').animate({scrollTop:0}, 'slow');
+ 
+  #$("#home_button").click ->
+  #  $('html, body').animate({scrollTop:0}, 'slow');
   $(".delete_weave")
     .bind "ajax:success", (event, data) ->
       $(this).closest(".container").fadeOut()

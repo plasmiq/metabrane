@@ -292,3 +292,16 @@ $strong_colour: #2e2d2c;
   }
 }
 
+#home_button {
+  width: 48px;
+  height: 48px;
+  display: block;
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: url("btn_scrollUp.png") no-repeat 0 0;
+  &:hover {
+    background-position-x: -48px;
+  }
+}
+
