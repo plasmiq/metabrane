@@ -1,5 +1,5 @@
 <h3><em>create new</em> working pair weave ...</h3>
-<div class="working_pair">
+<div class="working_pair new_weave">
   <%= form_tag  :controller => :weaves, :method => :post do %>
     <div class="header">
       <div class="timestamp">
@@ -7,18 +7,20 @@
       </div>
     </div>
     <div class="managment">
+      <a class="substrate_delete left"></a>
+      <a class="substrate_delete right"></a>
       <div class="url">
         <div class="substrate_url left">
           <textarea class="image_url" id="working_pair_image1_url" name="working_pair[image1_url]">
             <%= @wp ? @wp.image1_url : "enter a URL for image one ..." %>
           </textarea>
-          <a id="notification_image1"></a>
+          <a id="notification_image1" class="notification"></a>
         </div>
         <div class="substrate_url right">
           <textarea class="image_url" id="working_pair_image2_url" name="working_pair[image2_url]">
-            <%= @wp ? @wp.image1_url : "enter a URL for image one ..." %>
+            <%= @wp ? @wp.image2_url : "enter a URL for image two ..." %>
           </textarea>
-          <a id="notification_image2"></a>
+          <a id="notification_image2" class="notification"></a>
         </div>
       </div>
     </div>
@@ -44,7 +46,7 @@
     </div>
     <div class="relation">
       <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "enter a realation metatag ...") %></span>
-      <%= submit_tag("", :id => "submit_weave"); %>
+      <%= submit_tag("", :id => "submit_weave",:class => "notification"); %>
     </div>
     <div class="hints">
       <% unless @wp and @wp.image1_url  %>

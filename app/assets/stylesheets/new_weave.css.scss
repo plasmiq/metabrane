@@ -1,0 +1,24 @@
+.new_weave {
+  .hints {
+    position: absolute;
+    width: 100%;
+    top: 0px;
+    left: 0px;
+    img {
+      position: absolute;
+      z-index: 100;
+      &#hint1 {
+        top: 100px;
+        left: 30px;
+      }
+      &#hint2 {
+        top: 245px;
+        right: 80px;
+      }
+      &#hint3 {
+        top: 390px;
+        left: 60px;
+      }
+    }
+  }
+}

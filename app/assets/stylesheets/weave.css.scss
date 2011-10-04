@@ -1,0 +1,106 @@
+$strong_colour: #2e2d2c;
+
+.working_pair {
+  .header {
+    padding: 20px 30px 0 30px;
+    font-size: 14px;
+    color: #939393;
+    overflow: hidden;
+    .timeline {
+      float: left;
+      a {
+        margin-right: 0px !important;
+      }
+    }
+    .toggles {
+      a {
+        display: block;
+        height: 20px;
+        width: 20px;
+        background: url("toggles_weavement.png") no-repeat;
+        margin-right: 7px;
+        position: relative;
+        top: -2px;
+        background-position-x: -20px;
+        float: right;
+        &.timeline_weave {
+          float: left;
+          background-clip: padding;
+          display: inline;
+          width: auto;
+          padding-left: 22px;
+          padding-top: 2px;
+          background-position-y: -20px;
+        }
+        &.delete_weave {
+          background-position-y: -100px;
+        }
+        &.permalink_weave {
+          background-position-y: -40px;
+        }
+        &.favorite_weave {
+          background-position-y: -80px;
+        }
+        &.favorite_true {
+          background-position-x: -40px;
+        }
+        
+        &:hover {
+          background-position-x: -0px;
+        }
+      }
+    }
+    
+    .timestamp {
+      float: right;  
+    }
+  }
+
+  .homebutton {
+    background: url("nav_timeline_homes.png") no-repeat 0 0;
+    width: 37px;
+    height: 53px;
+    display: block;
+    position: absolute;
+    top: 350px;  
+    text-decoration: none;
+    color: $strong_colour;
+    &:hover {
+      background-position-y: -53px;
+    }
+  }
+  
+  .timearrow {
+    background: url("nav_timeline_arrows.png") no-repeat 0 0;
+    width: 37px;
+    height: 92px;
+    display: block;
+    position: absolute;
+    top: 177px;  
+    text-decoration: none;
+    color: $strong_colour;
+    
+    &:visitied {
+      color: $strong_colour
+    }
+    
+    span {
+      top: 90px;
+      margin: 0 17px;
+      position: relative;
+    }
+ 
+    &:hover {
+      background-position-y: -91px;
+    }
+    
+    &.leftarrow {
+      left: 0px;    
+    }
+    
+    &.rightarrow {
+      background-position-x: -37px;
+      right: 0px;
+    }
+  }
+}

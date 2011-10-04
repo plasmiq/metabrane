@@ -8,6 +8,7 @@ $(document).ready ->
     $(".substrate_url.right").hide('slow');
     $("#hint2").hide('slow');
     $("#notification_image1").addClass("loaded");
+    $(".substrate_delete.left").show();
   $("#notification_image1").click ->
     if( $(this).hasClass("loaded") ) 
       $(".content").animate( { left: 0 }, { duration: 'slow' });
@@ -22,20 +23,25 @@ $(document).ready ->
     $(".substrate_url.left").hide('slow');
     $("#hint1").hide('slow');
     $("#notification_image2").addClass("loaded");
+    $(".substrate_delete.right").show();
   $("#notification_image2").click ->
     if( $(this).hasClass("loaded") ) 
       $(".content").animate( { left: 0 }, { duration: 'slow' });
       $(".substrate_url.right").hide('slow');  
       if( ! $("#notification_image2").hasClass("loaded") )
         $(".substrate_url.left").show('slow');
- 
+  
+  $(".substrate_delete").click ->
+    $(this).hide();
     
   $("#working_pair_relation").keyup ->
     if(this.value.length >= 3)
-      $("#hint3").fadeOut();      
+      $("#hint3").fadeOut();
+      $("#submit_weave").addClass("loaded");      
   
   $(".image_url, #working_pair_relation").focus ->
     $(this).attr("value","");
+    
   
   $(".image_url").keyup ->
     exp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
@@ -49,3 +55,7 @@ $(document).ready ->
       $("#new_"+img).attr( "src", "");
       $("#notification_"+img).addClass("invalid");
       $("#notification_"+img).removeClass("loaded"); 
+   
+   
+  $(".new_weave form").submit ->
+    return $(".notification.loaded").size() == 3
