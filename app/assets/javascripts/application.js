@@ -7,3 +7,14 @@
 //= require jquery
 //= require jquery_ujs
 //= require_tree .
+
+function make_images_zoomable() {
+  $('a[rel*=fancybox]').fancybox( 
+    { 
+      'titlePosition' : 'inside',
+      'transitionIn'	:	'fade', 
+      'transitionOut'	:	'fade', 
+      showNavArrows: false
+    } 
+  )
+}
