@@ -11,16 +11,16 @@
       <a class="substrate_delete right"></a>
       <div class="url">
         <div class="substrate_url left">
-          <textarea class="image_url" id="working_pair_image1_url" name="working_pair[image1_url]">
+          <textarea class="image_url left" id="working_pair_image1_url" name="working_pair[image1_url]">
             <%= @wp ? @wp.image1_url : "enter a URL for image one ..." %>
           </textarea>
-          <a id="notification_image1" class="notification"></a>
+          <a id="notification_image1" class="notification left"></a>
         </div>
         <div class="substrate_url right">
-          <textarea class="image_url" id="working_pair_image2_url" name="working_pair[image2_url]">
+          <textarea class="image_url right" id="working_pair_image2_url" name="working_pair[image2_url]">
             <%= @wp ? @wp.image2_url : "enter a URL for image two ..." %>
           </textarea>
-          <a id="notification_image2" class="notification"></a>
+          <a id="notification_image2" class="notification right"></a>
         </div>
       </div>
     </div>
@@ -30,14 +30,14 @@
           <td>
             <div class="object left">
               <div class="image substrate_container">
-                <img id="new_image1" src="<%= @wp ? @wp.image1_url : '' %>"/>
+                <img id="new_image1" src="<%= @wp ? @wp.image1_url : '' %>" class="left"/>
               </div>    
             </div>
           </td>
           <td>
             <div  class="object right">
               <div class="image substrate_container">
-                <img id="new_image2" src="<%= @wp ? @wp.image1_url : '' %>"/>
+                <img id="new_image2" src="<%= @wp ? @wp.image1_url : '' %>" class="right"/>
               </div>
             </div>
           </td>
@@ -50,10 +50,10 @@
     </div>
     <div class="hints">
       <% unless @wp and @wp.image1_url  %>
-        <%= image_tag "hint_createWeaves_step1.png", :id => "hint1" %>
+        <%= image_tag "hint_createWeaves_step1.png", :id => "hint1", :class => "hint left" %>
       <% end %>
       <% unless @wp and @wp.image2_url  %>
-        <%= image_tag "hint_createWeaves_step2.png", :id => "hint2" %>
+        <%= image_tag "hint_createWeaves_step2.png", :id => "hint2", :class => "hint right" %>
       <% end %>
       <% unless @wp and !@wp.relation.empty? %>
         <%= image_tag "hint_createWeaves_step3.png", :id => "hint3" %>

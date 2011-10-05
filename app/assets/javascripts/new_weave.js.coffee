@@ -2,36 +2,43 @@ $(document).ready ->
   # 
   # If input field contain the URL, then load a image for preview
   #
-  $("#new_image1").load -> 
-    $(".content").animate( { left: 380 }, { duration: 'slow' });
-    $("#hint1").fadeOut();
-    $(".substrate_url.right").hide('slow');
-    $("#hint2").hide('slow');
-    $("#notification_image1").addClass("loaded");
-    $(".substrate_delete.left").show();
-  $("#notification_image1").click ->
+  $("#new_image1,#new_image2").error ->
+    side = (if $(this).hasClass("left") then "left" else "right");
+    $(".object."+side).fadeTo(0,0);
+  $("#new_image1,#new_image2").load ->
+    
+    side = (if $(this).hasClass("left") then "left" else "right");
+    oposite_side = (if side == "left" then "right" else "left");
+    direction = (if (side == "left") then 1 else -1);
+    
+    $(".object."+side).fadeTo("slow",100);
+    $(".content").animate( { left: direction * 380 }, { duration: 'slow' });
+    $(".hint."+side).fadeOut();
+    $(".hint."+oposite_side).hide('slow'); 
+    $(".substrate_url."+oposite_side).hide('slow');
+    $(".notification."+side).addClass("loaded");
+    $(".substrate_delete."+side).show();
+    
+  $("#notification_image1, #notification_image2").click ->
+    side = (if $(this).hasClass("left") then "left" else "right");
+    oposite_side = (if side == "left" then "right" else "left");
     if( $(this).hasClass("loaded") ) 
       $(".content").animate( { left: 0 }, { duration: 'slow' });
-      $(".substrate_url.left").hide('slow');
-      if( ! $("#notification_image2").hasClass("loaded") )
-        $(".substrate_url.right").show('slow');
-    
-    
-  $("#new_image2").load -> 
-    $(".content").animate( { left: -380 }, { duration: 'slow' });
-    $("#hint2").fadeOut();
-    $(".substrate_url.left").hide('slow');
-    $("#hint1").hide('slow');
-    $("#notification_image2").addClass("loaded");
-    $(".substrate_delete.right").show();
-  $("#notification_image2").click ->
-    if( $(this).hasClass("loaded") ) 
-      $(".content").animate( { left: 0 }, { duration: 'slow' });
-      $(".substrate_url.right").hide('slow');  
-      if( ! $("#notification_image2").hasClass("loaded") )
-        $(".substrate_url.left").show('slow');
+      $(".substrate_url."+side).hide('slow');
+      if( ! $(".notification."+oposite_side).hasClass("loaded") )
+        $(".substrate_url."+oposite_side).show('slow');
   
+    
   $(".substrate_delete").click ->
+    side = (if $(this).hasClass("left") then "left" else "right");
+    oposite_side = (if side == "left" then "right" else "left");
+    $(".content").animate( { left: 0 }, { duration: 'slow' });
+    $(".substrate_container img."+side).attr("src","");
+    $(".substrate_url."+side).show("slow");
+    $(".image_url."+side).attr("value","");
+    $(".notification."+side).removeClass("loaded");
+    if( ! $(".notification."+oposite_side).hasClass("loaded") )
+        $(".substrate_url."+oposite_side).show('slow');
     $(this).hide();
     
   $("#working_pair_relation").keyup ->
