@@ -9,9 +9,7 @@ $(document).ready ->
   
   $('#home_button').click ->
     $('html, body').animate({scrollTop:0}, 'slow');
- 
-  #$("#home_button").click ->
-  #  $('html, body').animate({scrollTop:0}, 'slow');
+
   $(".delete_weave")
     .bind "ajax:success", (event, data) ->
       $(this).closest(".container").fadeOut();

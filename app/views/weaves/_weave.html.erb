@@ -1,6 +1,6 @@
 <div class="working_pair" id="working_pair_<%= pair.id %>">
   <div class="header">
-    <div class="timestamp"><span>created <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
+    <div class="timestamp"><span><%= pair.status_name %> <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
     <% if pair.older.count > 0 || pair.newer.count > 0 %>
     <div class="timeline toggles">
       <a href="" class="timeline_weave"></a>
@@ -49,7 +49,10 @@
     </table>
   </div>
   <div class="relation">
-    <span><%= pair.relation %></span>
+    <span>
+      <%= pair.relation %>
+      <a class="edit_relation"></a>
+    </span>
     <a href="/">
       <%= image_tag "btn_clusterList.png" %>
     </a>

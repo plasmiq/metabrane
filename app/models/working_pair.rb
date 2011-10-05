@@ -10,6 +10,23 @@ class WorkingPair < ActiveRecord::Base
   
   validates :relation, :presence => true
   
+  
+  CREATED    = 1
+  EXTENDED   = 2
+  TWEAKED    = 3
+
+
+  STATUSES = {
+    CREATED   => 'created',
+    EXTENDED  => 'extended',
+    TWEAKED   => 'tweaked'
+  }
+
+  # just a helper method for the view
+  def status_name
+    STATUSES[status]
+  end
+  
   def favorite?
     favorites.count > 0
   end
