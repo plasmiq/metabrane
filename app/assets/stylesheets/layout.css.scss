@@ -56,14 +56,16 @@ h3 {
 }
   
 menu {
-  
   background: url("header_navigationStrip.png") repeat-x;
   display:  block;
   height: 157px;
   margin: 0;
   padding: 0;
   overflow:hidden;
-  
+  position: fixed;
+  width: 100%;
+  top: 0px;
+  z-index: 200;
   div.center {
     @include full_width;
     position: relative;
