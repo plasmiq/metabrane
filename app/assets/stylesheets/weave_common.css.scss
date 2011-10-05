@@ -166,9 +166,17 @@ $strong_colour: #2e2d2c;
             background: url("toggles_weavement.png") no-repeat 0 0;
             margin: 5px;
             position: relative;
-            top: -2px;
+            top: 0px;
             background-position-x: -0px;
-            background-position-y: -140px;
+            &.substrate_tab_zoom {
+              background-position-y: -140px !important;
+            }
+            &.substrate_tab_edit {
+              background-position-y: -160px !important;
+            }
+            &.substrate_tab_layer {
+              background-position-y: -180px !important;
+            }
         }
       }
     }    
