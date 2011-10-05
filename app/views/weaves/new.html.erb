@@ -30,14 +30,14 @@
           <td>
             <div class="object left">
               <div class="image substrate_container">
-                <img id="new_image1" src="<%= @wp ? @wp.image1_url : '' %>" class="left"/>
+                <img id="new_image1" <%= @wp ? 'src="'+@wp.image1_url+'"' : '' %> class="left" />
               </div>    
             </div>
           </td>
           <td>
             <div  class="object right">
               <div class="image substrate_container">
-                <img id="new_image2" src="<%= @wp ? @wp.image1_url : '' %>" class="right"/>
+                <img id="new_image2" <%= @wp ? 'src="'+@wp.image2_url+'"' : '' %> class="right"/>
               </div>
             </div>
           </td>

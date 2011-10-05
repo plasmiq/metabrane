@@ -50,10 +50,18 @@ $strong_colour: #2e2d2c;
           background-position-y: -153px;
           background-position-x: -102px !important;
         }
+        &:hover {
+          background-position-y: -51px !important;
+          background-position-x: -153px !important;       
+        }
         &.loaded {
           cursor: pointer;
           background-position-y: -51px !important;
           background-position-x: -102px !important;
+          &:hover {
+            background-position-y: -51px !important;
+            background-position-x: -51px !important;
+          }
         }
       }
       #notification_image1 {
@@ -198,6 +206,7 @@ $strong_colour: #2e2d2c;
     }
     #submit_weave {
       background-position-x: -102px;
+      background-position-y: 0px;
       cursor: default; 
       &:hover {
         background-position-y: -51px;
