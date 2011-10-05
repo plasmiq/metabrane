@@ -1,4 +1,25 @@
 $strong_colour: #2e2d2c;
+#timeline_end {
+  position: relative;
+  background: url("btn_scrollUp_loadNew.png") no-repeat 0 0;
+  span {
+    position: relative;
+    top: 10px;
+    font-style: italic;
+  }
+  a {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    width: 53px;
+    height: 37px;
+    background: url("btn_beginningCreateWeave.png") no-repeat 0 0;
+    &:hover {
+      background-position-x: -53px;
+    }
+  }
+}
 .working_pair { 
   font-family: 'IM Fell DW Pica', serif;
   background: url("weavement_cell.png") no-repeat 0 0;

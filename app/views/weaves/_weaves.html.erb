@@ -4,5 +4,8 @@
   </div>
 <% end %> 
 <% if @per_page and weaves.size < @per_page %>
-  <div id="timeline_end">No more weaves ...</div>
+  <div id="timeline_end">
+    <span>hello and welcome ... <em>create new weave</em></span>
+    <%= link_to "", {:controller => :weaves, :action => :new} %>
+  </div>
 <% end %>
