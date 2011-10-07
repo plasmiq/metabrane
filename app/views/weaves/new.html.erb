@@ -45,8 +45,8 @@
       </table>
     </div>
     <div class="relation">
-      <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "enter a realation metatag ...") %></span>
-      <%= submit_tag("", :id => "submit_weave",:class => "notification"); %>
+      <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "enter a realation metatag ...", :class => "working_pair_relation active") %></span>
+      <%= submit_tag("", :class => "button submit_weave notification"); %>
     </div>
     <div class="hints">
       <% unless @wp and @wp.image1_url  %>

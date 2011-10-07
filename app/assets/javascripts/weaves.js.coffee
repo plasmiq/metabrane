@@ -13,5 +13,14 @@ $(document).ready ->
   $(".delete_weave")
     .bind "ajax:success", (event, data) ->
       $(this).closest(".container").fadeOut();
-      
-
+  
+ 
+  $('.edit_relation').live "click", (event) ->
+      $(this).fadeOut();
+      id = $(this).closest(".working_pair").attr("id").split("_")[2]
+      text_field = $("#working_pair_"+id+" .relation span input")
+      text_field.prop("disabled",false)
+      text_field.addClass("active")
+      text_field.focus()
+      submit = $("#working_pair_"+id+" .relation .button")
+      submit.addClass("submit")

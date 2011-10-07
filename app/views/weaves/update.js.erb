@@ -1,0 +1,5 @@
+var data = "<%= escape_javascript( render( :partial => "weaves/weave", :locals => {:pair => @wp, :home_id => @home_id} ) )%>";
+var container = $("#container_<%= @home_id %>");
+container.effect("shake", { "times":2, "distance": 3 }, 50)
+container.html(data);
+make_images_zoomable();

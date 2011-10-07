@@ -16,5 +16,6 @@ function make_images_zoomable() {
       'transitionOut'	:	'fade', 
       showNavArrows: false
     } 
-  )
+  );
+  $('.working_pair_relation').autoGrowInput( { maxWidth: 600, comfortZone: 20 } );
 }

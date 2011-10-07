@@ -64,4 +64,18 @@ class WeavesController < ApplicationController
     end  
   end
 
+  def update
+    @wp = WorkingPair.find(params[:id])
+    @wp.relation = params[:working_pair][:relation]
+    
+    @home_id = params[:working_pair][:home_id] || @wp.id
+    
+    @wp.status = WorkingPair::TWEAKED
+    @wp.save
+    
+    respond_to do |format|  
+      format.html { redirect_to( :action => :show, :id => @wp.id ) }  
+      format.js   
+    end  
+  end
 end

@@ -198,19 +198,25 @@ $strong_colour: #2e2d2c;
     height: 80px;
     background: url("input_metatagWeave.png") no-repeat 0 0;
     margin: 0 auto;
-    #working_pair_relation {
+    
+    .working_pair_relation, .working_pair_relation input {
       font-size: 32px;
       color: $strong_colour;
       border: 0px;
       position: relative;
       top: -5px;
       padding: 0 10px;
-      width: 70%;
+      width: 50px;
       text-align: center;
       background-color: transparent;
+      &.active {
+        color: white;
+        background-color: black;
+      }
     }
     
-    a, #submit_weave {
+    
+    .button {
       border: 0px;
       background: url("btn_circleSprite.png") no-repeat;
       display: block;
@@ -226,7 +232,17 @@ $strong_colour: #2e2d2c;
         display: inherit;
       }
     }
-    #submit_weave {
+    .more_relations {
+      background-position-x: -0px;
+      background-position-y: -204px;      
+    }
+    
+    .submit {
+      background-position-y: -51px !important;
+      background-position-x: -51px !important;  
+    }
+    
+    .submit_weave {
       background-position-x: -102px;
       background-position-y: 0px;
       cursor: default; 

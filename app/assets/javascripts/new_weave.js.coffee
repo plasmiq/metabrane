@@ -1,5 +1,6 @@
 $(document).ready ->
-  if $(".new_weave").size > 0 
+
+  if $(".new_weave").size() > 0
     $(".object").fadeTo(0,0);
     
     $("#new_image1,#new_image2").error ->
@@ -43,10 +44,10 @@ $(document).ready ->
           $(".substrate_url."+oposite_side).show('slow');
       $(this).hide();
       
-    $("#working_pair_relation").keyup ->
+    $(".working_pair_relation").keyup ->
       if(this.value.length >= 3)
         $("#hint3").fadeOut();
-        $("#submit_weave").addClass("loaded");      
+        $(".submit_weave").addClass("loaded");      
     
     $(".image_url, #working_pair_relation").focus ->
       $(this).attr("value","");
