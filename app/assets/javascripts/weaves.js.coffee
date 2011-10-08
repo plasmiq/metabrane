@@ -44,9 +44,15 @@ $(document).ready ->
       oposite_side = (if side == "left" then "right" else "left");
       
       container = $(this).closest(".container")
+      object = container.find(".object."+side);
       
+      
+      img = object.find("img");
+      img.attr("src", img.attr("data-default") ); 
       container.find(".content").animate( { left: 0 }, { duration: 'slow' });
-      container.find(".substrate_container img."+side).attr("src","");
+      url = object.find(".substrate_tab_zoom").attr("data-real-url"); 
+      container.find(".image_url."+side).text( url );
+      #container.find(".substrate_container img."+side).attr("src","");
       container.find(".substrate_url."+side).hide("slow");
       container.find(".notification."+side).removeClass("loaded");
       $(this).hide();

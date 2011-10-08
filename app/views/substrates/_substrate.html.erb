@@ -1,7 +1,7 @@
 <div class="substrate_container substrate_<%= substrate.id %>">
-  <%= image_tag substrate.image.url( :poster ) %>
+  <%= image_tag substrate.image.url( :poster ), "data-default" => substrate.image.url( :poster ) %>
   <div class="substrate_tab">
-    <a href="<%= substrate.image.url %>.png" class="substrate_tab_zoom" rel="fancybox"></a>
+    <a href="<%= substrate.image.url %>.png" data-real-url="<%= substrate.url %>" class="substrate_tab_zoom" rel="fancybox"></a>
     <a class="substrate_tab_edit"></a>
     <a class="substrate_tab_layer"></a>
   </div>
