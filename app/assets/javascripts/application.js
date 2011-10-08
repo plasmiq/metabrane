@@ -18,4 +18,12 @@ function make_images_zoomable() {
     } 
   );
   $('.working_pair_relation').autoGrowInput( { maxWidth: 600, comfortZone: 20 } );
+  $(".substrate_container img").error( function() {
+    side = ( $(this).closest(".object").hasClass("left") ? "left" : "right");
+    $(this).addClass("invalid_url");
+    $(this).attr("src","/assets/error_createWrongURL.png");
+  });
+  $('form').live( "ajax:before", function(event, data, status, xhr) {
+    $(this).closest(".working_pair").children().fadeOut("slow");
+  });
 }

@@ -61,7 +61,7 @@ class WeavesController < ApplicationController
     @wp.destroy
     
     respond_to do |format|  
-      format.html { redirect_to(posts_url) }  
+      format.html { redirect_to("") }  
       format.js   { render :nothing => true }  
     end  
   end

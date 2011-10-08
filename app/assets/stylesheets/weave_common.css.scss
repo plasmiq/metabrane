@@ -32,6 +32,7 @@ $strong_colour: #2e2d2c;
   .managment {
     position: absolute;
     width: 100%;
+    top: 38px;
     &.hidden {
       .substrate_url { 
         display: none;

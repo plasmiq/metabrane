@@ -1,3 +1,6 @@
 var data = "<%= escape_javascript( render( :partial => "weaves/weave", :locals => {:pair => @wp, :home_id => @home.id} ) )%>";
-$("#container_<%= @home.id %>").html(data);
+var container = $("#container_<%= @home.id %>");
+container.html(data);
+container.find(".working_pair").children().fadeOut(0);
+container.find(".working_pair").children().fadeIn(1000);
 make_images_zoomable();

@@ -39,7 +39,7 @@ $(document).ready ->
       container.find(".notification."+side).addClass("loaded");
       container.find(".substrate_tab_zoom a").attr("value")
       
-    $(".substrate_delete").click ->
+    $(".substrate_delete").live "click", (event) ->
       side = (if $(this).hasClass("left") then "left" else "right");
       oposite_side = (if side == "left" then "right" else "left");
       
@@ -51,7 +51,7 @@ $(document).ready ->
       container.find(".notification."+side).removeClass("loaded");
       $(this).hide();
       
-    $(".image_url").keyup ->
+    $(".image_url").live "keyup", (event) ->
       exp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
       side = (if $(this).hasClass("left") then "left" else "right");
       oposite_side = (if side == "left" then "right" else "left");

@@ -8,6 +8,9 @@
           <textarea class="image_url left"  name="substrate[url]"><%= pair.image1_url %></textarea>
           <input type="submit" value="" class="notification left"/>
           <%= hidden_field_tag "weave_id", pair.id %>
+          <% if @home %>
+            <%= hidden_field_tag "home_id", @home.id %>
+          <% end %>
         <% end %>
       </div>
       <div class="substrate_url right">
@@ -15,6 +18,9 @@
           <textarea class="image_url right" name="substrate[url]"><%= pair.image2_url %></textarea>
           <input type="submit" value="" class="notification right"/>
           <%= hidden_field_tag "weave_id", pair.id %>
+          <% if @home %>
+            <%= hidden_field_tag "home_id", @home.id %>
+          <% end %>
         <% end %>
       </div>
     </div>

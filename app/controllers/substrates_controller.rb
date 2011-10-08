@@ -7,8 +7,15 @@ class SubstratesController < ApplicationController
     @substrate.url = url
     @substrate.save
     
-   # @wp = WorkingPair.find(params[:id])
-   # @wp.status = WorkingPair::TWEAKED
-   # @wp.save
+    @wp = WorkingPair.find(params[:weave_id])
+    @wp.status = WorkingPair::TWEAKED
+    @wp.save
+    
+    @home_id = params[:home_id] || @wp.id
+    
+    respond_to do |format|  
+      format.html
+      format.js   { render :template => "weaves/update" }
+    end  
   end
 end
