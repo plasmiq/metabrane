@@ -39,6 +39,7 @@ $(document).ready ->
       container.find(".notification."+side).addClass("loaded");
       container.find(".substrate_tab_zoom a").attr("value")
       
+      
     $(".substrate_delete").live "click", (event) ->
       side = (if $(this).hasClass("left") then "left" else "right");
       oposite_side = (if side == "left" then "right" else "left");
@@ -71,7 +72,10 @@ $(document).ready ->
         match = exp.exec(this.value);
         object.find(".substrate_container img").attr( "src", this.value);
         container.find(".notification."+side).removeClass("invalid");
+        container.find(".notification."+side).addClass("loaded");
+        #container.find(".notification."+side).removeAttr('disabled');
       else
         object.find(".substrate_container img").attr( "src", "");
         container.find(".notification."+side).addClass("invalid");
         container.find(".notification."+side).removeClass("loaded");
+        #container.find(".notification."+side).attr('disabled', "disabled");

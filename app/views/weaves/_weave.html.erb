@@ -4,9 +4,9 @@
     <a class="substrate_delete right"></a>
     <div class="url">
       <div class="substrate_url left">
-        <%= form_tag url_for(:controller => :substrates, :action => :update, :id => pair.substrate1.id), :method => :put,  :remote => true  do |f|%>
+        <%= form_tag url_for(:controller => :substrates, :action => :update, :id => pair.substrate1.id), :method => :put,  :remote => true, :class => "live_update"  do |f|%>
           <textarea class="image_url left"  name="substrate[url]"><%= pair.image1_url %></textarea>
-          <input type="submit" value="" class="notification left"/>
+          <input type="submit" value="" class="notification left" />
           <%= hidden_field_tag "weave_id", pair.id %>
           <% if @home %>
             <%= hidden_field_tag "home_id", @home.id %>
@@ -14,9 +14,9 @@
         <% end %>
       </div>
       <div class="substrate_url right">
-        <%= form_tag url_for(:controller => :substrates, :action => :update, :id => pair.substrate2.id), :method => :put,  :remote => true  do |f|%>
+        <%= form_tag url_for(:controller => :substrates, :action => :update, :id => pair.substrate2.id), :method => :put,  :remote => true, :class => "live_update"  do |f|%>
           <textarea class="image_url right" name="substrate[url]"><%= pair.image2_url %></textarea>
-          <input type="submit" value="" class="notification right"/>
+          <input type="submit" value="" class="notification right" />
           <%= hidden_field_tag "weave_id", pair.id %>
           <% if @home %>
             <%= hidden_field_tag "home_id", @home.id %>
