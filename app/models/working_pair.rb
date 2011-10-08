@@ -42,12 +42,4 @@ class WorkingPair < ActiveRecord::Base
   def newer
     entangled.where( "updated_at > ?",updated_at ).order("updated_at ASC")
   end
-  
-  def object1
-    substrate1 ? substrate1.image : image1_url
-  end
-  
-  def object2
-    substrate1 ? substrate2.image : image2_url
-  end
 end

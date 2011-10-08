@@ -3,10 +3,6 @@ $(document).ready ->
   if $(".new_weave").size() > 0
     $(".object").fadeTo(0,0);
     
-    $("#new_image1,#new_image2").error ->
-      side = (if $(this).hasClass("left") then "left" else "right");
-      $(this).hide();
-      $(".object."+side).fadeTo("slow",0.1);
       
     $("#new_image1,#new_image2").load ->
       side = (if $(this).hasClass("left") then "left" else "right");

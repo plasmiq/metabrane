@@ -1,0 +1,11 @@
+var substrate = $(".substrate_<%= @substrate.id %>");
+
+var container = substrate.closest(".container");
+var object = container.find(".object");
+var side = "left";
+if( ! object.hasClass( "left" ) ) {
+  side = "right";
+}
+alert(side);
+container.find(".substrate_delete."+side).click();
+container.find(".content").animate( { left: 0 }, { duration: 'slow' });

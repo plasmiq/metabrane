@@ -32,15 +32,19 @@ $strong_colour: #2e2d2c;
   .managment {
     position: absolute;
     width: 100%;
+    &.hidden {
+      .substrate_url { 
+        display: none;
+      }
+    }
     .substrate_delete {
-      display: block;
+      display: none;
       background: url("nav_weaveInput_cancel.png") no-repeat 0 0;
       height: 53px;
       width: 37px;
       top: 245px;
       position: absolute;
       z-index: 100;
-      display: none;
       &:hover {
         background-position-y: -53px !important;
       }
@@ -59,10 +63,11 @@ $strong_colour: #2e2d2c;
       height: 78px;
       z-index: 100;
       background: url("input_URLweave.png") 0 0 no-repeat;
-      a{
+      a, input{
         background: url("btn_circleSprite.png") 0 0 no-repeat; 
         height: 51px;
         width: 51px;
+        border: 0;
         display: block;
         position: absolute;
         right: 30px;
@@ -167,7 +172,11 @@ $strong_colour: #2e2d2c;
             margin: 5px;
             position: relative;
             top: 0px;
+            cursor: pointer;
             background-position-x: -0px;
+            &:hover {
+              background-position-x: -20px;
+            }
             &.substrate_tab_zoom {
               background-position-y: -140px !important;
             }

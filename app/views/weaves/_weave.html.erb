@@ -1,7 +1,27 @@
 <div class="working_pair" id="working_pair_<%= pair.id %>">
+  <div class="managment hidden">
+    <a class="substrate_delete left"></a>
+    <a class="substrate_delete right"></a>
+    <div class="url">
+      <div class="substrate_url left">
+        <%= form_tag url_for(:controller => :substrates, :action => :update, :id => pair.substrate1.id), :method => :put,  :remote => true  do |f|%>
+          <textarea class="image_url left"  name="substrate[url]"><%= pair.image1_url %></textarea>
+          <input type="submit" value="" class="notification left"/>
+          <%= hidden_field_tag "weave_id", pair.id %>
+        <% end %>
+      </div>
+      <div class="substrate_url right">
+        <%= form_tag url_for(:controller => :substrates, :action => :update, :id => pair.substrate2.id), :method => :put,  :remote => true  do |f|%>
+          <textarea class="image_url right" name="substrate[url]"><%= pair.image2_url %></textarea>
+          <input type="submit" value="" class="notification right"/>
+          <%= hidden_field_tag "weave_id", pair.id %>
+        <% end %>
+      </div>
+    </div>
+  </div>
   <%= form_tag  url_for(:controller => :weaves, :action => :update, :id => pair.id), :remote => true, :method => :put do %>
     <div class="header">
-      <div class="timestamp"><span><%= pair.status_name %> <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
+      <div class="timestamp"><span><span class="status"><%= pair.status_name %></span> <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
       <% if pair.older.count > 0 || pair.newer.count > 0 %>
       <div class="timeline toggles">
         <a href="" class="timeline_weave"></a>
@@ -38,12 +58,12 @@
         <tr>
           <td>
             <div class="object left">
-              <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.object1} %>
+              <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.substrate1} %>
             </div>
           </td>
           <td>
             <div  class="object right">
-              <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.object2} %>
+              <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.substrate2} %>
             </div>
           </td>
         </tr>
