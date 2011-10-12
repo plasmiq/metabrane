@@ -37,7 +37,24 @@ $(document).ready ->
       container.find(".substrate_delete."+side).show("slow");
       container.find(".substrate_url."+side).show("slow");
       container.find(".notification."+side).addClass("loaded");
-      container.find(".substrate_tab_zoom a").attr("value") 
+      container.find(".substrate_tab_zoom a").attr("value")
+      
+
+    $(".substrate_tab_layer").live 'click', (event) ->
+      side = (if $(this).closest(".object").hasClass("left") then "left" else "right");
+      direction = (if (side == "left") then 1 else -1);
+      container = $(this).closest(".container")
+      container.find(".content").animate( { left: direction * 380 }, { duration: 'slow' });
+      container.find(".substrate_metacodes."+side).animate( { left: direction * 0 }, { duration: 'slow' });
+    
+    $(".metacodes .submit").live 'click', (event) ->
+      side = (if $(this).closest(".substrate_metacodes").hasClass("left") then "left" else "right");
+      direction = (if (side == "left") then -1 else 1);
+      
+      container = $(this).closest(".container")
+      container.find(".content").animate( { left: direction * 0 }, { duration: 'slow' });
+      container.find(".substrate_metacodes."+side).animate( { left: direction * 380 }, { duration: 'slow' });  
+    
       
     $(".substrate_delete").live "click", (event) ->
       side = (if $(this).hasClass("left") then "left" else "right");

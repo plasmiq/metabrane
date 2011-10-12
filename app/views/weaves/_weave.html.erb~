@@ -62,7 +62,6 @@
     <div class="metacodes">
       <div class="substrate_metacodes left">
         <%= metacodes_list %>
-        <a href="#" class="submit"></a>
       </div>
       <div class="substrate_metacodes right">
         <%= metacodes_list %>

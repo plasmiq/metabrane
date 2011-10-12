@@ -10,7 +10,6 @@ img {
 }
 
 a {
-  pointer: cursor;
   img {
     border: 0px;
   }
