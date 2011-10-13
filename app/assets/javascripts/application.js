@@ -36,4 +36,5 @@ function make_images_zoomable() {
   $('form').live( "ajax:before", function(event, data, status, xhr) {
     $(this).closest(".working_pair").children().fadeOut("slow");
   });
+  $(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
 }

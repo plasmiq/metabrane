@@ -1,6 +1,4 @@
 $(document).ready -> 
- $(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
- 
  $(".substrate_tab_layer").live 'click', (event) ->
    side = (if $(this).closest(".object").hasClass("left") then "left" else "right");
    direction = (if (side == "left") then 1 else -1);
@@ -10,7 +8,10 @@ $(document).ready ->
      container.find(".substrate_metacodes."+side).animate( { left : 0 }, { duration: 'slow' });
    else
      container.find(".substrate_metacodes."+side).animate( { right : 0 }, { duration: 'slow' });
-   
+ 
+ $(".metacode").live 'click', (event) ->
+   $('.metacode.selected').removeClass("selected");
+   $(this).addClass("selected");
   
  $(".metacodes .submit").live 'click', (event) ->
    side = (if $(this).closest(".substrate_metacodes").hasClass("left") then "left" else "right");

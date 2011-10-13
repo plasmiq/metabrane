@@ -1,9 +1,33 @@
-class Metacode < ActiveRecord::Base
-
-  
+class Metacode
+  attr_accessor :id
+   
+  def name
+    Metacode.get_name @id
+  end
+    
   class << self
-    def all 
-      (3*7).times.map {|t| t+1}
+    def get_name id
+      [ "catalyst",
+        "evolution/bizarre",
+        "problem",
+        "opportunity",
+        "closed",
+        "requirement",
+        "knowledge",
+        "trajectory",
+        "implication",
+        "location",
+        "insight",
+        "group/network/org",
+        "open issue",
+        "task",
+        "action",
+        "intention",
+        "role",
+        "resource",
+        "activity",
+        "future dev",
+        "individual"][id]
     end
   end
 

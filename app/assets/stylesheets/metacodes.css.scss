@@ -1,10 +1,13 @@
 @mixin metacode($num) {
   $width: 55px;
   $height: 55px;
-  $pos: (1-$num)*$height;
+  $pos: (-1*$num)*$height;
   background-position: 0 $pos;
   &:hover {
     background-position: -1*$width $pos;    
+  }
+  &.selected {
+    background-position: -2*$width $pos;    
   }
 }
 .metacodes {
@@ -56,6 +59,7 @@
   height: 55px;
   margin: 0px 12px;
   background: url("substrate_metacodes.png") 0px 0px no-repeat;
+  &.metacode0  { @include metacode(0); }
   &.metacode1  { @include metacode(1); }
   &.metacode2  { @include metacode(2); }
   &.metacode3  { @include metacode(3); }
