@@ -6,7 +6,7 @@ class Metacode
   end
     
   class << self
-    def get_name id
+    def list
       [ "catalyst",
         "evolution/bizarre",
         "problem",
@@ -27,7 +27,18 @@ class Metacode
         "resource",
         "activity",
         "future dev",
-        "individual"][id]
+        "individual" ] 
+    end 
+    
+    def find_by_name name 
+      id = list.index(name)
+      metacode = Metacode.new
+      metacode.id = id
+      metacode
+    end
+    
+    def get_name id
+      list[id]
     end
   end
 

@@ -16,6 +16,7 @@ MetabraneCo::Application.routes.draw do
   resources :substrates do
     member do 
       put "update_metacode"
+      get "zoom"
     end
   end
   

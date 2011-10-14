@@ -1,0 +1,23 @@
+<div class="zoom">
+  <%= image_tag @substrate.image.url, :class => "img" %>
+  <div class="description">
+    <% if @substrate.metacode %>
+      <div class="metacode_description">
+        <div class="metacode metacode<%= Metacode.find_by_name(@substrate.metacode).id %> selected"></div>
+        <div>
+          <span class="text">metacode:</span>
+          <span class="name"><%= @substrate.metacode %></span>
+        </div>
+      </div>
+    <% end %>
+    <% if @substrate.url %>
+      <div class="url_description">
+        <span class="text">image source URL:</span>
+        <a class="text" href="<%= @substrate.url %>" target="_blank" rel="nofollow">
+          <%= @substrate.url.truncate(70) %>
+        </a>
+      </div>
+    <% end %>
+    <br class="clear"/>
+  </div>
+</div>

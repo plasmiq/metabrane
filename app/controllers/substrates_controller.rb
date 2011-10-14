@@ -20,10 +20,15 @@ class SubstratesController < ApplicationController
     end  
   end
   
+  def zoom
+    @substrate = Substrate.find( params[:id] )
+    render :layout => false
+  end
+  
   def update_metacode
     @substrate = Substrate.find( params[:id] )
     metacode = params[:metacode]
-    if metacode
+    unless metacode.empty?
       @substrate.metacode = metacode
       @substrate.save
     end

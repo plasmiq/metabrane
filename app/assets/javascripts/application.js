@@ -11,9 +11,19 @@
 function make_images_zoomable() {
   $('a[rel*=fancybox]').fancybox( 
     { 
-      'titlePosition' : 'inside',
+      'titlePosition' : 'outside',
       'transitionIn'	:	'fade', 
       'transitionOut'	:	'fade', 
+      'scrolling'     : 'no',
+      'padding'       : 3,
+      'width'         : 'auto',
+      'height'        : 'auto',
+      'autoDimensions': true,
+      'centerOnScroll': true,
+      'onComplete' : function() { 
+        $("#fancybox-wrap").unbind('mousewheel.fb');
+        $(document).unbind('keydown.fb');
+      }, 
       showNavArrows: false
     } 
   );
@@ -35,7 +45,6 @@ function make_images_zoomable() {
   });
   $('form.live_update').live( "ajax:before", function(event, data, status, xhr) {
     $(this).closest(".working_pair").children().fadeOut("slow");
-    alert("test");
   });
   $(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
 }

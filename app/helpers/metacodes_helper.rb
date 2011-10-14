@@ -1,9 +1,8 @@
 module MetacodesHelper
   def metacodes_list substrate
     html = ""
-    21.times do |num|
-      metacode = Metacode.new
-      metacode.id = num 
+    Metacode.list.each do |name|
+      metacode = Metacode.find_by_name name
       selected = ""
       selected = "selected" if substrate.metacode == metacode.name 
       html += content_tag :a,
