@@ -55,6 +55,20 @@ h3 {
     margin-right: 5px;
   }
 }
+
+@mixin menuelement($num) {
+  $width: 183px;
+  $height: 44px;
+  $pos: (-1*$num)*$height;
+  background-position: -183px $pos;
+  &:hover {
+    background-position: -366px $pos;    
+  }
+  &.selected {
+    background-position: 0px $pos;    
+  }
+}
+
   
 menu {
   background: url("header_navigationStrip.png") repeat-x;
@@ -114,28 +128,19 @@ menu {
           height: inherit;
           display: block;
           background-repeat: no-repeat;
-          background-position-x: -183px;
           background-image: url("nav_tabs_sprite.png");
-          &:hover {
-            background-position-x: -366px;          
-          }
-          &.selected {
-            background-position-x: 0px;
-          }
           span {
             display: none;
           }
+          @include menuelement(0);
+          &#l_your_weaves {
+            @include menuelement(2);
+          }    
+          &#l_create_weaves {
+            @include menuelement(1);
+          }
         }
       }
-      
-      #l_your_weaves {
-        background-position-y: -88px;
-      }
-      
-      #l_create_weaves {
-        background-position-y: -44px;
-      }
-      
     }
   }
 }
