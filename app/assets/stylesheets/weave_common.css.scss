@@ -1,3 +1,14 @@
+@mixin toggle($num) {
+  $height: 20px;
+  $width: 20px;
+  $pos: -1*$num*$height;
+  background-position: 0px $pos;
+  &:hover {
+    background-position: -$width $pos;
+  }
+}
+
+
 $strong_colour: #2e2d2c;
 #timeline_end {
   position: relative;
@@ -16,7 +27,7 @@ $strong_colour: #2e2d2c;
     height: 37px;
     background: url("btn_beginningCreateWeave.png") no-repeat 0 0;
     &:hover {
-      background-position-x: -53px;
+      background-position: -53px 0;
     }
   }
 }
@@ -46,15 +57,18 @@ $strong_colour: #2e2d2c;
       top: 245px;
       position: absolute;
       z-index: 100;
-      &:hover {
-        background-position-y: -53px !important;
-      }
       &.left {
         left: 0px;
+        &:hover {
+          background-position: 0 -53px !important;
+        }
       }
       &.right {
-        background-position-x: -37px;
+        background-position: -37px 0;
         right: 0px;
+        &:hover {
+          background-position: -37px -53px !important;
+        }
       } 
     }
     .substrate_url {
@@ -74,28 +88,24 @@ $strong_colour: #2e2d2c;
         right: 30px;
         top: 15px;
         &.invalid {
-          background-position-y: -153px;
-          background-position-x: -102px !important;
+          background-position: -102px -153px !important;
         }
         &:hover {
-          background-position-y: -51px !important;
-          background-position-x: -153px !important;       
+          background-position: -153px -51px !important;
         }
         &.loaded {
           cursor: pointer;
-          background-position-y: -51px !important;
-          background-position-x: -102px !important;
+          background-position: -102px -51px !important;
           &:hover {
-            background-position-y: -51px !important;
-            background-position-x: -51px !important;
+            background-position: -51px -51px !important;
           }
         }
       }
       #notification_image1 {
-        background-position-x: 0px;
+        background-position: 0px 0;
       }
       #notification_image2 {
-        background-position-x: -51px;
+        background-position: -51px 0;
       }
       textarea {
         display: block;
@@ -136,8 +146,7 @@ $strong_colour: #2e2d2c;
     .object {
       width: 356px;
       background: url("object_shadow.png") no-repeat;
-      background-position-x: center; 
-      background-position-y: bottom; 
+      background-position: center bottom;  
       text-align: center;
       padding-bottom: 13px;
       position: relative;
@@ -174,19 +183,9 @@ $strong_colour: #2e2d2c;
             position: relative;
             top: 0px;
             cursor: pointer;
-            background-position-x: -0px;
-            &:hover {
-              background-position-x: -20px;
-            }
-            &.substrate_tab_zoom {
-              background-position-y: -140px !important;
-            }
-            &.substrate_tab_edit {
-              background-position-y: -160px !important;
-            }
-            &.substrate_tab_layer {
-              background-position-y: -180px !important;
-            }
+            &.substrate_tab_zoom  { @include toggle(7); }
+            &.substrate_tab_edit  { @include toggle(8); }
+            &.substrate_tab_layer { @include toggle(9); }
         }
       }
     }    
@@ -243,30 +242,24 @@ $strong_colour: #2e2d2c;
       }
     }
     .more_relations {
-      background-position-x: -0px;
-      background-position-y: -204px;      
+      background-position: 0px -204px;      
     }
     
     .submit {
-      background-position-y: -51px !important;
-      background-position-x: -51px !important;  
+      background-position: -51px -51px !important;
     }
     
     .submit_weave {
-      background-position-x: -102px;
-      background-position-y: 0px;
+      background-position: -102px 0px; 
       cursor: default; 
       &:hover {
-        background-position-y: -51px;
-        background-position-x: -153px;
+        background-position: -153px -51px;
       }
       &.loaded {
         cursor: pointer;
-        background-position-y: -51px !important;
-        background-position-x: -102px !important;  
+        background-position: -102px -51px !important;
         &:hover {
-          background-position-y: -51px !important;
-          background-position-x: -51px !important;
+          background-position: -51px -51px !important;
         }
       }
     }
