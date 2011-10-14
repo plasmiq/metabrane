@@ -1,5 +1,6 @@
 require "open-uri"
 
+
 class Substrate < ActiveRecord::Base
   has_many :working_pair
   
@@ -8,6 +9,13 @@ class Substrate < ActiveRecord::Base
 
   def picture_from_url(url)
     self.image = open(url)
+  end
+  
+  def width
+    Paperclip::Geometry.from_file(image).width.to_i
+  end
+  def height
+    Paperclip::Geometry.from_file(image).height.to_i
   end
 
 end

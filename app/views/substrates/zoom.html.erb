@@ -1,5 +1,6 @@
 <div class="zoom">
-  <%= image_tag @substrate.image.url, :class => "img" %>
+  <%= image_tag @substrate.image.url, :class => "img", :width => @substrate.width,
+    :height => @substrate.height %> 
   <div class="description">
     <% if @substrate.metacode %>
       <div class="metacode_description">
