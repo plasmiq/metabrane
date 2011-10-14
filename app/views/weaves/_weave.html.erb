@@ -25,6 +25,22 @@
       </div>
     </div>
   </div>
+  <div class="metacodes">
+    <div class="substrate_metacodes left">
+      <%= metacodes_list( pair.substrate1 ) %>
+      <%= form_tag url_for(:controller => :substrates, :action => "update_metacode", :id => pair.substrate1.id), :method => :put,  :remote => true do %>
+        <%= hidden_field_tag "metacode", "" %>
+        <%= submit_tag("", :class => "submit"); %>
+      <% end %> 
+    </div>
+    <div class="substrate_metacodes right">
+      <%= metacodes_list( pair.substrate2 ) %>
+      <%= form_tag url_for(:controller => :substrates, :action => "update_metacode", :id => pair.substrate2.id), :method => :put,  :remote => true do %>
+        <%= hidden_field_tag "metacode", "" %>
+        <%= submit_tag("", :class => "submit"); %>
+      <% end %> 
+    </div>
+  </div>
   <%= form_tag  url_for(:controller => :weaves, :action => :update, :id => pair.id), :remote => true, :method => :put do %>
     <div class="header">
       <div class="timestamp"><span><span class="status"><%= pair.status_name %></span> <%= time_ago_in_words( pair.updated_at ) %> ago</span></div>
@@ -58,16 +74,6 @@
         
       </div>
       <br style="clear: both"/>
-    </div>
-    <div class="metacodes">
-      <div class="substrate_metacodes left">
-        <%= metacodes_list %>
-        <a class="submit"></a>
-      </div>
-      <div class="substrate_metacodes right">
-        <%= metacodes_list %>
-        <a class="submit"></a>
-      </div>
     </div>
     <div class="content">
       <table>

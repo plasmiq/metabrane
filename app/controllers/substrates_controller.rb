@@ -19,4 +19,16 @@ class SubstratesController < ApplicationController
       format.js   { render :template => "weaves/update" }
     end  
   end
+  
+  def update_metacode
+    @substrate = Substrate.find( params[:id] )
+    metacode = params[:metacode]
+    if metacode
+      @substrate.metacode = metacode
+      @substrate.save
+    end
+    respond_to do |format|
+      format.js   { render :nothing => true }
+    end  
+  end
 end

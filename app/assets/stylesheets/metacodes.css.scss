@@ -14,6 +14,7 @@
   z-index: 200;
   width: 100%;
   height: 0px;
+  top: 50px;
   position: absolute;
 }
 
@@ -25,14 +26,22 @@
   &.left{
     left: -490px;
     .submit {
-      right: -60px;
+      right: 7px;
+    }
+    form {
+      background: url("substrate_metacodesOKBG_left.png") 0 0 no-repeat;
+      right: -51px;
     }
   }
   
   &.right {
     right: -390px;
     .submit {
-      left: -60px;
+      left: 7px;
+    }
+    form {
+      background: url("substrate_metacodesOKBG_right.png") 0 0 no-repeat;
+      left: -51px;
     }
     .metacode {
       float: right;
@@ -40,14 +49,20 @@
     }
     
   }
-  
-  .submit {
-    width: 51px;
-    height: 51px;
+  form {
+    display: block;
     position: absolute;
-    background: url("btn_circleSprite.png") -102px -102px no-repeat;
-    top: 160px;
-    position: absolute;
+    width: 67px;
+    height: 377px;
+    .submit {
+      width: 51px;
+      height: 51px;
+      position: relative;
+      background: url("btn_circleSprite.png") -102px -102px no-repeat;
+      top: 160px;
+      position: absolute;
+      cursor: pointer;
+    }
   }
   
 }

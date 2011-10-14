@@ -33,8 +33,9 @@ function make_images_zoomable() {
       container.find(".notification."+side).removeAttr("disabled");
     }
   });
-  $('form').live( "ajax:before", function(event, data, status, xhr) {
+  $('form.live_update').live( "ajax:before", function(event, data, status, xhr) {
     $(this).closest(".working_pair").children().fadeOut("slow");
+    alert("test");
   });
   $(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
 }
