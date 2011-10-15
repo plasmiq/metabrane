@@ -10,7 +10,41 @@ $strong_colour: #2e2d2c;
   }
 }
 
+.weave {
+  margin-bottom: 42px;
+}
+
+.toggles {
+  a {
+    display: block;
+    background: url("toggles_weavement.png") no-repeat;
+    margin-right: 7px;
+    position: relative;
+    top: -2px;
+    float: right;
+    width: 20px;
+    height: 20px;
+    @include toggle(1);
+    &.timeline_weave {
+      float: left;
+      background-clip: padding;
+      display: inline;
+      width: auto;
+      padding-left: 22px;
+      padding-top: 2px;
+      background-position-y: -20px;
+    }
+    &.delete_weave    { @include toggle(5); }
+    &.permalink_weave { @include toggle(2); }
+    &.favorite_weave  { @include toggle(4); }
+    &.favorite_true   { 
+      background-position: -40px -1*4*20px;
+    }
+  }
+}
+
 .working_pair {
+  position: relative;
   .header {
     padding: 20px 30px 0 30px;
     font-size: 14px;
@@ -22,34 +56,7 @@ $strong_colour: #2e2d2c;
         margin-right: 0px !important;
       }
     }
-    .toggles {
-      a {
-        display: block;
-        background: url("toggles_weavement.png") no-repeat;
-        margin-right: 7px;
-        position: relative;
-        top: -2px;
-        float: right;
-        width: 20px;
-        height: 20px;
-        @include toggle(1);
-        &.timeline_weave {
-          float: left;
-          background-clip: padding;
-          display: inline;
-          width: auto;
-          padding-left: 22px;
-          padding-top: 2px;
-          background-position-y: -20px;
-        }
-        &.delete_weave    { @include toggle(5); }
-        &.permalink_weave { @include toggle(2); }
-        &.favorite_weave  { @include toggle(4); }
-        &.favorite_true   { 
-          background-position: -40px -1*4*20px;
-        }
-      }
-    }
+    
     
     .timestamp {
       float: right;  
@@ -123,4 +130,6 @@ $strong_colour: #2e2d2c;
       background: url("toggles_weavement.png") no-repeat ;    
     }
   }
+
 }
+/* ************************************************************************** */

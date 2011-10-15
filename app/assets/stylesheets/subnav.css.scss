@@ -1,0 +1,108 @@
+.weave {
+  .subnav {
+    width: 928px;
+    height: 415px; 
+    background: url("weavement_slidePanel.png") 0 bottom no-repeat;
+    z-index: 100;
+    position: relative;
+    top: -50px;
+    z-index: 0;
+    .shadow {
+      background: url("weavement_slidePanelShadow.png") 0 0 no-repeat;
+      height: 97px;
+      width: inherit;
+    }
+    .gauge {
+      display: block;
+      width: 27px;
+      height: 255px;
+      background: url("subnav_gauge.png") 0 0 no-repeat;
+      position: absolute;
+      right: 0px;  
+      .home {
+        display: block;
+        position: absolute;
+        right: -24px;
+        top: 100px;
+        width: 28px;
+        height: 45px;
+        background: url("subnav_gaugeHome.png") 0 0 no-repeat;
+      }
+      .position {
+        display: block;
+        position: absolute;
+        top: 115px;
+        left: 5px;
+        width: 14px;
+        height: 17px;
+        cursor: default;
+        background: url("subnav_gaugeArrow.png") 0 0 no-repeat;
+      }
+    }
+    .vertical_navigation {
+      position: absolute;
+      bottom: 0px;
+      height: 37px;
+      text-align: center;
+      width: 100%;
+      a {
+        background: url("subnav_navigationArrows.png") 0 0 no-repeat;
+        display: inline-block;
+        margin: 0 30px;
+        height: 37px;
+        width: 93px;
+        &.up {
+          &:hover {
+            background-position: 0px -37px;
+          }
+        }
+        &.down {
+          background-position: -93px 0;
+          &:hover {
+            background-position: -93px -37px;
+          }
+        }
+      }
+    }
+    .metatags {
+      height: 252px;
+      overflow-y: hidden;
+      .metatag {
+        text-align: center;
+        height: 83px;
+        border-bottom: 1px solid black;
+        margin: 0 40px;
+        position: relative;
+        .bullet {
+          display: block;
+          cursor: default;
+          position: relative;
+          top: 15px;
+          left: 20px;
+          width: 15px;
+          height: 15px;
+          background: url("subnav_bullet.png") 0 0 no-repeat;
+          float: left;
+        }
+        .relation {
+          display: block;
+          top: 30px;
+          position: relative;
+          font-size: 28px;
+          width: 100%;
+        }
+        .metatag_info {
+          position: absolute;
+          right: 0;
+          top: 10px;
+          font-size: 14px;
+          margin-top: 5px;
+          a {
+            float: left;
+          }
+        }
+        
+      }
+    }
+  }
+}
