@@ -6,9 +6,31 @@
 $(document).ready -> 
   make_images_zoomable();
   
+  hide_relations = () ->
+    $(this).unbind('click');
+    $(this).bind "click", show_relations
+    $(this).removeClass("hide_relations");
+    $(this).addClass("more_relations");
+    weave = $(this).closest(".weave");
+    weave.find(".subnav").hide("slow");
+    weave.animate( { height: weave.find(".working_pair").height() }, {duration: "slow"} );
+    $(this).bind "click", show_relations
+    
+  show_relations = () ->
+    $(this).unbind('click');
+    $(this).bind "click", hide_relations;
+    $(this).removeClass("more_relations");    
+    $(this).addClass("hide_relations");
+    weave = $(this).closest(".weave");
+    weave.find(".subnav").show("slow");
+    weave.animate( { height: "879px" }, {duration: "slow"} );
+    weave.find(".metatags").scroll();
+  
   $('#home_button').topLink {  min: 400 * 5, fadeSpeed: 500 };
   $('#home_button').click ->
     $('html, body').animate({scrollTop:0}, 'slow');
+
+  $(".more_relations").bind "click", show_relations
 
   $(".delete_weave")
     .bind "ajax:success", (event, data) ->
@@ -16,6 +38,7 @@ $(document).ready ->
   
   $('.edit_relation').live "click", (event) ->
       $(this).fadeOut();
+      $(this).removeClass("hide_relations");
       id = $(this).closest(".working_pair").attr("id").split("_")[2]
       text_field = $("#working_pair_"+id+" .relation span input")
       text_field.prop("disabled",false)

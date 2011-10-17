@@ -1,40 +1,44 @@
 .weave {
   .subnav {
+    display: none;
     width: 928px;
-    height: 415px; 
+    height: 547px; 
     background: url("weavement_slidePanel.png") 0 bottom no-repeat;
     z-index: 100;
     position: relative;
-    top: -50px;
+    top: -217px;
     z-index: 0;
     .shadow {
       background: url("weavement_slidePanelShadow.png") 0 0 no-repeat;
       height: 97px;
       width: inherit;
+      position: absolute;
+      top: 157px;
     }
     .gauge {
       display: block;
-      width: 27px;
-      height: 255px;
+      width: 31px;
+      height: 308px;
       background: url("subnav_gauge.png") 0 0 no-repeat;
       position: absolute;
+      top: 225px;
       right: 0px;  
       .home {
         display: block;
         position: absolute;
-        right: -24px;
+        right: 6px;
         top: 100px;
-        width: 28px;
-        height: 45px;
+        width: 20px;
+        height: 20px;
         background: url("subnav_gaugeHome.png") 0 0 no-repeat;
       }
       .position {
         display: block;
         position: absolute;
         top: 115px;
-        left: 5px;
-        width: 14px;
-        height: 17px;
+        left: -18px;
+        width: 20px;
+        height: 44px;
         cursor: default;
         background: url("subnav_gaugeArrow.png") 0 0 no-repeat;
       }
@@ -51,6 +55,15 @@
         margin: 0 30px;
         height: 37px;
         width: 93px;
+        &.home {
+          width: 53px;
+          height: 37px;
+          background: url("btn_beginningCreateWeave.png") 0 0 no-repeat;
+          margin: 0 -20px;
+          &:hover {
+            background-position: -53px 0px;
+          }
+        }
         &.up {
           &:hover {
             background-position: 0px -37px;
@@ -65,19 +78,24 @@
       }
     }
     .metatags {
-      height: 252px;
-      overflow-y: hidden;
+      height: 246px;
+      overflow: hidden;
+      position: absolute;
+      bottom: 62px;
       .metatag {
+        background: url("weavement_slidePanelDividers.png") 0 bottom no-repeat;
         text-align: center;
-        height: 83px;
-        border-bottom: 1px solid black;
-        margin: 0 40px;
+        width: 877px;
+        height: 82px;
+        margin: 0 auto;
         position: relative;
+        display: block;
+        top: 0px;
         .bullet {
           display: block;
           cursor: default;
           position: relative;
-          top: 15px;
+          top: 11px;
           left: 20px;
           width: 15px;
           height: 15px;
@@ -93,10 +111,14 @@
         }
         .metatag_info {
           position: absolute;
-          right: 0;
+          right: 35px;
           top: 10px;
-          font-size: 14px;
+          font-size: 13px;
           margin-top: 5px;
+          color: #5c5c5c;
+          &:hover {
+            color: #be212f;
+          }
           a {
             float: left;
           }

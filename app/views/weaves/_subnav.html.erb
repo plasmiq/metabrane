@@ -7,22 +7,20 @@
   <div class="metatags">
     <% metatags.each do |metatag| %>
       <div class="metatag">
-        
         <div class="relation">
           <a class="bullet"></a>
           <%= metatag.relation %>
         </div>
         <div class="metatag_info toggles">
-          <%= link_to '', 
-            {:controller => :weaves, :action => :favorite, :id => 1},
-            :method =>  :post,
-            :remote => true,
-            :taget => '_blank',
-            :class=>"favorite_weave favorite_true" %>
+          <%= weave_fav_link( metatag ) %>
           <span class=""><%= weave_timestamp( metatag) %></span>
         </div>
       </div>
     <% end %>
   </div>
-  <div class="vertical_navigation"><a class="up"></a><a class="down"></a></div>
+  <div class="vertical_navigation">
+    <a class="up"></a>
+    <a class="home"></a>
+    <a class="down"></a>
+  </div>
 </div>
