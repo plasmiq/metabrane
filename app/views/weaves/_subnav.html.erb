@@ -6,7 +6,7 @@
   </div>
   <div class="metatags">
     <% metatags.each do |metatag| %>
-      <div class="metatag">
+      <div class="metatag metatag_<%= metatag.id %>">
         <div class="relation">
           <a class="bullet"></a>
           <%= metatag.relation %>

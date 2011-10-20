@@ -28,6 +28,7 @@ $(document).ready ->
       weave.find(".subnav").show("slow");
       weave.animate( { height: "879px" }, {duration: "slow"} );
       weave.find(".metatags").scroll();
+      new Home( weave.find(".home") )
   
   $('#home_button').topLink {  min: 400 * 5, fadeSpeed: 500 };
   $('#home_button').click ->
