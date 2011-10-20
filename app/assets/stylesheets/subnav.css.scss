@@ -64,6 +64,19 @@
             background-position: -53px 0px;
           }
         }
+        &.disabled_up {
+          background-position: 0px -37px;
+          &:hover {
+            
+          }
+        }
+        &.disabled_down {
+          background-position: -93px -37px;
+          &:hover {
+            
+          }
+        }
+        
         &.up {
           &:hover {
             background-position: 0px -37px;
