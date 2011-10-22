@@ -44,7 +44,9 @@ function make_images_zoomable() {
     }
   });
   $('form.live_update').live( "ajax:before", function(event, data, status, xhr) {
-    $(this).closest(".working_pair").children().fadeOut("slow");
+    var container = $(this).closest(".working_pair");
+    container.children().fadeOut("slow");
+    container.find(".loader").show();
   });
   $(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
 }

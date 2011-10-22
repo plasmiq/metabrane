@@ -3,4 +3,5 @@ var container = $("#container_<%= @home.id %>");
 container.html(data);
 container.find(".working_pair").children().fadeOut(0);
 container.find(".working_pair").children().fadeIn(1000);
+container.find(".working_pair .loader").hide();
 make_images_zoomable();
