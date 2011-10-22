@@ -73,7 +73,7 @@
       </div>
       <div class="relation">
         <span>
-          <%= text_field(:working_pair, :relation, :value => pair.relation, :class => "working_pair_relation", :disabled => true, :id => nil) %>
+          <%= text_field(:working_pair, :relation, :value => pair.relation, :class => "working_pair_relation", :disabled => true, :id => nil, :autocomplete => "off") %>
           <a class="edit_relation"></a>
         </span>
         <%= submit_tag("", :class => "button more_relations"); %>

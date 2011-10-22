@@ -45,7 +45,7 @@
       </table>
     </div>
     <div class="relation">
-      <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "enter a relation metatag ...", :class => "working_pair_relation active") %></span>
+      <span><%= text_field(:working_pair, :relation, :value => @wp ? @wp.relation : "enter a relation metatag ...", :class => "working_pair_relation active", :autocomplete => "off") %></span>
       <%= submit_tag("", :class => "button submit_weave notification"); %>
     </div>
     <div class="hints">
