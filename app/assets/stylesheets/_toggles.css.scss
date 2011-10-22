@@ -1,0 +1,9 @@
+@mixin toggle($num) {
+  $height: 20px;
+  $width: 20px;
+  $pos: -1*$num*$height;
+  background-position: 0px $pos;
+  &:hover {
+    background-position: -$width $pos;
+  }
+}

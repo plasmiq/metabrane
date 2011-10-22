@@ -1,13 +1,4 @@
-@mixin toggle($num) {
-  $height: 20px;
-  $width: 20px;
-  $pos: -1*$num*$height;
-  background-position: 0px $pos;
-  &:hover {
-    background-position: -$width $pos;
-  }
-}
-
+@import "toggles";
 
 $strong_colour: #2e2d2c;
 #timeline_end {
@@ -150,51 +141,19 @@ $strong_colour: #2e2d2c;
       text-align: center;
       padding-bottom: 13px;
       position: relative;
-      img {
-        width: 229px;
-        border: 3px solid transparent;
-        float: left;
-        //&:hover {
-          border: 3px solid #F34848;
-          -webkit-border-radius: 4px;
-          -moz-border-radius: 4px;
-          border-radius: 4px
-        //}
-      }
       
       .substrate_container {
         display: inline-block;
         margin-left: 27px;
       }
-      .substrate_tab {
-        float: left;
-        width: 30px;
-        height: 86px;
-        background: url("toggles_imageTab.png") 0 0 no-repeat;
-        display: block;
-        position: relative;
-        right: 3px;
-        a {
-            display: block;
-            height: 20px;
-            width: 20px;
-            background: url("toggles_weavement.png") no-repeat 0 0;
-            margin: 5px;
-            position: relative;
-            top: 0px;
-            cursor: pointer;
-            &.substrate_tab_zoom  { @include toggle(7); }
-            &.substrate_tab_edit  { @include toggle(8); }
-            &.substrate_tab_layer { @include toggle(9); }
-        }
+      &.left {
+        margin-right: 55px;
+      }
+      &.right {
+        margin-left: 55px;
       }
     }    
-    .left {
-      margin-right: 55px;
-    }
-    .right {
-      margin-left: 55px;
-    } 
+     
   }
   
 /* ************************************************************************** */

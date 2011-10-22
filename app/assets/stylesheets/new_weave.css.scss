@@ -1,7 +1,16 @@
 .new_weave {
   .substrate_container {
     position: relative;
-    left: -15px;
+    img {
+      cursor: default;
+      border: 0px; 
+      &:hover {
+        border: 0px;
+      }
+      &.active {
+        margin-right: 30px;
+      }
+    }
   }
   .hints {
     position: absolute;
