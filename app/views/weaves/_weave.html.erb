@@ -44,30 +44,15 @@
     </div>
     <%= form_tag  url_for(:controller => :weaves, :action => :update, :id => pair.id), :remote => true, :method => :put do %>
       <div class="header">
-        <div class="timestamp"><%= weave_timestamp(pair) %></div>
+        <%= weave_options_tag pair, {:fav => true, :delete => true, :permalink => true} %>
+        
         <% if pair.older.count > 0 || pair.newer.count > 0 %>
         <div class="timeline toggles">
           <a href="" class="timeline_weave"></a>
           <span>view weavement timeline</span>
         </div>
         <% end %>
-        <div class="toggles">
         
-          <%= link_to '', 
-            {:controller => :weaves, :action => :destroy, :id => pair.id}, 
-            :confirm => 'Are you sure?', 
-            :method => :delete, 
-            :remote=> true, 
-            :class=>'delete_weave' %>
-          
-          <%= weave_fav_link pair %>
-            
-          <%= link_to '', 
-            {:controller => :weaves, :action => :show, :id => pair.id},
-            :taget => "_blank",
-            :class=>'permalink_weave' %>
-          
-        </div>
         <br style="clear: both"/>
       </div>
       <div class="content">

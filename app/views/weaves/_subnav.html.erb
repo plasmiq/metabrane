@@ -11,10 +11,7 @@
           <a class="bullet"></a>
           <%= metatag.relation %>
         </div>
-        <div class="metatag_info toggles">
-          <%= weave_fav_link( metatag ) %>
-          <span class=""><%= weave_timestamp( metatag) %></span>
-        </div>
+        <%= weave_options_tag metatag, {:fav => true} %>
       </div>
     <% end %>
   </div>

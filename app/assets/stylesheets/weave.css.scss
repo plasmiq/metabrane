@@ -44,6 +44,19 @@ $strong_colour: #2e2d2c;
   }
 }
 
+.timestamp {
+  float: right;  
+  span {
+    cursor: pointer;
+  }
+  .toggles {
+    float: left;
+  }
+  &:hover, &.active {
+    color: #be212f;
+  }
+}
+
 .working_pair {
   position: relative;
   .header {
@@ -56,11 +69,6 @@ $strong_colour: #2e2d2c;
       a {
         margin-right: 0px !important;
       }
-    }
-    
-    
-    .timestamp {
-      float: right;  
     }
   }
 /* ************************************************************************** */
