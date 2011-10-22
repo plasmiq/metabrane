@@ -51,8 +51,9 @@ $strong_colour: #2e2d2c;
   }
   .toggles {
     float: left;
+    display: none;
   }
-  &:hover, &.active {
+  &:hover, & span.active {
     color: #be212f;
   }
 }

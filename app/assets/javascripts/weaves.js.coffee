@@ -30,6 +30,16 @@ $(document).ready ->
       weave.find(".metatags").scroll();
       new Home( weave.find(".home") )
   
+  $(".timestamp span.info").live "click", (event) -> 
+    link = $(this);
+    toggles = link.parent().find(".toggles");
+    if( link.hasClass("active") )
+      link.removeClass("active") 
+      toggles.hide();
+    else
+      link.addClass("active") 
+      toggles.show();
+  
   $('#home_button').topLink {  min: 400 * 5, fadeSpeed: 500 };
   $('#home_button').click ->
     $('html, body').animate({scrollTop:0}, 'slow');
