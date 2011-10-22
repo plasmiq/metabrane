@@ -31,6 +31,12 @@ class WorkingPair < ActiveRecord::Base
     favorites.count > 0
   end
   
+  def entangeled_weaves
+    cond = "((substrate1_id = ?) and (substrate2_id = ?)) or ((substrate1_id = ?) and (substrate2_id = ?))"
+    
+    WorkingPair.where( cond, self.substrate1_id_before_type_cast, self.substrate2_id, self.substrate2_id, self.substrate1_id ).order("updated_at DESC")
+  end
+  
   def entangled
     WorkingPair.where( "relation = ?", relation )
   end

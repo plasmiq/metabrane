@@ -6,7 +6,7 @@
       <div class="url">
         <div class="substrate_url left">
           <%= form_tag url_for(:controller => :substrates, :action => :update, :id => pair.substrate1.id), :method => :put,  :remote => true, :class => "live_update"  do |f|%>
-            <textarea class="image_url left"  name="substrate[url]"><%= pair.substrate2.url %></textarea>
+            <textarea class="image_url left"  name="substrate[url]"><%= pair.substrate1.url %></textarea>
             <input type="submit" value="" class="notification left" />
             <%= hidden_field_tag "weave_id", pair.id %>
             <% if @home %>
@@ -104,5 +104,5 @@
       <% end %>
     <% end %>
   </div>
-  <%= render :partial => "weaves/subnav", :locals => {:metatags => WorkingPair.all, :home => pair} %>
+  <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.entangeled_weaves, :home => pair} %>
 </div>

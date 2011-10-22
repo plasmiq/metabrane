@@ -7,7 +7,7 @@ class @Home
     gauge = subnav.find(".gauge")
     count = subnav.find(".metatag").size();
     list = subnav.find(".metatags")
-    distance = (gauge.height() - 50)/ count;
+    distance = (gauge.height() - 40)/ count;
     in_order = subnav.find(".metatag").index(home_metatag);
     home_position = (in_order) * distance;
     @home.css("top", 22 + home_position );
@@ -27,8 +27,10 @@ $(document).ready ->
     up = subnav.find(".up, .disabled_up")
     down = subnav.find(".down, .disabled_down")
     position = subnav.find(".position")
-    distance = gauge.height() / count;
     fromTop = list.scrollTop();
+    h = subnav.find(".metatag").first().height()
+    current = fromTop / ( (count-2) * h ) * (gauge.height()-25);
+    position.animate( { top: (10+current)+"px" }, { duration: 0 });
   
     if( fromTop <= up.height() ) 
       up.removeClass("up");
@@ -41,8 +43,5 @@ $(document).ready ->
       up.removeClass("disabled_up")
       down.addClass("down");
       down.removeClass("disabled_down")
-    
-    current = (gauge.height()-175)*fromTop/list.height();
-    position.animate( { top: (10+current)+"px" }, { duration: 0 });
     
   $('.subnav .metatags').scrollTop("0px");
