@@ -45,7 +45,7 @@
         <% end %> 
       </div>
     </div>
-    <%= form_tag  url_for(:controller => :weaves, :action => :update, :id => pair.id), :remote => true, :method => :put do %>
+    <%= form_tag  url_for(:controller => :weaves, :action => :update, :id => pair.id), :remote => true, :method => :put, :class => "live_update" do %>
       <div class="header">
         <%= weave_options_tag pair, {:fav => true, :delete => true, :permalink => true} %>
         

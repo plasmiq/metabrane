@@ -48,5 +48,12 @@ function make_images_zoomable() {
     container.children().fadeOut("slow");
     container.find(".loader").show();
   });
+  $('form.live_update').submit( function(event) {
+      if( ! $(this).find("input[type=submit]").hasClass("submit")) {
+      //alert($(this).find("input[type=submit]").attr("class") );
+        event.preventDefault();        
+        return false;
+      }
+  });
   $(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
 }
