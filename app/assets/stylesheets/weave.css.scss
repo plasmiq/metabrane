@@ -10,6 +10,13 @@ $strong_colour: #2e2d2c;
   }
 }
 
+.horizontal_navigation {
+  display: none;
+  &.active {
+    display: block;
+  }
+}
+
 .loader {
   position: absolute;
   width: 100%;
@@ -45,7 +52,7 @@ $strong_colour: #2e2d2c;
       width: auto;
       padding-left: 22px;
       padding-top: 2px;
-      background-position-y: -20px;
+      background-position: -20px -20px;
     }
     &.delete_weave    { @include toggle(5); }
     &.permalink_weave { @include toggle(2); }
@@ -53,6 +60,18 @@ $strong_colour: #2e2d2c;
     &.favorite_true   { 
       background-position: -40px -1*4*20px;
     }
+  }
+}
+
+.timeline {
+  span, a {
+    cursor: pointer;
+  }
+  a.active, a.hover {
+    background-position: 0 -20px;
+  }
+  &:hover, & span.active, & span.hover {
+    color: #be212f;
   }
 }
 

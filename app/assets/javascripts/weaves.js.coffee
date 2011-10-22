@@ -39,6 +39,27 @@ $(document).ready ->
     else
       link.addClass("active") 
       toggles.show();
+      
+  $(".timeline").live "hover", (event) ->     
+    link = $(this);
+    elements = link.find("a");
+    if( link.find("a").hasClass("hover") )
+      elements.removeClass("hover") 
+    else
+      elements.addClass("hover") 
+    
+      
+  $(".timeline").live "click", (event) -> 
+    link = $(this);
+    elements = link.find("a,span");
+    container = $(this).closest(".container")
+    nav = container.find(".horizontal_navigation");
+    if( link.find("a").hasClass("active") )
+      elements.removeClass("active") 
+      nav.hide();
+    else
+      elements.addClass("active") 
+      nav.show();
   
   $('#home_button').topLink {  min: 400 * 5, fadeSpeed: 500 };
   $('#home_button').click ->
