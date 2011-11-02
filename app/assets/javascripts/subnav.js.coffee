@@ -33,15 +33,19 @@ $(document).ready ->
     position.animate( { top: (10+current)+"px" }, { duration: 0 });
   
     if( fromTop <= up.height() ) 
-      up.removeClass("up");
-      up.addClass("disabled_up");
+      #up.removeClass("up");
+      #up.addClass("disabled_up");
+      up.addClass("disabled");
     else if( fromTop >= ( subnav.find(".metatag").first().height()* (count-3)) )
-      down.removeClass("down");
-      down.addClass("disabled_down");
+      #down.removeClass("down");
+      #down.addClass("disabled_down");
+      down.addClass("disabled");
     else 
-      up.addClass("up");
-      up.removeClass("disabled_up")
-      down.addClass("down");
-      down.removeClass("disabled_down")
+      #up.addClass("up");
+      #up.removeClass("disabled_up")
+      up.removeClass("disabled")
+      #down.addClass("down");
+      #down.removeClass("disabled_down")
+      down.removeClass("disabled")
     
   $('.subnav .metatags').scrollTop("0px");
