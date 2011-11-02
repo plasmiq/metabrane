@@ -102,13 +102,14 @@
         margin: 0 auto;
         position: relative;
         display: block;
+        left: 25px;
         top: 0px;
         .bullet {
           display: block;
           cursor: default;
           position: relative;
           top: 11px;
-          left: 20px;
+          left: 38px;
           width: 15px;
           height: 15px;
           background: url("subnav_bullet.png") 0 0 no-repeat;
