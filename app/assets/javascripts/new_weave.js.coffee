@@ -46,7 +46,9 @@ $(document).ready ->
         $(".submit_weave").addClass("loaded");      
     
     $(".image_url, #working_pair_relation").focus ->
-      $(this).attr("value","");
+      if( ! $(this).hasClass("typein") ) 
+        $(this).addClass("typein");
+        $(this).attr("value","");
    
     $(".image_url").keyup ->
       exp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 

@@ -6,15 +6,11 @@
       <a class="substrate_delete right"></a>
       <div class="url">
         <div class="substrate_url left">
-          <textarea class="image_url left" id="working_pair_image1_url" name="working_pair[image1_url]">
-            <%= @wp ? @wp.image1_url : "enter a URL for image one ..." %>
-          </textarea>
+          <textarea class="image_url left <%= (@wp && @wp.image1_url) ? "typein" : ""%>" id="working_pair_image1_url" name="working_pair[image1_url]"><%= @wp ? @wp.image1_url : "enter image one URL ..." %></textarea>
           <a id="notification_image1" class="notification left"></a>
         </div>
         <div class="substrate_url right">
-          <textarea class="image_url right" id="working_pair_image2_url" name="working_pair[image2_url]">
-            <%= @wp ? @wp.image2_url : "enter a URL for image two ..." %>
-          </textarea>
+          <textarea class="image_url right <%= (@wp && @wp.image2_url) ? "typein" : ""%>" id="working_pair_image2_url" name="working_pair[image2_url]"><%= @wp ? @wp.image2_url : "enter image two URL ..." %></textarea>
           <a id="notification_image2" class="notification right"></a>
         </div>
       </div>

@@ -104,12 +104,17 @@ $strong_colour: #2e2d2c;
         height: 45px;
         margin-left: 20px;
         border: 0px;
-        margin-top: 19px;
+        margin-top: 24px;
         padding: 0 6px;
-        font-size: 16px;
+        font-size: 26px;
         color: #2e2d2e;
         width: 265px;
         overflow: hidden;
+        text-align: left;
+        &.typein {
+          font-size: 16px;
+          margin-top: 20px;
+        }
       }
       &.left {
         left: 30px;
