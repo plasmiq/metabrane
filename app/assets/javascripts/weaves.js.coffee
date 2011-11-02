@@ -14,7 +14,7 @@ $(document).ready ->
     $(this).addClass("more_relations");
     weave = $(this).closest(".weave");
     weave.find(".subnav").slideUp("slow","linear");
-    weave.animate( { height: weave.find(".working_pair").height() }, {duration: "slow"} );
+    weave.animate( { height: weave.find(".working_pair").height()  }, {duration: "slow"} );
     $(this).bind "click", show_relations
     
   show_relations = (event) ->
