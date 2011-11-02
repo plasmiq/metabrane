@@ -23,7 +23,7 @@ $(document).ready ->
       oposite_side = (if side == "left" then "right" else "left");
       if( $(this).hasClass("loaded") ) 
         $(".content").animate( { left: 0 }, { duration: 'slow' });
-        $(".substrate_url."+side).hide('slow');
+        $(".substrate_url."+side).hide("slide",{direction: side}, 500);
         if( ! $(".notification."+oposite_side).hasClass("loaded") )
           $(".substrate_url."+oposite_side).show('slow');
     
@@ -33,7 +33,7 @@ $(document).ready ->
       oposite_side = (if side == "left" then "right" else "left");
       $(".content").animate( { left: 0 }, { duration: 'slow' });
       $(".substrate_container img."+side).attr("src","");
-      $(".substrate_url."+side).show("slow");
+      $(".substrate_url."+side).show("slide",{direction: side}, 500);
       $(".image_url."+side).attr("value","");
       $(".notification."+side).removeClass("loaded");
       if( ! $(".notification."+oposite_side).hasClass("loaded") )

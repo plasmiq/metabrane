@@ -93,7 +93,7 @@ $(document).ready ->
       
       container.find(".content").animate( { left: direction * 380 }, { duration: 'slow' });
       container.find(".substrate_delete."+side).show("slow");
-      container.find(".substrate_url."+side).show("slow");
+      container.find(".substrate_url."+side).show("slide",{direction: side }, 500);
       container.find(".notification."+side).addClass("loaded");
       container.find(".substrate_tab_zoom a").attr("value") 
       
@@ -111,7 +111,7 @@ $(document).ready ->
       url = object.find(".substrate_tab_zoom").attr("data-real-url"); 
       container.find(".image_url."+side).text( url );
       #container.find(".substrate_container img."+side).attr("src","");
-      container.find(".substrate_url."+side).hide("slow");
+      container.find(".substrate_url."+side).hide("slide",{direction: side}, 500);
       container.find(".notification."+side).removeClass("loaded");
       $(this).hide();
       

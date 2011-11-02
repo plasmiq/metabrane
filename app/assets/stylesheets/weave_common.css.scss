@@ -97,6 +97,9 @@ $strong_colour: #2e2d2c;
       #notification_image2 {
         background-position: -51px 0;
       }
+      form {
+        margin-top: -1px;
+      }
       textarea {
         display: block;
         width: inherit;
@@ -104,8 +107,8 @@ $strong_colour: #2e2d2c;
         height: 45px;
         margin-left: 20px;
         border: 0px;
-        margin-top: 24px;
         padding: 0 6px;
+        padding-top: 24px;
         font-size: 26px;
         color: #2e2d2e;
         width: 265px;
@@ -113,7 +116,7 @@ $strong_colour: #2e2d2c;
         text-align: left;
         &.typein {
           font-size: 16px;
-          margin-top: 20px;
+          padding-top: 20px;
         }
       }
       &.left {
