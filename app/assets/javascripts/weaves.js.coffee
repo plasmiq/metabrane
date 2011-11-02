@@ -13,7 +13,7 @@ $(document).ready ->
     $(this).removeClass("hide_relations");
     $(this).addClass("more_relations");
     weave = $(this).closest(".weave");
-    weave.find(".subnav").hide("slow");
+    weave.find(".subnav").slideUp("slow","linear");
     weave.animate( { height: weave.find(".working_pair").height() }, {duration: "slow"} );
     $(this).bind "click", show_relations
     
@@ -25,7 +25,7 @@ $(document).ready ->
       $(this).removeClass("more_relations");    
       $(this).addClass("hide_relations");
       weave = $(this).closest(".weave");
-      weave.find(".subnav").show("slow");
+      weave.find(".subnav").slideDown("slow","linear");
       weave.animate( { height: "879px" }, {duration: "slow"} );
       weave.find(".metatags").scroll();
       new Home( weave.find(".home") )
