@@ -53,6 +53,7 @@ $(document).ready ->
     link = $(this);
     elements = link.find("a,span");
     container = $(this).closest(".container")
+    container.find(".substrate_container img.active").click();
     nav = container.find(".horizontal_navigation");
     if( link.find("a").hasClass("active") )
       elements.removeClass("active") 
