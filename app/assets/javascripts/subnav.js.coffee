@@ -18,6 +18,14 @@ $(document).ready ->
     $(this).closest(".subnav").find(".metatags").scrollTo({ top: '-=85px', left: '+=0px' }, 800);
   $('.vertical_navigation .down').live 'click', (event) ->
     $(this).closest(".subnav").find(".metatags").scrollTo({ top: '+=85px', left: '+=0px' }, 800);
+  $('.vertical_navigation .home').live 'click', (event) ->
+    subnav = $(this).closest(".subnav")
+    home_class = $(this).attr("data-target")
+    metatags  = subnav.find(".metatags")
+    home = metatags.find(home_class)
+    index = metatags.find(".metatag").index(home);
+    location = 85 * (index+1);
+    metatags.scrollTo({ top: location+"px", left: '+=0px' }, 800);
     
   $('.metatags').scroll ->
     subnav = $(this).closest(".subnav");
@@ -33,19 +41,11 @@ $(document).ready ->
     position.animate( { top: (10+current)+"px" }, { duration: 0 });
   
     if( fromTop <= up.height() ) 
-      #up.removeClass("up");
-      #up.addClass("disabled_up");
       up.addClass("disabled");
     else if( fromTop >= ( subnav.find(".metatag").first().height()* (count-3)) )
-      #down.removeClass("down");
-      #down.addClass("disabled_down");
       down.addClass("disabled");
     else 
-      #up.addClass("up");
-      #up.removeClass("disabled_up")
       up.removeClass("disabled")
-      #down.addClass("down");
-      #down.removeClass("disabled_down")
       down.removeClass("disabled")
     
   $('.subnav .metatags').scrollTop("0px");
