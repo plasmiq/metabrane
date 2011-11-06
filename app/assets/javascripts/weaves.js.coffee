@@ -82,7 +82,32 @@ $(document).ready ->
       text_field.focus()
       submit = $("#working_pair_"+id+" .relation .button")
       submit.addClass("submit")
+      //$("body").addClass("busy");
+      //$("body").attr("data-trigged-by", "#working_pair_"+id)
 
+  /*
+  $("body.busy").live "click", (event) ->
+    src = $("body").attr("data-trigged-by")
+    weave = $(src)
+    relation = weave.find(".relation")
+    relation.click (e) ->
+      if (!e) 
+        e = window.event;
+	    e.cancelBubble = true;
+	    if (e.stopPropagation) 
+	      e.stopPropagation();
+    edit_button = weave.find(".edit_relation");
+    edit_button.fadeIn();
+    edit_button.addClass("hide_relations")
+    field = weave.find(".relation span input")
+    field.prop("disabled",true)
+    field.removeClass("active")
+    submit = weave.find(".relation .button")
+    submit.removeClass("submit")
+    
+    $("body").attr("data-trigged-by","")
+    $(this).removeClass("busy")
+  */
   if $(".container").size() > 0
     
     $('.substrate_tab_edit').live 'click', (event) ->
