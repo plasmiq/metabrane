@@ -109,7 +109,10 @@ $(document).ready ->
   #  $(this).removeClass("busy")
   
   if $(".container").size() > 0
-    
+  
+    $(".substrate_tab a").live 'click', (event) ->
+      $(this).parent().parent().find("img.active").click();
+      
     $('.substrate_tab_edit').live 'click', (event) ->
       side = (if $(this).closest(".object").hasClass("left") then "left" else "right");
       oposite_side = (if side == "left" then "right" else "left");

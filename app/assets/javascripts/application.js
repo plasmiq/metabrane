@@ -34,14 +34,22 @@ function make_images_zoomable() {
     container.find(".notification."+side).removeClass("loaded");
     container.find(".notification."+side).attr("disabled","disabled");
     $(this).addClass("invalid_url");
-    $(this).attr("src","/assets/error_createWrongURL.png");
+    $(this).closest(".object").addClass("invalid_url");
+    $(this).attr("src","/assets/error_createWrongURL.png");    
   });
   $(".substrate_container img").load( function() {
     side = ( $(this).closest(".object").hasClass("left") ? "left" : "right");
     var container = $(this).closest(".container");
     if( $(this).attr("src") != "/assets/error_createWrongURL.png") {
       container.find(".notification."+side).removeAttr("disabled");
+      $(this).removeClass("invalid_url");
+    } 
+    
+    if( ! $(this).hasClass("invalid_url") ) {
+      $(this).closest(".object").removeClass("invalid_url");
     }
+
+   
   });
   $('form.live_update').live( "ajax:before", function(event, data, status, xhr) {
     var container = $(this).closest(".working_pair");
@@ -50,7 +58,6 @@ function make_images_zoomable() {
   });
   $('form.live_update').submit( function(event) {
       if( ! $(this).find("input[type=submit]").hasClass("submit")) {
-      //alert($(this).find("input[type=submit]").attr("class") );
         event.preventDefault();        
         return false;
       }

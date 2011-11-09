@@ -16,6 +16,9 @@
       -moz-border-radius: 4px;
       border-radius: 4px
     }
+    &.invalid_url {
+      border: 0px !important;
+    }
   }
 
 

@@ -128,6 +128,14 @@ $strong_colour: #2e2d2c;
       padding-bottom: 13px;
       position: relative;
       
+      &.invalid_url {
+        background: transparent !important;
+        img {
+          width: auto;
+          height: auto;
+        }
+      }
+      
       .substrate_container {
         display: inline-block;
         margin-left: 27px;
