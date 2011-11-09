@@ -45,19 +45,19 @@
         <% end %> 
       </div>
     </div>
-    <%= form_tag  url_for(:controller => :weaves, :action => :update, :id => pair.id), :remote => true, :method => :put, :class => "live_update" do %>
-      <div class="header">
-        <%= weave_options_tag pair, {:fav => true, :delete => true, :permalink => true} %>
-        
-        <% if pair.older.count > 0 || pair.newer.count > 0 %>
-        <div class="timeline toggles">
-          <a class="timeline_weave <%= 'active' if @home %>"></a>
-          <span class="<%= 'active' if @home %>">view weavement timeline</span>
-        </div>
-        <% end %>
-        
-        <br style="clear: both"/>
+    <div class="header">
+      <%= weave_options_tag pair, {:fav => true, :delete => true, :permalink => true} %>
+      
+      <% if pair.older.count > 0 || pair.newer.count > 0 %>
+      <div class="timeline toggles">
+        <a class="timeline_weave <%= 'active' if @home %>"></a>
+        <span class="<%= 'active' if @home %>">view weavement timeline</span>
       </div>
+      <% end %>
+      
+      <br style="clear: both"/>
+    </div>
+    <%= form_tag  url_for(:controller => :weaves, :action => :update, :id => pair.id), :remote => true, :method => :put, :class => "live_update" do %>
       <div class="content">
         <table>
           <tr>
