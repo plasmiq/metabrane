@@ -109,6 +109,9 @@
         display: block;
         left: 25px;
         top: 0px;
+        &.top, &.bottom {
+          background: transparent !important;
+        }
         .bullet {
           display: block;
           cursor: default;

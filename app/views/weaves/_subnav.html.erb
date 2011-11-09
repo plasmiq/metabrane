@@ -5,6 +5,8 @@
     <a class="position"></a>
   </div>
   <div class="metatags">
+    <div class="metatag top">
+    </div>
     <% metatags.each do |metatag| %>
       <div class="metatag metatag_<%= metatag.id %>">
         <div class="relation">
@@ -14,6 +16,8 @@
         <%= weave_options_tag metatag, {:fav => true} %>
       </div>
     <% end %>
+    <div class="metatag bottom">
+    </div>
   </div>
   <div class="vertical_navigation">
     <a class="up"></a>
