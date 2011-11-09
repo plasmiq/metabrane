@@ -3,6 +3,7 @@ var currentPage = 1;
 function checkScroll() {
   if (nearBottomOfPage()) {
     currentPage++;
+    $(".weaves_loader").fadeIn();
     $.get( $(".endless").attr("data-action")+".js?page="+currentPage );
   } else {
     setTimeout(checkScroll, 250);

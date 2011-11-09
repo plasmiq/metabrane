@@ -15,3 +15,38 @@
   }
 }
 
+.weaves_loader {
+  display: none;
+}
+
+.timeline_end {
+  font-size: 180%;
+  text-align: center;
+  margin: 30px 0 30px 0;
+  color: #2E2D2C;
+
+  position: relative;
+  background: url("btn_scrollUp_loadNew.png") no-repeat 0 0;
+  span {
+    position: relative;
+    top: 10px;
+    font-style: italic;
+  }
+  a {
+    display: block;
+    position: absolute;
+    top: 0px;
+    right: 40px;
+    width: 53px;
+    height: 37px;
+    background: url("btn_beginningCreateWeave.png") no-repeat 0 0;
+    &:hover {
+      background-position: -53px 0;
+    }
+  }
+  img {
+    position: absolute;
+    top: 20px;
+    right: 43px;
+  }
+}
