@@ -10,15 +10,22 @@ img {
 }
 
 a {
+  outline: none;
   cursor: pointer;
   img {
     border: 0px;
   }
 }
 
+a:active {
+  outline: none;
+}
+
 em {
   color: #E03333;
 }
+
+* { outline: none; }
 
 body {
   margin: 0;
