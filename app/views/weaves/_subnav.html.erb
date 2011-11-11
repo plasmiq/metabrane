@@ -5,8 +5,10 @@
     <a class="position"></a>
   </div>
   <div class="metatags">
-    <div class="metatag top">
-    </div>
+    <% if metatags.size > 3  %>
+      <div class="metatag top">
+      </div>
+    <% end %>
     <% metatags.each do |metatag| %>
       <div class="metatag metatag_<%= metatag.id %>">
         <div class="relation">
@@ -16,12 +18,16 @@
         <%= weave_options_tag metatag, {:fav => true} %>
       </div>
     <% end %>
-    <div class="metatag bottom">
+    <% if metatags.size > 3 %>
+      <div class="metatag bottom">
+      </div>
+    <% end %>
+  </div>
+  <% if metatags.size > 3 %>
+    <div class="vertical_navigation">
+      <a class="up"></a>
+      <a class="home" data-target=".metatag_<%= home.id %>"></a>
+      <a class="down"></a>
     </div>
-  </div>
-  <div class="vertical_navigation">
-    <a class="up"></a>
-    <a class="home" data-target=".metatag_<%= home.id %>"></a>
-    <a class="down"></a>
-  </div>
+  <% end %>
 </div>

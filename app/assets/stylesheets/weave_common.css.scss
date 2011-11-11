@@ -161,12 +161,14 @@ $strong_colour: #2e2d2c;
     background: url("input_metatagWeave.png") no-repeat 0 0;
     margin: 0 auto;
     
+    
     .working_pair_relation, .working_pair_relation input {
       font-size: 32px;
       color: $strong_colour;
       border: 0px;
       position: relative;
       top: -5px;
+      left: 15px;   
       padding: 0 10px;
       width: 50px;
       text-align: center;
@@ -195,7 +197,10 @@ $strong_colour: #2e2d2c;
       }
     }
     .more_relations {
-      background-position: 0px -204px;      
+      background-position: 0px -204px;   
+      &.hidden {
+        display: none;
+      }   
     }
     
     .hide_relations {
@@ -204,6 +209,9 @@ $strong_colour: #2e2d2c;
     
     .submit {
       background-position: -51px -51px !important;
+      &.hidden {
+        display: block !important;
+      }   
     }
     
     .submit_weave {

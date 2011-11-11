@@ -79,7 +79,7 @@
           <%= text_field(:working_pair, :relation, :value => pair.relation, :class => "working_pair_relation", :disabled => true, :id => nil, :autocomplete => "off") %>
           <a class="edit_relation"></a>
         </span>
-        <%= submit_tag("", :class => "button more_relations"); %>
+        <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.entangeled_weaves.size == 1}"); %>
       </div>
       <div class="horizontal_navigation <%= 'active' if @home %>">
         <% if pair.older.count > 0%>

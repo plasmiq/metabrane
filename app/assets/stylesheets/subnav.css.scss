@@ -115,13 +115,12 @@
         .bullet {
           display: block;
           cursor: default;
-          position: relative;
+          position: absolute;
           top: 11px;
           left: 38px;
           width: 15px;
           height: 15px;
           background: url("subnav_bullet.png") 0 0 no-repeat;
-          float: left;
         }
         .relation {
           display: block;
@@ -132,7 +131,7 @@
         }
         .timestamp {
           position: absolute;
-          right: 35px;
+          right: 40px;
           top: 10px;
           font-size: 13px;
           margin-top: 5px;

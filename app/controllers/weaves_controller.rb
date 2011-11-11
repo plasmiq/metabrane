@@ -75,9 +75,15 @@ class WeavesController < ApplicationController
     @wp.relation = params[:working_pair][:relation]
      
     old.status = WorkingPair::TWEAKED
-    old.save
-    @wp.save
-    
+   
+    unless old.relation == @wp.relation
+      old.save
+      
+      @wp.save
+    else 
+      @wp = old
+    end
+     
     @home_id = params[:working_pair][:home_id] || old.id
     
     respond_to do |format|  
