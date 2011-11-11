@@ -82,7 +82,7 @@
         <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.entangeled_weaves.size == 1}"); %>
       </div>
       <div class="horizontal_navigation <%= 'active' if hnav %>">
-      <%= direction %>
+
         <% if home %>
           <% if home.older.count + direction >= 1 %>
             <%= link_to content_tag(:span, home.older.count + direction ),

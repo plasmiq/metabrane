@@ -34,7 +34,11 @@ class WeavesController < ApplicationController
     if params[:direction]    
       @direction = params[:direction].to_i
       unless @direction == 0
-        @wp = @home.older.offset(-1*@direction - 1).first    
+        if -1*@direction - 1 >= 0
+          @wp = @home.older.offset(-1*@direction - 1).first    
+        else
+          @wp = @home.newer.offset(@direction - 1).first    
+        end
       else
         @wp = @home
       end
