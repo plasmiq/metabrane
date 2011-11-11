@@ -48,7 +48,7 @@ $(document).ready ->
     down = subnav.find(".down")
     up.removeClass("disabled")
     down.removeClass("disabled")
-    if( fromTop <= h ) 
+    if( fromTop < h ) 
       up.addClass("disabled");
     if( fromTop >= ( h * (count-3)) )
       down.addClass("disabled");
