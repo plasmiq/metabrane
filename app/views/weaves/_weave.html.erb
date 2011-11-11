@@ -97,14 +97,14 @@
             :id => "newerthan_#{home_id}"
           %>
         <% end %>
-        <% if @home and @home != pair %>
+        <% if home_id and home_id != pair.id %>
           <%= link_to content_tag(:span, ""),
-            {:controller => :weaves, :action => :show, :id => @home.id },
+            {:controller => :weaves, :action => :show, :id => home_id },
             :remote => true,
             :class => "homebutton",
             :id => "hometo_#{home_id}"
           %>
-          <%= hidden_field_tag "working_pair[home_id]", @home.id %>
+          <%= hidden_field_tag "working_pair[home_id]", home_id %>
         <% end %>
       </div>
     <% end %>
