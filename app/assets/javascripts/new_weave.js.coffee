@@ -32,7 +32,8 @@ $(document).ready ->
       side = (if $(this).hasClass("left") then "left" else "right");
       oposite_side = (if side == "left" then "right" else "left");
       $(".content").animate( { left: 0 }, { duration: 'slow' });
-      $(".substrate_container img."+side).attr("src","");
+      #$(".substrate_container img."+side).attr("src","");
+      $(".substrate_container img."+side).fadeOut();
       $(".substrate_url."+side).show("slide",{direction: side}, 500);
       $(".image_url."+side).attr("value","");
       $(".notification."+side).removeClass("loaded");
