@@ -63,4 +63,35 @@ function make_images_zoomable() {
       return false;
     }
   });
+  
+  $('.metatags').scroll( function() {
+    var subnav = $(this).closest(".subnav");
+    var metatags = subnav.find(".metatags"); 
+    var fromTop = metatags.scrollTop()
+
+    var count = subnav.find(".metatag").size();
+    var gauge = subnav.find(".gauge")
+    var position = subnav.find(".position")
+    
+    var h = subnav.find(".metatag").first().height()
+    var percentage = 0.5
+    if( count <= 3 ) {
+      percentage = 0.5
+    } else {
+      percentage = (fromTop+h)/((count-1)*h);
+    } 
+    
+    position.css("top", 12 + percentage * (gauge.height()-87) );
+    
+    var up = subnav.find(".up")
+    var down = subnav.find(".down")
+    up.removeClass("disabled")
+    down.removeClass("disabled")
+    if( fromTop < h ) {
+      up.addClass("disabled");
+    }
+    if( fromTop >= ( h * (count-3)) ) {
+      down.addClass("disabled");
+    }
+ });
 }

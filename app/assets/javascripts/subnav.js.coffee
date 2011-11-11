@@ -26,31 +26,5 @@ $(document).ready ->
     location = home.height() * (index-1);
     metatags.scrollTo({ top: location, left: '+=0px' }, 800);
     
-  $('.metatags').scroll ->
-    subnav = $(this).closest(".subnav");
-    metatags = subnav.find(".metatags"); 
-    fromTop = metatags.scrollTop()
-
-    count = subnav.find(".metatag").size();
-    gauge = subnav.find(".gauge")
-    position = subnav.find(".position")
-    
-    h = subnav.find(".metatag").first().height()
-    percentage = 0.5
-    if( count <= 3 ) 
-      percentage = 0.5
-    else
-      percentage = (fromTop+h)/((count-1)*h);
-    
-    position.css("top", 12 + percentage * (gauge.height()-87) );
-    
-    up = subnav.find(".up")
-    down = subnav.find(".down")
-    up.removeClass("disabled")
-    down.removeClass("disabled")
-    if( fromTop < h ) 
-      up.addClass("disabled");
-    if( fromTop >= ( h * (count-3)) )
-      down.addClass("disabled");
     
   $('.subnav .metatags').scrollTop("0px");
