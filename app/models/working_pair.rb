@@ -38,7 +38,7 @@ class WorkingPair < ActiveRecord::Base
   end
   
   def entangled
-    WorkingPair.where( "relation = ?", relation )
+    WorkingPair.where( "relation = ? or (substrate1_id = ? or substrate2_id = ?) or (substrate1_id = ? or substrate2_id = ?)", relation, substrate1.id, substrate2.id, substrate1.id, substrate2.id)
   end
   
   def older 

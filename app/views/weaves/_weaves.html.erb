@@ -1,6 +1,6 @@
 <% weaves.each do |weave| %>
   <div class="container" id="container_<%= weave.id %>">
-  <%= render :partial => "weaves/weave", :locals => {:pair => weave, :home_id => weave.id} %>
+  <%= render :partial => "weaves/weave", :locals => {:pair => weave, :home => weave, :hnav => false, :direction => 0} %>
   </div>
 <% end %> 
 <div class="timeline_end weaves_loader">

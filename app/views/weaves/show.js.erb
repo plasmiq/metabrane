@@ -1,4 +1,4 @@
-var data = "<%= escape_javascript( render( :partial => "weaves/weave", :locals => {:pair => @wp, :home_id => @home.id} ) )%>";
+var data = "<%= escape_javascript( render( :partial => "weaves/weave", :locals => {:pair => @wp, :home => @home, :direction => @direction, :hnav => true } ) )%>";
 var container = $("#container_<%= @home.id %>");
 container.html(data);
 container.find(".working_pair").children().fadeOut(0);

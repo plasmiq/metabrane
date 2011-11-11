@@ -12,8 +12,8 @@
             <textarea class="image_url left typein"  name="substrate[url]"><%= pair.substrate1.url %></textarea>
             <input type="submit" value="" class="notification left" />
             <%= hidden_field_tag "weave_id", pair.id %>
-            <% if @home %>
-              <%= hidden_field_tag "home_id", @home.id %>
+            <% if home %>
+              <%= hidden_field_tag "home_id", home.id %>
             <% end %>
           <% end %>
         </div>
@@ -22,8 +22,8 @@
             <textarea class="image_url right typein" name="substrate[url]"><%= pair.substrate2.url %></textarea>
             <input type="submit" value="" class="notification right" />
             <%= hidden_field_tag "weave_id", pair.id %>
-            <% if @home %>
-              <%= hidden_field_tag "home_id", @home.id %>
+            <% if home %>
+              <%= hidden_field_tag "home_id", home.id %>
             <% end %>
           <% end %>
         </div>
@@ -50,8 +50,8 @@
       
       <% if pair.older.count > 0 || pair.newer.count > 0 %>
       <div class="timeline toggles">
-        <a class="timeline_weave <%= 'active' if @home %>"></a>
-        <span class="<%= 'active' if @home %>">view weavement timeline</span>
+        <a class="timeline_weave <%= 'active' if hnav %>"></a>
+        <span class="<%= 'active' if hnav %>">view weavement timeline</span>
       </div>
       <% end %>
       
@@ -81,30 +81,34 @@
         </span>
         <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.entangeled_weaves.size == 1}"); %>
       </div>
-      <div class="horizontal_navigation <%= 'active' if @home %>">
-        <% if pair.older.count > 0%>
-          <%= link_to content_tag(:span, pair.older.count),
-            {:controller => :weaves, :action => :show, :id => pair.id, :direction => -1, :home_id => home_id },
-            :remote => true,
-            :class => "timearrow leftarrow",
-            :id => "olderthan_#{home_id}" %>
+      <div class="horizontal_navigation <%= 'active' if hnav %>">
+      <%= direction %>
+        <% if home %>
+          <% if home.older.count + direction >= 1 %>
+            <%= link_to content_tag(:span, home.older.count + direction ),
+              {:controller => :weaves, :action => :show, 
+                :id => home.id, :direction => direction - 1 , :home_id => home.id },
+              :remote => true,
+              :class => "timearrow leftarrow"
+            %>
+          <% end %>
+          <% if home.newer.count - direction >=  1 %>
+            <%= link_to content_tag(:span, home.newer.count - direction ),
+              {:controller => :weaves, :action => :show, 
+                :id => home.id, :direction => direction + 1, :home_id => home.id },
+              :remote => true,
+              :class => "timearrow rightarrow"
+            %>
+          <% end %>
         <% end %>
-        <% if pair.newer.count > 0%>
-          <%= link_to content_tag(:span, pair.newer.count),
-            {:controller => :weaves, :action => :show, :id => pair.id, :direction => 1, :home_id => home_id },
-            :remote => true,
-            :class => "timearrow rightarrow",
-            :id => "newerthan_#{home_id}"
-          %>
-        <% end %>
-        <% if home_id and home_id != pair.id %>
+        <% if home.id != pair.id %>
           <%= link_to content_tag(:span, ""),
-            {:controller => :weaves, :action => :show, :id => home_id },
+            {:controller => :weaves, :action => :show, :id => home.id },
             :remote => true,
             :class => "homebutton",
-            :id => "hometo_#{home_id}"
+            :id => "hometo_#{home.id}"
           %>
-          <%= hidden_field_tag "working_pair[home_id]", home_id %>
+          <%= hidden_field_tag "working_pair[home_id]", home.id %>
         <% end %>
       </div>
     <% end %>

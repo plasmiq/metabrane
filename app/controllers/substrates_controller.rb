@@ -12,7 +12,7 @@ class SubstratesController < ApplicationController
       @wp.save
     end
     
-    @home_id = params[:home_id] || @wp.id
+    @home = WorkingPair.find(params[:home_id]) || @wp
     
     respond_to do |format|  
       format.html

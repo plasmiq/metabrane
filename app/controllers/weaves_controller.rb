@@ -26,13 +26,19 @@ class WeavesController < ApplicationController
     id = params[:id].to_i
     @wp = WorkingPair.find(id)
     @home = @wp
+    @direction = 0
         
     home_id = params[:home_id].to_i
     @home = WorkingPair.find( home_id ) if home_id > 0
         
-    direction = params[:direction].to_i
-    @wp = @wp.newer.first if direction == 1
-    @wp = @wp.older.first if direction == -1
+    if params[:direction]    
+      @direction = params[:direction].to_i
+      unless @direction == 0
+        @wp = @home.older.offset(-1*@direction - 1).first    
+      else
+        @wp = @home
+      end
+    end
   end
   
   def favorite
@@ -84,7 +90,8 @@ class WeavesController < ApplicationController
       @wp = old
     end
      
-    @home_id = params[:working_pair][:home_id] || old.id
+    home_id = params[:working_pair][:home_id] || old.id
+    @home = WorkingPair.find_by_id(home_id)
     
     respond_to do |format|  
       format.html { redirect_to( :action => :show, :id => @wp.id ) }  
