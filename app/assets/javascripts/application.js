@@ -63,5 +63,4 @@ function make_images_zoomable() {
       return false;
     }
   });
-  $(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
 }
