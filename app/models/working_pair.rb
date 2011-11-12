@@ -51,7 +51,7 @@ class WorkingPair < ActiveRecord::Base
   end
   
   def weaves_with_same_substrates
-    WorkingPair.same_substrates(substrate1, substrate2).order("created_at DESC")
+    WorkingPair.same_substrates(substrate1, substrate2).order("created_at ASC")
   end
   
   def entangled
