@@ -28,7 +28,8 @@ $(document).ready ->
       weave.find(".subnav").slideDown("slow","linear");
       weave.animate( { height: "879px" }, {duration: "slow"} );
       weave.find(".metatags").scroll();
-      new Home( weave.find(".home") )
+      new Home( weave.find(".gauge .home") )
+      weave.find(".vertical_navigation .home").click()
   
   $(".timestamp span.info").live "click", (event) -> 
     link = $(this);

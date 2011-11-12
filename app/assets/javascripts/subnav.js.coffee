@@ -25,6 +25,3 @@ $(document).ready ->
     index = metatags.find(".metatag").index(home);
     location = home.height() * (index-1);
     metatags.scrollTo({ top: location, left: '+=0px' }, 800);
-    
-    
-  $('.subnav .metatags').scrollTop("0px");
