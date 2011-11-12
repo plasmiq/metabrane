@@ -16,7 +16,7 @@ class WeavesController < ApplicationController
     @wp.substrate2 = s2
     
     if @wp.save  
-      redirect_to '/'
+      redirect_to :action => :index
     else 
       render :new
     end
@@ -60,11 +60,18 @@ class WeavesController < ApplicationController
   def index 
     @page = params[:page] || 1
     @per_page = 4
-    @weaves = WorkingPair.recent.paginate(:page => @page, :per_page => @per_page, :group => "substrate1_id, substrate2_id")
+    weaves = WorkingPair.newest.group("substrate1_id, substrate2_id").paginate(:page => @page, :per_page => @per_page)
+    @weaves = weaves.map do |w| 
+      if params[:order] == "oldest"
+        WorkingPair.same_substrates(w.substrate1, w.substrate2).oldest.first
+      else
+        WorkingPair.same_substrates(w.substrate1, w.substrate2).newest.first
+      end
+    end
   end
   
   def favorites 
-    @weaves = WorkingPair.favorited.recent
+    @weaves = WorkingPair.favorited.newest
     render "index"
   end
   

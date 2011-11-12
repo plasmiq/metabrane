@@ -155,6 +155,7 @@ menu {
 }
 
 #content {
+  position: relative;
   @include full_width;
 }
 

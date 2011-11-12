@@ -37,7 +37,7 @@
     <h1><a href="/"><span>Metabrane.co</span></a></h1>
     <ul>
       <li>
-        <%= menu_element "l_live_infowave", "Live Infowave", "/" %>
+        <%= menu_element "l_live_infowave", "Live Infowave", weaves_path %>
       </li>
       <li>
         <%= menu_element "l_your_weaves", "Your Weaves", {:controller => 'weaves', :action => 'favorites'} %>
@@ -46,6 +46,18 @@
         <%= menu_element "l_create_weaves", "Create Weaves", {:controller => 'weaves', :action => "new"} %>
       </li>
     </ul>
+    <% if current_page?(weaves_path) %>
+      <div id="submenu">
+        <%= select_tag "metatags_sorting", options_for_select(
+          {
+            "SORT BY NEWEST METATAGS"  => "newest",
+            "SORT BY LASTEST METATAGS" => "oldest"
+          }, params[:order]
+        ), :class => "sorting_select" %>
+        <%= link_to "newest", weaves_path(:order => "newest"), :class => "metatags_sorting newest" %>
+        <%= link_to "oldest", weaves_path(:order => "oldest"), :class => "metatags_sorting  oldest" %>
+      </div>
+    <% end %> 
     <div id="tagline"><h2><span>Weave a thread between ...</span></h2></div>
   </div>
 </menu>

@@ -5,7 +5,9 @@ class WorkingPair < ActiveRecord::Base
   
   validates :relation, :presence => true
   
-  scope :recent, order("working_pairs.updated_at DESC")
+  scope :newest, order("working_pairs.created_at DESC")
+  scope :oldest, order("working_pairs.created_at ASC")
+  
   scope :favorited, lambda { 
     includes(:favorites)
     .where("favorites.working_pair_id = working_pairs.id") 

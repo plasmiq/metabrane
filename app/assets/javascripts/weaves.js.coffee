@@ -4,6 +4,14 @@
 
 
 $(document).ready -> 
+  $("#metatags_sorting").selectmenu( {
+    style:'dropdown'
+  });
+  $("#metatags_sorting").change ->
+    value = $(this).val();
+    window.location = $(".metatags_sorting."+value).attr("href");
+    return false;
+
   make_images_zoomable();
   
   hide_relations = (event) ->

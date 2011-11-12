@@ -2,6 +2,23 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.metatags_sorting {
+  display: none;
+}
+
+#metatags_sorting, .sorting_select {
+  margin: 15px 0 0 40px;
+  font-size: 11px;
+  width: 240px;
+  z-index: 200;
+  
+}
+
+.ui-selectmenu-menu {
+  z-index: 200 !important;
+}
+
+
 #home_button {
   width: 48px;
   height: 48px;
