@@ -10,14 +10,12 @@ class WorkingPair < ActiveRecord::Base
     includes(:favorites)
     .where("favorites.working_pair_id = working_pairs.id") 
   }
-  
   scope :same_substrates, lambda { |substrate1, substrate2|
     where( 
       "((substrate1_id = ?) and (substrate2_id = ?)) or ((substrate1_id = ?) and (substrate2_id = ?))",
       substrate1.id, substrate2.id, substrate2.id, substrate1.id
     )
   }
-  
   scope :entangled, lambda { |metatag,*substrates|
     t = WorkingPair.arel_table
     where( 
@@ -25,6 +23,12 @@ class WorkingPair < ActiveRecord::Base
       .or( t[:substrate1_id].in( substrates ) )
       .or( t[:substrate2_id].in( substrates ) ) 
     )
+  }
+  scope :older_than, lambda { |data,column = 'created_at'| 
+    where( "#{column} < ?", data ).order("#{column} DESC")
+  }
+  scope :newer_than, lambda { |data,column = 'created_at'|
+    where( "#{column} > ?", data ).order("#{column} ASC")
   }
   
   CREATED    = 1
@@ -47,7 +51,7 @@ class WorkingPair < ActiveRecord::Base
   end
   
   def weaves_with_same_substrates
-    WorkingPair.same_substrates(substrate1, substrate2).order("updated_at DESC")
+    WorkingPair.same_substrates(substrate1, substrate2).order("created_at DESC")
   end
   
   def entangled
@@ -55,10 +59,10 @@ class WorkingPair < ActiveRecord::Base
   end
   
   def older 
-    entangled.where( "updated_at < ?",updated_at ).order("updated_at DESC")
+    entangled.older_than( created_at, "created_at" )
   end
   
   def newer
-    entangled.where( "updated_at > ?",updated_at ).order("updated_at ASC")
+    entangled.newer_than( created_at, "created_at" )
   end
 end
