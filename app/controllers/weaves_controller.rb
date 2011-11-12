@@ -16,7 +16,7 @@ class WeavesController < ApplicationController
     @wp.substrate2 = s2
     
     if @wp.save  
-      redirect_to :action => :index
+      redirect_to '/'
     else 
       render :new
     end
