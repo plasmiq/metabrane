@@ -28,6 +28,7 @@ function make_images_zoomable() {
     } 
   );
   $('.working_pair_relation').autoGrowInput( { maxWidth: 600, comfortZone: 20 } );
+  
   $(".substrate_container img").error( function() {
     side = ( $(this).closest(".object").hasClass("left") ? "left" : "right");
     var container = $(this).closest(".container");
@@ -51,7 +52,7 @@ function make_images_zoomable() {
 
    
   });
-  $('form.live_update').live( "ajax:before", function(event, data, status, xhr) {
+  $('.live_update').live( "ajax:before", function(event, data, status, xhr) {
     var container = $(this).closest(".working_pair");
     container.children().fadeOut("slow");
     container.find(".loader").show();

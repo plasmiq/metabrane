@@ -72,18 +72,30 @@ $(document).ready ->
     .bind "ajax:success", (event, data) ->
       $(this).closest(".container").fadeOut();
   
-  $('.edit_relation').live "click", (event) ->
-      $(this).fadeOut();
-      $(this).removeClass("hide_relations");
-      id = $(this).closest(".working_pair").attr("id").split("_")[2]
-      text_field = $("#working_pair_"+id+" .relation span input")
-      text_field.prop("disabled",false)
-      text_field.addClass("active")
-      text_field.focus()
-      submit = $("#working_pair_"+id+" .relation .button")
-      submit.addClass("submit")
-      #$("body").addClass("busy");
-      #$("body").attr("data-trigged-by", "#working_pair_"+id)
+  $('.container .working_pair_relation').live "focus", (event) ->
+    button = $(this).parent().find('.edit_relation');
+    if( ! button.hasClass("cancel") ) 
+      #alert("test");
+      $(this).blur();
+  
+  $('.container .edit_relation, .container .working_pair_relation').live "click", (event) ->
+    button = $(this).parent().find('.edit_relation');
+    id = button.closest(".working_pair").attr("id").split("_")[2]
+    text_field = $("#working_pair_"+id+" .relation span input")
+    submit = $("#working_pair_"+id+" .relation .button")
+    if( ! button.hasClass("cancel") ) 
+      button.addClass("cancel");
+      button.removeClass("hide_relations");
+      text_field.addClass("active");
+      text_field.focus();
+      submit.addClass("submit");
+    else
+      button.removeClass("cancel");
+      button.addClass("hide_relations");
+      text_field.removeClass("active");
+      text_field.blur();
+      submit.removeClass("submit");
+  
 
   
   #$("body.busy").live "click", (event) ->
