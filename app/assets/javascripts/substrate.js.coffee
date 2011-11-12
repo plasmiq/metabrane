@@ -1,5 +1,5 @@
 $(document).ready -> 
-  $(".substrate_container img").live "click", (event) ->
+  $(".container .substrate_container img").live "click", (event) ->
     if( ! $(this).hasClass("invalid_url") )
       img = $(this);
       tab = img.parent().find(".substrate_tab");
@@ -53,20 +53,20 @@ $(document).ready ->
     side = (if $(this).hasClass("left") then "left" else "right");
     oposite_side = (if side == "left" then "right" else "left");
     direction = (if (side == "left") then 1 else -1);
-    
-    
+        
     container = $(this).closest(".container")
     object = container.find(".object."+side);
+    img = object.find(".substrate_container img")
+    notification = container.find(".notification."+side)
     
     if((this.value.match(exp))) 
       match = exp.exec(this.value);
-      object.find(".substrate_container img").attr( "src", this.value);
-      container.find(".notification."+side).removeClass("invalid");
-      container.find(".notification."+side).addClass("loaded");
-      #container.find(".notification."+side).removeAttr('disabled');
+      img.attr( "src", this.value);
+      img.addClass("new")
+      notification.removeClass("invalid");
+      notification.addClass("loaded");
     else
-      object.find(".substrate_container img").attr( "src", "");
-      container.find(".notification."+side).addClass("invalid");
-      container.find(".notification."+side).removeClass("loaded");
-      #container.find(".notification."+side).attr('disabled', "disabled");
-     
+      img.attr( "src", "");
+      img.removeClass("new")
+      notification.addClass("invalid");
+      notification.removeClass("loaded");

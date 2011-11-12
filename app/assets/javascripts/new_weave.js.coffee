@@ -58,8 +58,10 @@ $(document).ready ->
       if((this.value.match(exp))) 
         match = exp.exec(this.value);
         $("#new_"+img).attr( "src", this.value);
+        $("#new_"+img).addClass("new");
         $("#notification_"+img).removeClass("invalid");
       else
+        $("#new_"+img).removeClass("new");
         $("#new_"+img).attr( "src", "");
         $("#notification_"+img).addClass("invalid");
         $("#notification_"+img).removeClass("loaded"); 

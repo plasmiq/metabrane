@@ -95,27 +95,3 @@ $(document).ready ->
       text_field.removeClass("active");
       text_field.blur();
       submit.removeClass("submit");
-  
-
-  
-  #$("body.busy").live "click", (event) ->
-  #  src = $("body").attr("data-trigged-by")
-  #  weave = $(src)
-  #  relation = weave.find(".relation")
-  #  relation.click (e) ->
-  #    if (!e) 
-  #      e = window.event;
-	#    e.cancelBubble = true;
-	#    if (e.stopPropagation) 
-	#      e.stopPropagation();
-  #  edit_button = weave.find(".edit_relation");
-  #  edit_button.fadeIn();
-  #  edit_button.addClass("hide_relations")
-  #  field = weave.find(".relation span input")
-  #  field.prop("disabled",true)
-  #  field.removeClass("active")
-  #  submit = weave.find(".relation .button")
-  #  submit.removeClass("submit")
-  #  
-  #  $("body").attr("data-trigged-by","")
-  #  $(this).removeClass("busy")
