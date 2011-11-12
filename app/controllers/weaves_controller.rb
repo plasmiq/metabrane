@@ -58,7 +58,7 @@ class WeavesController < ApplicationController
   def index 
     @page = params[:page] || 1
     @per_page = 4
-    @weaves = WorkingPair.recent.paginate(:page => @page, :per_page => @per_page)
+    @weaves = WorkingPair.recent.paginate(:page => @page, :per_page => @per_page, :group => "substrate1_id, substrate2_id")
   end
   
   def favorites 
@@ -84,10 +84,9 @@ class WeavesController < ApplicationController
     
     @wp.relation = params[:working_pair][:relation]
      
-    old.status = WorkingPair::TWEAKED
-   
     unless old.relation == @wp.relation
-      old.save
+      #old.status = WorkingPair::TWEAKED
+      #old.save
       
       @wp.save
     else 
