@@ -49,10 +49,18 @@
       <%= weave_options_tag pair, {:fav => true, :delete => true, :permalink => true} %>
       
       <% if pair.older.count > 0 || pair.newer.count > 0 %>
-      <div class="timeline toggles">
-        <a class="timeline_weave <%= 'active' if hnav %>"></a>
-        <span class="<%= 'active' if hnav %>">view weavement timeline</span>
-      </div>
+        <div class="timeline toggles">
+          <a class="timeline_weave <%= 'active' if hnav %>"></a>
+          <span class="<%= 'active' if hnav %>">view weavement timeline</span>
+        </div>
+        <% unless pair == home %>
+        <div class="newhome toggles">
+           <%= link_to content_tag(:span, raw("become&nbsp;home") ),
+            {:controller => :weaves, :action => :show, :id => pair.id,  :container_id => home.id  },
+            :remote => true, :class => "live_update"
+          %>
+        </div>
+        <% end %>
       <% end %>
       
       <br style="clear: both"/>
@@ -101,16 +109,16 @@
             %>
           <% end %>
         <% end %>
-        <% if home.id != pair.id %>
-          <%= link_to content_tag(:span, ""),
-            {:controller => :weaves, :action => :show, :id => home.id },
-            :remote => true,
-            :class => "homebutton",
-            :id => "hometo_#{home.id}"
-          %>
-          <%= hidden_field_tag "working_pair[home_id]", home.id %>
-        <% end %>
       </div>
+      <% if home.id != pair.id %>
+        <%= link_to content_tag(:span, ""),
+          {:controller => :weaves, :action => :show, :id => home.id },
+          :remote => true,
+          :class => "homebutton",
+          :id => "hometo_#{home.id}"
+        %>
+        <%= hidden_field_tag "working_pair[home_id]", home.id %>
+      <% end %>
     <% end %>
   </div>
   <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.weaves_with_same_substrates, :home => pair} %>

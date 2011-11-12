@@ -1,7 +1,10 @@
 var data = "<%= escape_javascript( render( :partial => "weaves/weave", :locals => {:pair => @wp, :home => @home, :direction => @direction, :hnav => true } ) )%>";
-var container = $("#container_<%= @home.id %>");
+var container = $("#container_<%= @container_id %>");
 container.html(data);
 container.find(".working_pair").children().fadeOut(0);
 container.find(".working_pair").children().fadeIn(1000);
 container.find(".working_pair .loader").hide();
 make_images_zoomable();
+if( "<%= @container_id %>" != "<%= @home.id %>" ) {
+  container.attr("id","container_<%= @wp.id %>");
+}

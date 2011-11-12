@@ -75,6 +75,27 @@ $strong_colour: #2e2d2c;
   }
 }
 
+.newhome {
+  padding-left: 30px;
+  float: left;
+  span {
+    color: #939393;
+    font-size: 14px;
+    position: relative;
+    top: 2px;
+    left: 25px;
+  }
+  a {
+    text-decoration: none;
+    float: left;
+    left: 5px;
+    background-position: -40px -20px;
+    &:hover {
+      background-position: -40px -20px;
+    }
+  }
+}
+
 .timestamp {
   float: right;  
   span {

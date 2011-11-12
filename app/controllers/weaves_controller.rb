@@ -30,6 +30,8 @@ class WeavesController < ApplicationController
         
     home_id = params[:home_id].to_i
     @home = WorkingPair.find( home_id ) if home_id > 0
+    @container_id = params[:container_id] || @home.id
+        
         
     if params[:direction]    
       @direction = params[:direction].to_i
