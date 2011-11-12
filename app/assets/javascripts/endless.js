@@ -4,7 +4,9 @@ function checkScroll() {
   if (nearBottomOfPage()) {
     currentPage++;
     $(".weaves_loader").fadeIn();
-    $.get( $(".endless").attr("data-action")+".js?page="+currentPage );
+    var select = $("#metatags_sorting");
+    var order = select.val();
+    $.get( $(".endless").attr("data-action")+".js?page="+currentPage+"&order="+order );
   } else {
     setTimeout(checkScroll, 250);
   }
