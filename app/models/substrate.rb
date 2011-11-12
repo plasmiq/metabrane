@@ -5,7 +5,7 @@ class Substrate < ActiveRecord::Base
   has_many :working_pair
   
   has_attached_file :image,
-    :styles => { :poster => "229x" }
+    :styles => { :poster => "316x332" }
 
   def picture_from_url(url)
     self.image = open(url)

@@ -121,13 +121,12 @@ $strong_colour: #2e2d2c;
     }
     
     .object {
-      width: 356px;
       background: url("object_shadow.png") no-repeat;
       background-position: center bottom;  
       text-align: center;
       padding-bottom: 13px;
       position: relative;
-      
+      background-size: 100% auto;
       &.invalid_url {
         background: transparent !important;
         img {

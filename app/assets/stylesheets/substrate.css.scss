@@ -2,11 +2,11 @@
 
 .substrate_container {
   img {
-    width: 229px;
     border: 3px solid transparent;
     float: left;
     margin-right: 30px;
     cursor: pointer;
+    width: 316px;
     &.active {
       margin-right: 0px;
     }
