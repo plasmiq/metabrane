@@ -79,7 +79,7 @@
           <%= text_field(:working_pair, :relation, :value => pair.relation, :class => "working_pair_relation", :disabled => true, :id => nil, :autocomplete => "off") %>
           <a class="edit_relation"></a>
         </span>
-        <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.entangeled_weaves.size == 1}"); %>
+        <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.weaves_with_same_substrates.size == 1}"); %>
       </div>
       <div class="horizontal_navigation <%= 'active' if hnav %>">
 
@@ -113,5 +113,5 @@
       </div>
     <% end %>
   </div>
-  <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.entangeled_weaves, :home => pair} %>
+  <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.weaves_with_same_substrates, :home => pair} %>
 </div>
