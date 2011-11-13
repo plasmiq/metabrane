@@ -1,4 +1,20 @@
 module WeavesHelper
+  def weave_remote_link text, target, options = {}
+    home_id = options[:home].id if options[:home] 
+    container_id = options[:container].id if options[:container]
+    link_to content_tag(:span, text),
+      { 
+        :controller => :weaves, 
+        :action => :show, 
+        :id => target.id,
+        :direction => options[:direction], 
+        :home_id => home_id,
+        :container_id => container_id
+      },
+      :remote => true,
+      :class => "live_update "+options[:html_class]
+  end
+  
   def weave_timestamp weave 
     timeago = ' ' + time_ago_in_words( weave.updated_at ) + ' ago'
     status = weave.status_name

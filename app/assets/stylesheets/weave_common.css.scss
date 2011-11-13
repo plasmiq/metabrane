@@ -1,6 +1,6 @@
 @import "toggles";
+@import "colours";
 
-$strong_colour: #2e2d2c;
 .working_pair { 
   font-family: 'IM Fell DW Pica', serif;
   background: url("weavement_cell.png") no-repeat 0 0;
@@ -89,7 +89,7 @@ $strong_colour: #2e2d2c;
         padding: 0 6px;
         padding-top: 24px;
         font-size: 26px;
-        color: #2e2d2e;
+        color: $dark;
         width: 265px;
         overflow: hidden;
         text-align: left;

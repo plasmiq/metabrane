@@ -10,10 +10,15 @@
       </div>
     <% end %>
     <% metatags.each do |metatag| %>
-      <div class="metatag metatag_<%= metatag.id %>">
+      <div class="metatag metatag_<%= metatag.id %> <%= 'home' if (metatag.id == weave.id) %>">
         <div class="relation">
-          <a class="bullet"></a>
-          <%= metatag.relation %>
+         <% unless (metatag.id == weave.id) %>
+         <%= weave_remote_link distance_from_home(metatags, metatag, weave) ,
+           metatag, { :html_class  => 'bullet',:container => home, :html_class => "bullet" } %>
+         <% else %>
+           <a class="bullet"><span>&nbsp;0</span></a>
+         <% end %> 
+         <%= metatag.relation %>
         </div>
         <%= weave_options_tag metatag, {:fav => true} %>
       </div>
@@ -26,7 +31,7 @@
   <% if metatags.size > 3 %>
     <div class="vertical_navigation">
       <a class="up"></a>
-      <a class="home" data-target=".metatag_<%= home.id %>"></a>
+      <a class="home" data-target=".metatag_<%= weave.id %>"></a>
       <a class="down"></a>
     </div>
   <% end %>

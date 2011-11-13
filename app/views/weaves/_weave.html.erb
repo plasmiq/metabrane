@@ -90,36 +90,30 @@
         <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.weaves_with_same_substrates.size == 1}"); %>
       </div>
       <div class="horizontal_navigation <%= 'active' if hnav %>">
-
         <% if home %>
           <% if home.older.count + direction >= 1 %>
-            <%= link_to content_tag(:span, home.older.count + direction ),
-              {:controller => :weaves, :action => :show, 
-                :id => home.id, :direction => direction - 1 , :home_id => home.id },
-              :remote => true,
-              :class => "timearrow leftarrow"
-            %>
+            <%= weave_remote_link home.older.count + direction, home, 
+              { 
+                :home       => home, 
+                :html_class  => 'timearrow leftarrow',
+                :direction  => direction - 1
+              } %>
           <% end %>
           <% if home.newer.count - direction >=  1 %>
-            <%= link_to content_tag(:span, home.newer.count - direction ),
-              {:controller => :weaves, :action => :show, 
-                :id => home.id, :direction => direction + 1, :home_id => home.id },
-              :remote => true,
-              :class => "timearrow rightarrow"
-            %>
+            <%= weave_remote_link home.newer.count - direction, home, 
+              { 
+                :home       => home, 
+                :html_class  => 'timearrow rightarrow',
+                :direction  => direction + 1
+              } %>
           <% end %>
         <% end %>
       </div>
       <% if home.id != pair.id %>
-        <%= link_to content_tag(:span, ""),
-          {:controller => :weaves, :action => :show, :id => home.id },
-          :remote => true,
-          :class => "homebutton",
-          :id => "hometo_#{home.id}"
-        %>
+        <%= weave_remote_link "", home, {:html_class => 'homebutton'} %>
         <%= hidden_field_tag "working_pair[home_id]", home.id %>
       <% end %>
     <% end %>
   </div>
-  <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.weaves_with_same_substrates, :home => pair} %>
+  <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.weaves_with_same_substrates, :weave => pair, :home => home} %>
 </div>

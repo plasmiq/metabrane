@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "colours";
+
 .metatags_sorting {
   display: none;
 }
@@ -40,7 +42,7 @@
   font-size: 180%;
   text-align: center;
   margin: 30px 0 30px 0;
-  color: #2E2D2C;
+  color: $dark;
 
   position: relative;
   background: url("btn_scrollUp_loadNew.png") no-repeat 0 0;

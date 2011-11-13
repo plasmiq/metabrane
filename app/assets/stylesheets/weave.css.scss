@@ -1,4 +1,4 @@
-$strong_colour: #2e2d2c;
+@import "colours";
 
 @mixin toggle($num) {
   $height: 20px;

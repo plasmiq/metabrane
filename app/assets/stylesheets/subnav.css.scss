@@ -1,3 +1,5 @@
+@import "colours";
+
 @mixin opacity() {
   -moz-opacity: 0.30;
   -khtml-opacity: 0.30;
@@ -109,6 +111,18 @@
         display: block;
         left: 25px;
         top: 0px;
+        &.home {
+          .relation {
+            color: $light_grey;
+          }
+          .bullet {
+            background-position: 0px -43px;
+            cursor: default;
+            &:hover {
+              background-position: 0px -43px;
+            }
+          }
+        }
         &.top, &.bottom {
           background: transparent !important;
         }
@@ -116,11 +130,23 @@
           display: block;
           cursor: default;
           position: absolute;
-          top: 11px;
+          top: -2px;
           left: 38px;
-          width: 15px;
-          height: 15px;
-          background: url("subnav_bullet.png") 0 0 no-repeat;
+          width: 30px;
+          height: 43px;
+          background: url("subnav_becomeMetatagButtons.png") 0 0 no-repeat;
+          cursor: pointer;
+          &:hover {
+            background-position: -30px 0px;
+          }
+          span {
+            position: absolute;
+            left: -50px;
+            top: 13px;
+            font-size: 16px;
+            color: $grey;
+            text-decoration: none;
+          }
         }
         .relation {
           display: block;

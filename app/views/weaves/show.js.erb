@@ -1,5 +1,6 @@
 var data = "<%= escape_javascript( render( :partial => "weaves/weave", :locals => {:pair => @wp, :home => @home, :direction => @direction, :hnav => true } ) )%>";
 var container = $("#container_<%= @container_id %>");
+$('html,body').animate({scrollTop: container.offset().top-30},'slow');
 container.html(data);
 container.find(".working_pair").children().fadeOut(0);
 container.find(".working_pair").children().fadeIn(1000);
