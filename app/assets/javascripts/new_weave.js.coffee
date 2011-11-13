@@ -51,7 +51,7 @@ $(document).ready ->
         $(this).addClass("typein");
         $(this).attr("value","");
    
-    $(".image_url").keyup ->
+    $(".image_url").bind 'input keyup change', (event) ->
       exp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
       img = $(this).attr("id").split("_")[2]
       

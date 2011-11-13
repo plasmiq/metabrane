@@ -48,7 +48,7 @@ $(document).ready ->
     container.find(".notification."+side).removeClass("loaded");
     $(this).hide();
     
-  $(".image_url").live "keyup", (event) ->
+  $(".image_url").live "keyup input change", (event) ->
     exp = /(ftp|http|https):\/\/(\w+:{0,1}\w*@)?(\S+)(:[0-9]+)?(\/|\/([\w#!:.?+=&%@!\-\/]))?/; 
     side = (if $(this).hasClass("left") then "left" else "right");
     oposite_side = (if side == "left" then "right" else "left");
