@@ -2,11 +2,13 @@ class WeavesController < ApplicationController
   def create
     @wp = WorkingPair.new(params[:working_pair])
     
-    s1 = Substrate.find_or_initialize_by_url(@wp.image1_url)
+    #s1 = Substrate.find_or_initialize_by_url(@wp.image1_url)
+    s1 = Substrate.new 
     s1.picture_from_url(@wp.image1_url)
     s1.url = @wp.image1_url
     s1.save
-    s2 = Substrate.find_or_initialize_by_url(@wp.image2_url)
+    s2 = Substrate.new
+    #s2 = Substrate.find_or_initialize_by_url(@wp.image2_url)
     s2.picture_from_url(@wp.image2_url)
     s2.url = @wp.image2_url
     s2.save
