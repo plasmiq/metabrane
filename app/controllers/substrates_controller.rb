@@ -1,18 +1,27 @@
 class SubstratesController < ApplicationController
 
   def update
-    @substrate = Substrate.find( params[:id] )
+    @substrate = Substrate.find params[:id]
     @wp = WorkingPair.find(params[:weave_id])
-    url = params[:substrate][:url]
-    if url != @substrate_url
-      @substrate.picture_from_url( url )
-      @substrate.url = url
-      @substrate.save
-      @wp.status = WorkingPair::TWEAKED
-      @wp.save
-    end
-    
     @home = WorkingPair.find(params[:home_id]) || @wp
+    
+    url = params[:substrate][:url]
+    if url != @substrate.url
+      weave = WorkingPair.clone(@wp)
+      
+      substrate = Substrate.new
+      substrate.picture_from_url( url )
+      substrate.url = url
+      substrate.save
+      if weave.substrate1.id == @substrate.id
+        weave.substrate1 = substrate
+      else weave.substrate2.id == @substrate.id
+        weave.substrate2 = substrate
+      end
+      #weave.status = WorkingPair::TWEAKED
+      weave.save
+      @wp = weave
+    end
     
     respond_to do |format|  
       format.html

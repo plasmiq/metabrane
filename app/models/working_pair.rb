@@ -20,13 +20,13 @@ class WorkingPair < ActiveRecord::Base
   }
   scope :related, lambda { |metatag,substrate1,substrate2|
     t = WorkingPair.arel_table
-    substrates = [substrate1.id,substrate2.id]
     where( 
       t[:relation].eq( metatag )
-      .or( t[:substrate1_id].in( substrates ) )
-      .or( t[:substrate2_id].in( substrates ) ) 
-    ).where("substrate1_id != ? and substrate2_id != ?",substrate1.id, substrate2.id)
-    .group_substrates
+      .or( t[:substrate1_id].eq( substrate1.id )
+        .and( t[:substrate2_id].not_eq( substrate2.id ) ) )
+      .or( t[:substrate2_id].in( substrate2.id ) 
+        .and( t[:substrate1_id].not_eq( substrate1.id ) ) )
+    ).group_substrates
   }
   scope :older_than, lambda { |data,column = 'created_at'| 
     where( "#{column} < ?", data ).order("#{column} DESC")
@@ -54,6 +54,16 @@ class WorkingPair < ActiveRecord::Base
     favorites.count > 0
   end
   
+  def substrate_with_id id
+    if (substrate1.id == id) 
+      substrate1 
+    elsif (substrate2.id == id) 
+      substrate2
+    else
+      nil
+    end
+  end
+  
   def metatags
     WorkingPair.same_substrates(substrate1, substrate2).order("created_at ASC")
   end
@@ -68,5 +78,13 @@ class WorkingPair < ActiveRecord::Base
   
   def newer
     related.newer_than( created_at, "created_at" )
+  end
+  
+  def WorkingPair.clone weave
+    new = WorkingPair.new
+    new.substrate1 = weave.substrate1
+    new.substrate2 = weave.substrate2
+    new.relation   = weave.relation
+    new
   end
 end
