@@ -49,7 +49,7 @@ $(document).ready ->
       link.addClass("active") 
       toggles.show();
       
-  $(".timeline").live "hover", (event) ->     
+  $(".timeline, .new_home").live "hover", (event) ->     
     link = $(this);
     elements = link.find("a");
     if( link.find("a").hasClass("hover") )

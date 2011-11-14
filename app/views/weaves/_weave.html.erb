@@ -55,7 +55,7 @@
         </div>
         <% unless pair == home %>
         <div class="newhome toggles">
-           <%= link_to content_tag(:span, raw("become&nbsp;home") ),
+           <%= link_to content_tag(:span, raw("view&nbsp;current&nbsp;as&nbsp;home"), :class => "newhome" ),
             {:controller => :weaves, :action => :show, :id => pair.id,  :container_id => home.id  },
             :remote => true, :class => "live_update"
           %>
