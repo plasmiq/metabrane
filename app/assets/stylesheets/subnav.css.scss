@@ -126,6 +126,12 @@
         &.top, &.bottom {
           background: transparent !important;
         }
+        a.bullet {
+          text-decoration: none;
+          &:hover, &:visited {
+            text-decoration: none;
+          }
+        }
         .bullet {
           display: block;
           cursor: default;
@@ -136,6 +142,7 @@
           height: 43px;
           background: url("subnav_becomeMetatagButtons.png") 0 0 no-repeat;
           cursor: pointer;
+          
           &:hover {
             background-position: -30px 0px;
           }
