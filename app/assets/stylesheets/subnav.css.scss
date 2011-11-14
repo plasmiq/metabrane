@@ -176,6 +176,35 @@
             float: left;
           }
         }
+        .potential {
+          position: absolute;
+          right: 40px;
+          top: 40px;
+          font-size: 16px;
+          color: $grey;
+          font-style: italic;
+          height: 25px;
+          overflow: hidden;
+          div {
+            float: left;
+            height: inherit;
+          }
+          span {
+            position: relative;
+            top: 2px;
+          }
+          .older {
+            border-right: 1px #a8a8a8 solid;
+            padding-right: 5px;
+            text-align: right;
+          }
+          .newer {
+            border-left: 1px #e3e3e3 solid;
+            padding-left: 5px;
+            text-align: left;
+            width: 30px;
+          }
+        }
         
       }
     }
