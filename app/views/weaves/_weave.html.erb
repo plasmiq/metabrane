@@ -48,7 +48,7 @@
     <div class="header">
       <%= weave_options_tag pair, {:fav => true, :delete => true, :permalink => true} %>
       
-      <% if pair.older.count > 0 || pair.newer.count > 0 %>
+      <% if pair.older.all.size > 0 || pair.newer.all.size > 0 %>
         <div class="timeline toggles">
           <a class="timeline_weave <%= 'active' if hnav %>"></a>
           <span class="<%= 'active' if hnav %>">view weavement timeline</span>
@@ -87,20 +87,20 @@
           <%= text_field(:working_pair, :relation, :value => pair.relation, :class => "working_pair_relation", :id => nil, :autocomplete => "off") %>
           <a class="edit_relation"></a>
         </span>
-        <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.weaves_with_same_substrates.size == 1}"); %>
+        <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.metatags.size == 1}"); %>
       </div>
       <div class="horizontal_navigation <%= 'active' if hnav %>">
         <% if home %>
-          <% if home.older.count + direction >= 1 %>
-            <%= weave_remote_link home.older.count + direction, home, 
+          <% if home.older.all.size + direction >= 1 %>
+            <%= weave_remote_link home.older.all.size + direction, home, 
               { 
                 :home       => home, 
                 :html_class  => 'timearrow leftarrow',
                 :direction  => direction - 1
               } %>
           <% end %>
-          <% if home.newer.count - direction >=  1 %>
-            <%= weave_remote_link home.newer.count - direction, home, 
+          <% if home.newer.all.size - direction >=  1 %>
+            <%= weave_remote_link home.newer.all.size - direction, home, 
               { 
                 :home       => home, 
                 :html_class  => 'timearrow rightarrow',
@@ -115,5 +115,5 @@
       <% end %>
     <% end %>
   </div>
-  <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.weaves_with_same_substrates, :weave => pair, :home => home} %>
+  <%= render :partial => "weaves/subnav", :locals => {:metatags => pair.metatags, :weave => pair, :home => home} %>
 </div>

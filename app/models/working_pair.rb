@@ -6,8 +6,7 @@ class WorkingPair < ActiveRecord::Base
   validates :relation, :presence => true
   
   scope :newest, order("working_pairs.created_at DESC")
-  scope :oldest, order("working_pairs.created_at ASC")
-  
+  scope :oldest, order("working_pairs.created_at ASC")  
   scope :favorited, lambda { 
     includes(:favorites)
     .where("favorites.working_pair_id = working_pairs.id") 
@@ -18,13 +17,15 @@ class WorkingPair < ActiveRecord::Base
       substrate1.id, substrate2.id, substrate2.id, substrate1.id
     )
   }
-  scope :entangled, lambda { |metatag,*substrates|
+  scope :related, lambda { |metatag,substrate1,substrate2|
     t = WorkingPair.arel_table
+    substrates = [substrate1.id,substrate2.id]
     where( 
       t[:relation].eq( metatag )
       .or( t[:substrate1_id].in( substrates ) )
       .or( t[:substrate2_id].in( substrates ) ) 
-    )
+    ).where("substrate1_id != ? and substrate2_id != ?",substrate1.id, substrate2.id)
+    .group( "substrate1_id, substrate2_id" )
   }
   scope :older_than, lambda { |data,column = 'created_at'| 
     where( "#{column} < ?", data ).order("#{column} DESC")
@@ -52,19 +53,19 @@ class WorkingPair < ActiveRecord::Base
     favorites.count > 0
   end
   
-  def weaves_with_same_substrates
+  def metatags
     WorkingPair.same_substrates(substrate1, substrate2).order("created_at ASC")
   end
   
-  def entangled
-    WorkingPair.entangled(relation, substrate1.id, substrate2.id)
+  def related
+    WorkingPair.related(relation,substrate1,substrate2)
   end
   
   def older 
-    entangled.older_than( created_at, "created_at" )
+    related.older_than( created_at, "created_at" )
   end
   
   def newer
-    entangled.newer_than( created_at, "created_at" )
+    related.newer_than( created_at, "created_at" )
   end
 end
