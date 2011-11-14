@@ -7,6 +7,7 @@ class WorkingPair < ActiveRecord::Base
   
   scope :newest, order("working_pairs.created_at DESC")
   scope :oldest, order("working_pairs.created_at ASC")  
+  scope :group_substrates, group("substrate1_id, substrate2_id")
   scope :favorited, lambda { 
     includes(:favorites)
     .where("favorites.working_pair_id = working_pairs.id") 
@@ -25,7 +26,7 @@ class WorkingPair < ActiveRecord::Base
       .or( t[:substrate1_id].in( substrates ) )
       .or( t[:substrate2_id].in( substrates ) ) 
     ).where("substrate1_id != ? and substrate2_id != ?",substrate1.id, substrate2.id)
-    .group( "substrate1_id, substrate2_id" )
+    .group_substrates
   }
   scope :older_than, lambda { |data,column = 'created_at'| 
     where( "#{column} < ?", data ).order("#{column} DESC")

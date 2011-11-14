@@ -62,13 +62,16 @@ class WeavesController < ApplicationController
   def index 
     @page = params[:page] || 1
     @per_page = 4
-    weaves = WorkingPair.select('working_pairs.id, working_pairs.substrate1_id, working_pairs.substrate2_id, max(working_pairs.created_at) as created_at').group("substrate1_id, substrate2_id").order("created_at DESC").paginate(:page => @page, :per_page => @per_page)
+    weaves = WorkingPair
+      .group_substrates
+      .newest
+      .paginate(:page => @page, :per_page => @per_page)
     @weaves = weaves.map do |w| 
       if params[:order] == "oldest"
-        WorkingPair.same_substrates(w.substrate1, w.substrate2).oldest.first
+        WorkingPair.same_substrates(w.substrate1, w.substrate2).oldest
       else
-        WorkingPair.same_substrates(w.substrate1, w.substrate2).newest.first
-      end
+        WorkingPair.same_substrates(w.substrate1, w.substrate2).newest
+      end.first
     end
   end
   
