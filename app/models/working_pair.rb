@@ -65,7 +65,7 @@ class WorkingPair < ActiveRecord::Base
   end
   
   def metatags
-    WorkingPair.same_substrates(substrate1, substrate2).order("created_at ASC")
+    WorkingPair.same_substrates(substrate1, substrate2).newest
   end
   
   def related

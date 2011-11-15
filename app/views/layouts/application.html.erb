@@ -50,8 +50,8 @@
       <div id="submenu">
         <%= select_tag "metatags_sorting", options_for_select(
           {
-            "SORT BY NEWEST METATAGS"  => "newest",
-            "SORT BY LASTEST METATAGS" => "oldest"
+            "VIEW BY NEWEST THREADS"  => "newest",
+            "VIEW BY OLDEST THREADS"  => "oldest"
           }, params[:order]
         ), :class => "sorting_select" %>
         <%= link_to "newest", weaves_path(:order => "newest"), :class => "metatags_sorting newest" %>
