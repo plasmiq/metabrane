@@ -68,8 +68,44 @@ class WorkingPair < ActiveRecord::Base
     WorkingPair.same_substrates(substrate1, substrate2).newest
   end
   
+  def older_metatags
+    WorkingPair
+      .same_substrates(substrate1, substrate2)
+      .older_than( created_at, "created_at" )
+  end
+  
+  def newer_metatags
+    WorkingPair
+      .same_substrates(substrate1, substrate2)
+      .newer_than( created_at, "created_at" )
+  end
+  
   def related
     WorkingPair.related(relation,substrate1,substrate2)
+  end
+
+  def travel_future direction
+    if direction + 1 == 0
+      self
+    elsif direction > 0 
+      newer.offset( direction ).first
+    elsif direction < -1  
+      older.offset( direction ).first
+    else 
+      newer.first
+    end
+  end  
+  
+  def travel_past direction
+    if direction - 1 == 0
+      self
+    elsif direction < 0
+      older.offset( -1 * direction ).first
+    elsif direction > 1
+      newer.offset(direction ).first
+    else
+      older.first
+    end
   end
   
   def older 

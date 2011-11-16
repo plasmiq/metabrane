@@ -80,6 +80,11 @@ class WeavesController < ApplicationController
     render "index"
   end
   
+  def preview
+    @wp = WorkingPair.find( params[:id] )
+    render :layout => false
+  end
+  
   def destroy 
     @wp = WorkingPair.find( params[:id] )
     @wp.destroy

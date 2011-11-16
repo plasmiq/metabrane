@@ -23,6 +23,7 @@ MetabraneCo::Application.routes.draw do
   resources :weaves do
     member do
       post 'favorite'
+      get 'preview'
     end
     
     collection do

@@ -1,0 +1,125 @@
+@mixin button($x,$y,$hover_x,$hover_y) {
+  background-position: $x $y;
+  &:hover {
+    background-position: $hover_x $hover_y;
+  }
+}
+
+#compass {
+  background: url("nav_compass_background.png") no-repeat;
+  width: 151px;
+  height: 148px;
+  position: absolute;
+  top: 151px;
+  left: 388px;
+  .button {
+    height: 39px;
+    width: 39px;  
+    background: url("nav_compass_weavement_buttons.png") no-repeat;
+    display: block;
+    float: left;
+    margin-top: 8px;
+    margin-left: 8px;
+    $size: 39px;
+    &.red {
+      @include button( 0, - $size, - $size, -$size);
+    }
+    &.blue {
+      @include button(0, -0px, - $size, -0px);
+    }
+    &.green {
+      @include button(0, - 2 * $size, -39px, - 2 * $size);
+    }
+    &.grey {
+      @include button(0, - 3 * $size, -39px, - 3 * $size);
+      .similar {
+        background-position: (- 1 * $size) (- 2 * $size) !important;       
+      }
+    }
+    &.hidden {
+      @include button(0, - 4 * $size, -39px, - 4 * $size);
+      cursor: default;
+    }
+  }
+  .connector {
+    background-color: #4c4c4c;
+  }
+  .similar {
+    background: url("nav_compass_weavement_icons.png") no-repeat;
+    height: 39px;
+    width: 39px;  
+    display: block;
+    $size: 39px;
+    &.home {
+      background-position: (- 1 * $size) (- 2 * $size); 
+    }
+    &.current {
+      background-position: (- 2 * $size) (- 2 * $size) !important; 
+    }
+    &.left_different {
+      background-position: (- 2 * $size ) (- 1 * $size); 
+    }
+    &.right_different {
+      background-position: (- 0 * $size) (- 2 * $size); 
+    }
+    &.both_different {
+      background-position: (- 2 * $size) (- 0 * $size); 
+    }
+    &.metatag_different {
+      background-position: (- 1 * $size) (- 0 * $size); 
+    }
+    &.right_same {
+      background-position: (- 1 * $size) (- 1 * $size); 
+    }
+    &.left_same {
+      background-position: (- 0 * $size) (- 1 * $size); 
+    }
+    &.same {
+      background-position: (- 0 * $size) (- 0 * $size); 
+    }
+    &.different {
+      background: none;
+    }
+  }
+  
+}
+
+.preview {
+  width: 210px !important;
+  height: 147px !important;
+  background: url("nav_compass_weavement_preview.png") no-repeat !important;
+  color: white;
+  font-size: 14px;
+  .loader {
+    background: url("loading_weaves.gif") no-repeat;
+    width: 43px;
+    height: 11px;
+    margin: 30px auto;
+  }
+  .image_holder {
+    width: 105px;
+    height: 110px;
+    text-align: center;
+  }
+  img {
+    border: 1px solid white;
+    -webkit-border-radius: 2px;
+    -moz-border-radius: 2px;
+    border-radius: 2px
+  }
+  table {
+    width: 200px;
+    margin: 0;
+    padding: 0;
+    border-spacing: 0;
+    td {
+      padding-top: 10px;
+    }
+  }
+  p {
+    width: 200px;
+    padding: 0px;
+    margin: 0px;
+    text-align: center;
+  }
+}

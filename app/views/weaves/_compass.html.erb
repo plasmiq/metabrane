@@ -1,0 +1,34 @@
+<% 
+  future = home.travel_future(direction)
+  past = home.travel_past(direction)
+  sky = weave.newer_metatags.first
+  water = weave.older_metatags.first
+%> 
+<div id="compass">
+  <%= compass_button( (sky) ? sky.older.first : nil, home, "blue" ) %>
+  <%= compass_button( sky, home, "blue" ) %>
+  <%= compass_button( (sky) ? sky.newer.first : nil, home, "blue" ) %>
+
+  <%= compass_button( past, home, "red" ) %>
+  <%= compass_button( weave, home, "red current" ) %>
+  <%= compass_button( future, home, "red" ) %>
+  
+  <%= compass_button( (water) ? water.older.first : nil, home, "green" ) %>
+  <%= compass_button( water, home, "green" ) %>
+  <%= compass_button( (water) ? water.newer.first : nil, home, "green" ) %>
+</div>
+<script>
+  $(".button:not(.hidden)").tooltip({ 
+    showURL: false,
+    extraClass: "preview",
+    fixPNG: true,
+    showBody: "", 
+    delay: 400,
+    track: true,
+    bodyHandler: function() {
+      var result = $("<div/>");
+      $.get( $(this).attr("data-preview_url"), {}, function(data) { result.html(data); }, "html");
+      return result;
+    } 
+  });
+</script>

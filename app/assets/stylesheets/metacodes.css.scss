@@ -10,6 +10,19 @@
     background-position: -2*$width $pos;    
   }
 }
+
+.meta.tooltip {
+  border: 1px solid #E03333;
+	background-color: #eee;
+	opacity: 0.85;
+	-webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  & h3 { 
+    margin: 10px 20px;
+  }
+}
+
 .metacodes {
   z-index: 200;
   width: 100%;

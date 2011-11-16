@@ -3,7 +3,7 @@ $(document).ready ->
    side = (if $(this).closest(".object").hasClass("left") then "left" else "right");
    direction = (if (side == "left") then 1 else -1);
    container = $(this).closest(".container")
-   container.find(".metacode").tooltip( {delay: 0, showURL: false, showBody: " - ", fade: 250, track: true });
+   container.find(".metacode").tooltip( {delay: 0, extraClass: "meta tooltip",showURL: false, showBody: " - ", fade: 250, track: true });
    container.find(".content").animate( { left: direction * 380 }, { duration: 'slow' });
    if( side == "left" )
      container.find(".substrate_metacodes."+side).animate( { left : 0 }, { duration: 'slow' });
