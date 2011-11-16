@@ -89,8 +89,8 @@
         </span>
         <%= submit_tag("", :class => "button more_relations #{"hidden" if pair.metatags.size == 1}"); %>
       </div>
-      <%= render :partial => "weaves/compass", :locals => { :weave => pair, :home => home, :direction => direction} %>
       <div class="horizontal_navigation <%= 'active' if hnav %>">
+        <%= render :partial => "weaves/compass", :locals => { :weave => pair, :home => home, :direction => direction} %>
         <% if home %>
           <% if home.older.all.size + direction >= 1 %>
             <%= weave_remote_link home.older.all.size + direction, home, 
