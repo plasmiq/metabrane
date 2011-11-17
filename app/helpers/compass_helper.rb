@@ -1,9 +1,9 @@
 module CompassHelper
-  def compass_button( weave, home, color )
+  def compass_button( weave, reference, home, color )
     html =  "" 
     remote_options = {}
     if weave
-      css_class = similarity_css(weave, home)
+      css_class = similarity_css(weave, reference)
       css_class = "current" if color.include?("current")
       html += content_tag( :span, "", :class => "similar #{css_class}" ) 
       remote_options[:preview_url] = preview_weave_path(weave)
