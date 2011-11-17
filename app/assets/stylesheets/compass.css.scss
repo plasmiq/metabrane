@@ -5,7 +5,7 @@
   }
 }
 
-#compass {
+.compass {
   background: url("nav_compass_background.png") no-repeat;
   width: 151px;
   height: 148px;
@@ -13,7 +13,7 @@
   top: 151px;
   left: 388px;
   overflow: hidden;
-  #buttons_layer {
+  .buttons_layer {
     position: absolute;
     top: 0px;
     left: 0px;
