@@ -114,7 +114,7 @@ class WeavesController < ApplicationController
      
     home_id = params[:working_pair][:home_id] || old.id
     @home = WorkingPair.find_by_id(home_id)
-    
+    @direction = 0
     respond_to do |format|  
       format.html { redirect_to( :action => :show, :id => @wp.id ) }  
       format.js   

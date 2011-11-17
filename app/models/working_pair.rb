@@ -21,7 +21,11 @@ class WorkingPair < ActiveRecord::Base
   scope :related, lambda { |metatag,substrate1,substrate2|
     t = WorkingPair.arel_table
     where( 
-      t[:relation].eq( metatag )
+        t[:relation].eq( metatag ).and(
+          t[:substrate1_id].not_eq( substrate1.id ).and(
+            t[:substrate2_id].not_eq( substrate2.id )
+          )
+        )
       .or( t[:substrate1_id].eq( substrate1.id )
         .and( t[:substrate2_id].not_eq( substrate2.id ) ) )
       .or( t[:substrate2_id].in( substrate2.id ) 

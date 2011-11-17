@@ -22,7 +22,10 @@ module CompassHelper
   end
   
   def similarity_css(w1,w2)
-    if (w1 == w2)
+    if ( (w1 == w2) or
+       ( w1.relation == w2.relation and
+         w1.substrate1 == w2.substrate1 and
+         w1.substrate2 == w2.substrate2  ) )     
       "same"
     elsif 
       ( w1.relation == w2.relation and

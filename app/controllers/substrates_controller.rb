@@ -3,7 +3,7 @@ class SubstratesController < ApplicationController
   def update
     @substrate = Substrate.find params[:id]
     @wp = WorkingPair.find(params[:weave_id])
-    @home = WorkingPair.find(params[:home_id]) || @wp
+    @home = WorkingPair.find(params[:home_id])
     
     url = params[:substrate][:url]
     if url != @substrate.url
@@ -22,6 +22,8 @@ class SubstratesController < ApplicationController
       weave.save
       @wp = weave
     end
+    
+    @direction = @home.newer.all.index(@wp) + 1
     
     respond_to do |format|  
       format.html
