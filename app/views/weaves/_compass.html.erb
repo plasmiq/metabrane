@@ -5,17 +5,20 @@
   water = weave.older_metatags.first
 %> 
 <div id="compass">
-  <%= compass_button( (sky) ? sky.older.first : nil, weave, home, "blue" ) %>
-  <%= compass_button( sky,  weave, home, "blue" ) %>
-  <%= compass_button( (sky) ? sky.newer.first : nil, weave, home, "blue" ) %>
+  <%= compass_connector(direction) %>
+  <div id="buttons_layer">
+    <%= compass_button( (sky) ? sky.older.first : nil, weave, home, "blue" ) %>
+    <%= compass_button( sky,  weave, home, "blue" ) %>
+    <%= compass_button( (sky) ? sky.newer.first : nil, weave, home, "blue" ) %>
 
-  <%= compass_button( past,   weave, home, "red" ) %>
-  <%= compass_button( weave,  weave, home, "red current" ) %>
-  <%= compass_button( future, weave, home, "red" ) %>
-  
-  <%= compass_button( (water) ? water.older.first : nil,  weave, home, "green" ) %>
-  <%= compass_button( water,  weave, home, "green" ) %>
-  <%= compass_button( (water) ? water.newer.first : nil,  weave, home, "green" ) %>
+    <%= compass_button( past,   weave, home, "red" ) %>
+    <%= compass_button( weave,  weave, home, "red current" ) %>
+    <%= compass_button( future, weave, home, "red" ) %>
+    
+    <%= compass_button( (water) ? water.older.first : nil,  weave, home, "green" ) %>
+    <%= compass_button( water,  weave, home, "green" ) %>
+    <%= compass_button( (water) ? water.newer.first : nil,  weave, home, "green" ) %>
+  </div>
 </div>
 <script>
   $(".button:not(.hidden)").tooltip({ 

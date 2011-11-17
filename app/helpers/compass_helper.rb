@@ -15,6 +15,12 @@ module CompassHelper
       "data-preview_url" => remote_options[:preview_url] )
   end
   
+  def compass_connector(direction)
+    direction = (direction.abs) > 2 ? 2 * (direction/direction.abs) : direction
+    css_class = (direction) < 1 ? "past_#{direction.abs}" : "future_#{direction}"
+    content_tag( :div, "", :class => "connector #{css_class}")
+  end
+  
   def similarity_css(w1,w2)
     if (w1 == w2)
       "same"

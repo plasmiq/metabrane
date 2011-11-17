@@ -12,6 +12,15 @@
   position: absolute;
   top: 151px;
   left: 388px;
+  overflow: hidden;
+  #buttons_layer {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 151px;
+    height: 148px;
+    z-index: 20;
+  }
   .button {
     height: 39px;
     width: 39px;  
@@ -43,6 +52,27 @@
   }
   .connector {
     background-color: #4c4c4c;
+    height: 3px;
+    width: 0px;
+    position: absolute;
+    z-index: 5;
+    top: 74px;
+    &.past_1 {
+      left: 27px + 50px;  
+      width: 50px;
+    }
+    &.past_2 {
+      left: 27px + 50px;  
+      width: 50px + 50px;
+    }
+    &.future_1 {
+      left: 27px;  
+      width: 50px;
+    }
+    &.future_2 {
+      left: 0px;  
+      width: 80px;
+    }
   }
   .similar {
     background: url("nav_compass_weavement_icons.png") no-repeat;
