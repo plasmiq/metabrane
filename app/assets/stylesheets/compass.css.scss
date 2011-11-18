@@ -128,17 +128,17 @@
   }
   .image_holder {
     width: 105px;
-    height: 110px;
     text-align: center;
   }
   img {
-    border: 1px solid white;
-    -webkit-border-radius: 2px;
-    -moz-border-radius: 2px;
-    border-radius: 2px
+    #border: 1px solid white;
+    #-webkit-border-radius: 2px;
+    #-moz-border-radius: 2px;
+    #border-radius: 2px
   }
   table {
     width: 200px;
+    height: 110px;
     margin: 0;
     padding: 0;
     border-spacing: 0;
