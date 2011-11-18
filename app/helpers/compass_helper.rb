@@ -8,7 +8,7 @@ module CompassHelper
       html += content_tag( :span, "", :class => "similar #{css_class}" ) 
       remote_options[:preview_url] = preview_weave_path(weave)
     end
-    color = "grey" if ( weave and ( weave.id == home.id ) )
+    color = "grey" if ( weave and color.include?("red") and ( weave.id == home.id ) )
     css_class  = "button #{color}"
     css_class += " hidden" unless weave
     content_tag( :a, raw(html), :class => css_class, 
