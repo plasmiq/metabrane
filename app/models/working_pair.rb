@@ -94,7 +94,7 @@ class WorkingPair < ActiveRecord::Base
     elsif direction > 0 
       newer.offset( direction ).first
     elsif direction < -1  
-      older.offset( direction ).first
+      older.offset( -1 * direction ).first
     else 
       newer.first
     end
