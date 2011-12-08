@@ -12,7 +12,8 @@ module WeavesHelper
         :container_id => container_id
       },
       :remote => true,
-      :class => "live_update "+options[:html_class]
+      :class => "live_update "+options[:html_class],
+      "data-preview_url" => options["data-preview_url"]
   end
   
   def weave_timestamp weave 

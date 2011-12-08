@@ -11,8 +11,14 @@ module CompassHelper
     color = "grey" if ( weave and color.include?("red") and ( weave.id == home.id ) )
     css_class  = "button #{color}"
     css_class += " hidden" unless weave
-    content_tag( :a, raw(html), :class => css_class, 
-      "data-preview_url" => remote_options[:preview_url] )
+    
+    if weave
+      weave_remote_link raw(html), weave, { :html_class  => css_class, :container => home,
+        "data-preview_url" => remote_options[:preview_url] }
+    else
+      content_tag( :a, raw(html), :class => css_class, 
+        "data-preview_url" => remote_options[:preview_url] )
+    end
   end
   
   def compass_connector(direction)
