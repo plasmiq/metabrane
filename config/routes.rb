@@ -13,6 +13,7 @@ MetabraneCo::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
+  match 'resonance_core/bind' => 'resonance_core#bind'
   resources :substrates do
     member do 
       put "update_metacode"
