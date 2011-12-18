@@ -39,26 +39,19 @@
       <li>
         <%= menu_element "l_live_infowave", "Live Infowave", weaves_path %>
       </li>
+      <!--
       <li>
         <%= menu_element "l_your_weaves", "Your Weaves", {:controller => 'weaves', :action => 'favorites'} %>
       </li>
+      -->
       <li>
         <%= menu_element "l_create_weaves", "Create Weaves", {:controller => 'weaves', :action => "new"} %>
       </li>
     </ul>
-    <% if current_page?(weaves_path) %>
-      <div id="submenu">
-        <%= select_tag "metatags_sorting", options_for_select(
-          {
-            "VIEW BY NEWEST THREADS"  => "newest",
-            "VIEW BY OLDEST THREADS"  => "oldest"
-          }, params[:order]
-        ), :class => "sorting_select" %>
-        <%= link_to "newest", weaves_path(:order => "newest"), :class => "metatags_sorting newest" %>
-        <%= link_to "oldest", weaves_path(:order => "oldest"), :class => "metatags_sorting  oldest" %>
-      </div>
-    <% end %> 
-    <div id="tagline"><%= link_to "weave a thread between ...", random_weaves_path, :placeholder => "lucky dip!" %></div>
+    <!--
+      <%= render :partial => "layouts/submenu_sorting" %>
+    -->
+    <div id="tagline"><%= link_to "weave a thread between ...", random_weaves_path, :placeholder => "click to lucky dip!" %></div>
   </div>
 </menu>
 <div id="content">

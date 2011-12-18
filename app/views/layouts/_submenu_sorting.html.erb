@@ -1,0 +1,12 @@
+<% if current_page?(weaves_path) %>
+  <div id="submenu">
+    <%= select_tag "metatags_sorting", options_for_select(
+      {
+        "VIEW BY NEWEST THREADS"  => "newest",
+        "VIEW BY OLDEST THREADS"  => "oldest"
+      }, params[:order]
+    ), :class => "sorting_select" %>
+    <%= link_to "newest", weaves_path(:order => "newest"), :class => "metatags_sorting newest" %>
+    <%= link_to "oldest", weaves_path(:order => "oldest"), :class => "metatags_sorting  oldest" %>
+  </div>
+<% end %> 
