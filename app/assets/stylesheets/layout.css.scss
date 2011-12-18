@@ -108,30 +108,6 @@ menu {
       }
     }
     
-    #tagline {
-      
-      width: 233px;
-      
-      position: absolute;
-      left: 225px;
-      top: 87px;
-      display: block;
-      
-      a, a:hover, a:visited {
-        display: block;
-        width: 100%;
-        height: 100%;
-        font-size: 18px;
-        font-style: italic;
-        font-weight: normal;
-        color: #8e8080;
-        text-decoration: none;
-        &:hover {
-          color: #338798;
-        }
-      }
-    }
-    
     ul {
       float: left;
       margin-top: 21px;
@@ -167,9 +143,71 @@ menu {
   }
 }
 
+#submenu {
+  position: absolute;
+  left: 225px;
+  top: 87px;
+  display: block;
+  width: 705px;
+  #tagline {
+    display: block;  
+    width: 233px;
+    float: left;
+    a, a:hover, a:visited {
+      display: block;
+      width: 100%;
+      height: 100%;
+      font-size: 18px;
+      font-style: italic;
+      font-weight: normal;
+      color: #8e8080;
+      text-decoration: none;
+      &:hover {
+        color: #338798;
+        text-decoration: underline;
+      }
+    }
+  }
+  #search {
+    float: right;
+    position: relative;
+    top: -10px;
+    .tag {
+      display: block;
+      width: 250px;
+      height: 29px;  
+      background: url("header_search_input.png");
+      padding: 5px 65px 5px 10px;
+    }
+    .submit {
+      background: transparent;
+      height: 25px;
+      width: 25px;
+      position: absolute;
+      right: 6px;
+      top: 7px;
+      outline: 0px;
+      cursor: pointer;     
+    }
+    .clear {
+      display: none;
+      background: url("header_search_input_clear.png");
+      height: 13px;
+      width: 13px;
+      position: absolute;
+      right: 45px;
+      top: 12px;
+    }
+  }
+}
+
 #tooltip {
 	position: absolute;
 	z-index: 3000;
+}
+
+.container {
+  clear: both;
 }
 
 #content {

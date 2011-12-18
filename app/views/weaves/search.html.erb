@@ -1,0 +1,37 @@
+<div class="search_info">
+  <% if @count > 0 %>
+    <p>
+    found <em><%= @count %></em> working pairs for '<em><%= @search_phrase %></em>'
+    </p>
+    
+    
+    <div class="pagination">
+      
+      <span><%= @page %> of <%= @count %></span>
+      <% if @page > 1 %>
+        <%= link_to "", url_for( :page => @page - 1, :search_phrase => @search_phrase, :order => @order ), :class => "paginate_left" %>
+      <% end %>
+      <% if @page < @count %>
+        <%= link_to "", url_for( :page => @page + 1, :search_phrase => @search_phrase, :order => @order ), :class => "paginate_right" %>
+      <% end %>
+      
+    </div>
+    
+    <div class="sort">
+      <%= link_to "", url_for( :order => "newest", :search_phrase => @search_phrase ), :class => "sorting newest #{'selected' if @order == 'newest' }" %>
+      <%= link_to "", url_for( :order => "oldest", :search_phrase => @search_phrase ), :class => "sorting oldest #{'selected' if @order == 'oldest' }" %>
+      
+    </div>
+  <% else %>
+    <p>
+      no working pairs found, please add new <%= link_to "one", new_weave_path %>
+    </p> 
+  <% end %>
+  <br class="clear"/>
+</div>
+
+<% if @weave %>
+  <div class="container" id="container_<%= @weave.id %>">
+  <%= render :partial => "weaves/weave", :locals => {:pair => @weave, :home => @weave, :hnav => false, :direction => 0} %>
+  </div>
+<% end %>

@@ -48,10 +48,13 @@
         <%= menu_element "l_create_weaves", "Create Weaves", {:controller => 'weaves', :action => "new"} %>
       </li>
     </ul>
-    <!--
-      <%= render :partial => "layouts/submenu_sorting" %>
-    -->
-    <div id="tagline"><%= link_to "weave a thread between ...", random_weaves_path, :placeholder => "click to lucky dip!" %></div>
+    <div id="submenu">
+      <div id="tagline"><%= link_to "weave a thread between ...", random_weaves_path, :placeholder => "click to lucky dip!" %></div>
+      <!--
+        <%= render :partial => "layouts/submenu_sorting" %>
+      -->
+      <%= render :partial => "layouts/submenu_search" %>
+    </div>
   </div>
 </menu>
 <div id="content">

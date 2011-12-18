@@ -1,0 +1,79 @@
+@import "colours";
+
+.search_info {
+  font-size: 24px;
+  margin-top: -20px;
+  margin-bottom: 20px;
+  position: relative;
+  p {
+    margin: 0;
+    float: left;
+    em, a {
+      color: $red;
+      font-style: italic;
+    }
+  }
+  .sort {
+    
+    width: 142px;
+    height: 36px;
+    right: 181px;
+    position: absolute;
+    top: -5px;
+    .sorting {
+      background: url("search_sortby_toggle.png") 0 0 no-repeat;
+      display: block;
+      
+      height: 36px;
+      float: left;
+      cursor: pointer;
+      &.selected {
+        cursor: default;
+      }
+      &.newest {
+        width: 75px;
+        background-position: 0 -36px;  
+        &.selected {
+          background-position: 0 0px;  
+        }
+      }
+      &.oldest {
+        width: 67px;
+        background-position: -75px 0;
+        &.selected {
+          background-position: -75px -36px;  
+        }
+      }
+    }
+  }
+  .pagination {
+    float: right;
+    span {
+      font-size: 18px;
+      color: $grey;
+      font-style: italic;
+      position: relative;
+      top: -10px;
+      margin-right: 10px;
+    }
+    a {
+      display: inline-block;
+      width: 30px;
+      height: 30px;
+      background: url("search_paginator.png");
+      &.paginate_left {
+        background-position: 0 0;
+        &:hover {
+          background-position: -30px 0;
+        }
+      }
+      &.paginate_right {
+        background-position: 0 -30px;
+        &:hover {
+          background-position: -30px -30px;
+        }
+      }
+    }
+    
+  }
+}

@@ -95,6 +95,24 @@ class WeavesController < ApplicationController
     end  
   end
   
+  def search
+    @search_phrase = params["search_phrase"]
+    @order = params[:order] || "newest"
+    @page = params[:page] ? params[:page].to_i : 1
+    weaves = if @order == "newest"
+      WorkingPair.newest
+    else
+      WorkingPair.oldest
+    end
+      .where(["relation LIKE :relation", {:relation => @search_phrase}]) 
+      .paginate(:page => @page, :per_page => 1)
+    @count = WorkingPair
+      .where(["relation LIKE :relation", {:relation => @search_phrase}]) 
+      .count
+      
+    @weave = weaves.first
+  end
+  
   def random 
     @weave = WorkingPair.offset( rand(WorkingPair.count) ).first
     redirect_to( :action => :show, :id => @weave.id )

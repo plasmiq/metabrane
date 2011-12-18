@@ -1,0 +1,7 @@
+<div id="search">
+  <%= form_tag url_for(:controller => :weaves, :action => :search), :method => :get do %>
+    <input name="search_phrase" value="<%= @search_phrase ? @search_phrase : '' %>" autocomplete="off" class="tag"/>
+    <a class="clear" <%= @search_phrase ? raw('style="display: block"') : '' %> ></a>
+    <%= submit_tag "", :class => "submit" %>
+  <% end %>
+</div>
