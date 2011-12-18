@@ -1,3 +1,5 @@
+@import "colours";
+
 @mixin full_width {
   margin: 0 auto;
   width: 928px;
@@ -107,16 +109,26 @@ menu {
     }
     
     #tagline {
-      background: url("header_tagline.png") 0 0 no-repeat;
+      
       width: 233px;
-      height: 18px;
+      
       position: absolute;
       right: 0px;
       top: 90px;
       display: block;
-      overflow: hidden;
-      span {
-        display: none;
+      
+      a, a:hover, a:visited {
+        display: block;
+        width: 100%;
+        height: 100%;
+        font-size: 18px;
+        font-style: italic;
+        font-weight: normal;
+        color: #8e8080;
+        text-decoration: none;
+        &:hover {
+          color: #338798;
+        }
       }
     }
     

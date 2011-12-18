@@ -94,6 +94,11 @@ class WeavesController < ApplicationController
       format.js   { render :nothing => true }  
     end  
   end
+  
+  def random 
+    @weave = WorkingPair.offset( rand(WorkingPair.count) ).first
+    redirect_to( :action => :show, :id => @weave.id )
+  end
 
   def update
     old = WorkingPair.find(params[:id])

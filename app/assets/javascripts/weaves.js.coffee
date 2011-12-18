@@ -4,6 +4,18 @@
 
 
 $(document).ready -> 
+
+  $("#tagline").hover (->
+    link = $(this).find("a")
+    placeholder = link.attr("placeholder")
+    link.attr("placeholder", link.text())
+    link.text( placeholder )
+  ), (->
+    link = $(this).find("a")
+    placeholder = link.attr("placeholder")
+    link.attr("placeholder", link.text())
+    link.text( placeholder )
+  )
   $("#metatags_sorting").selectmenu( {
     style:'dropdown'
   });

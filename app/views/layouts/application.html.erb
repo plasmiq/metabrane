@@ -58,7 +58,7 @@
         <%= link_to "oldest", weaves_path(:order => "oldest"), :class => "metatags_sorting  oldest" %>
       </div>
     <% end %> 
-    <div id="tagline"><h2><span>Weave a thread between ...</span></h2></div>
+    <div id="tagline"><%= link_to "weave a thread between ...", random_weaves_path, :placeholder => "lucky dip!" %></div>
   </div>
 </menu>
 <div id="content">

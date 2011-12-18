@@ -29,6 +29,7 @@ MetabraneCo::Application.routes.draw do
     
     collection do
       get 'favorites'
+      get 'random'
     end
   end
 
