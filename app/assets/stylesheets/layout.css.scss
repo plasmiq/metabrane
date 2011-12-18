@@ -172,12 +172,22 @@ menu {
     float: right;
     position: relative;
     top: -10px;
+    input::-webkit-input-placeholder {
+      color:    #656565;
+    }
+    input:-moz-placeholder {
+      color:    #656565;
+    }
+
     .tag {
       display: block;
       width: 250px;
       height: 29px;  
       background: url("header_search_input.png");
       padding: 5px 65px 5px 10px;
+      font-size: 18px;
+      color: #2e2e2e;
+      
     }
     .submit {
       background: transparent;
