@@ -30,6 +30,8 @@
     track: true,
     bodyHandler: function() {
       var result = $("<div/>");
+      $("#tooltip").attr("class", "preview");
+      $("#tooltip").addClass( $(this).attr("class") );
       $.get( $(this).attr("data-preview_url"), {}, function(data) { result.html(data); }, "html");
       return result;
     } 
