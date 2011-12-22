@@ -36,4 +36,13 @@
       return result;
     } 
   });
+  
+  $(".hidden").click( function(e) {
+    if($(this).hasClass("hidden") ) {
+      $(this).removeClass("hidden")
+      $(this).addClass("turquoise")
+      e.preventDefault();
+    } 
+   
+  } )
 </script>

@@ -17,7 +17,8 @@ module CompassHelper
         "data-preview_url" => remote_options[:preview_url] }
     else
       content_tag( :a, raw(html), :class => css_class, 
-        "data-preview_url" => remote_options[:preview_url] )
+        "data-preview_url" => remote_options[:preview_url],
+        :href => random_weaves_path )
     end
   end
   
