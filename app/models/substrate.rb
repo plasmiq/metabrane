@@ -7,7 +7,8 @@ class Substrate < ActiveRecord::Base
   has_attached_file :image,
     :styles => { 
       :poster => "316x332",
-      :thumb => "62x72"
+      :thumb => "62x72",
+      :ultra_poster => "700x500>"
     }
 
   def picture_from_url(url)
