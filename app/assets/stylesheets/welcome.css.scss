@@ -36,7 +36,7 @@
     color: #262626;
     font-style: italic;
     padding: 0;
-    margin: 0;
+    margin: 5px 0 0 0;
   }
   
   #content {
@@ -45,8 +45,14 @@
     .center {
       padding-bottom: 50px;
       padding-top: 80px;
-      #proxy {
-        margin: 0 auto;
+      #video {
+        height: 520px;
+        #proxy {
+          margin: 0 auto;
+        }
+        #movie {
+          display:none;
+        }
       }
     }
   }

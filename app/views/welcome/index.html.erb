@@ -14,7 +14,11 @@
   </menu>
     <div id="content">
       <div class="center">
-        <%= image_tag "home_video_proxy.jpg", :id => "proxy" %>
+        <div id="video">
+          <%= image_tag "home_video_proxy.jpg", :id => "proxy" %>
+          <iframe id="movie" src="http://player.vimeo.com/video/33145090?api=1&player_id=vimeoplayer" width="926" height="520" frameborder="0"></iframe> 
+        </div>
+        
         <p id="credits">video by notthisbody</p>
       </div>
     </div>

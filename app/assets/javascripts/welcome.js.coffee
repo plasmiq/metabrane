@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://jashkenas.github.com/coffee-script/
+$(document).ready -> 
+  $("#proxy").click ->
+    $(this).fadeOut 400, ->
+      mov = $("#movie")
+      mov.fadeIn 400, ->
+        $(this).scroll()
+        $f(this).api("play")
+      
+
+      
+
