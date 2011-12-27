@@ -5,23 +5,26 @@
   <%= render :partial => "layouts/head_includes" %>
 </head>
 <body id="welcome">
-  
-  <menu>
-    <%= image_tag "metabrane_home_logo.png" %>
-    <p>
-      build narrative environments for idea discovery & creative interplay of meanings.
-    </p>
-  </menu>
+  <div id="wrap">
+    <menu>
+      <div class="center">
+      <%= image_tag "metabrane_home_logo.png" %>
+      <p>
+        build narrative environments for idea discovery & creative interplay of meanings.
+      </p>
+      </div>
+    </menu>
     <div id="content">
       <div class="center">
         <div id="video">
           <%= image_tag "home_video_proxy.jpg", :id => "proxy" %>
-          <iframe id="movie" src="http://player.vimeo.com/video/33145090?api=1&player_id=vimeoplayer" width="926" height="520" frameborder="0"></iframe> 
+          <iframe id="movie" src="http://player.vimeo.com/video/33302732?api=1&player_id=vimeoplayer" width="926" height="520" frameborder="0"></iframe> 
         </div>
         
-        <p id="credits">video by notthisbody</p>
+        <p id="credits">video by <a href="http://notthisbody.com/" target="_blank">notthisbody</a></p>
       </div>
     </div>
+  </div>
   <footer>
     <div class="center">
     <span>&copy; 2011 Metabrane</span>

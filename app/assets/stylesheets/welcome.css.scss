@@ -2,50 +2,59 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-#welcome {
-  width: 100%;
+html, body {
   height: 100%;
-  background: url("home_footer_strip.png");
+}
+
+#content {
+  overflow:auto;
+	padding-bottom: 112px;
+}
+
+#wrap {
+  min-height: 100%;
+}
+  
+footer {
+  position: relative;
+	margin-top: -112px;
+	height: 112px;
+	clear:both;
+}
+
+#welcome {
+  
+  .center {
+    width: 926px;
+    margin: 0 auto;
+  }
   
   menu {
-    background: inherit;
-    width: 960px;
-    margin: 0 auto;
-    overflow: visible;
+    background: url("home_header_strip.png");
+    height: 307px;    
+    margin: 0 0 50px 0;
     color: #c1c1c1;
     font-size: 44px;
     img {
       margin-top: 20px;
-      margin-left: 60px;
+      margin-left: 40px;
     }
     p {
       float: right;
-      width: 550px;
+      width: 520px;
       padding: 20px 0;
       margin: 0;
+      margin-right: 20px;
     }
-  }
-
-  .center {
-      width: 926px;
-      margin: 0 auto;
-  }
-    
-  #credits {
-    font-size: 15px;
-    color: #262626;
-    font-style: italic;
-    padding: 0;
-    margin: 5px 0 0 0;
   }
   
   #content {
     background: url("background_tile.jpg") repeat;
-    width: 100%;
+    margin-bottom: 70px;
     .center {
-      padding-bottom: 50px;
-      padding-top: 80px;
+     
       #video {
+        cursor: pointer;
         height: 520px;
         #proxy {
           margin: 0 auto;
@@ -54,26 +63,42 @@
           display:none;
         }
       }
-    }
-  }
-  
-  footer {
-    padding: 40px 0px;
-    color: #9d9d9d;
-    font-family: Arial;
-    font-size: 12px;
-    span {
-      margin-left: 20px;
-      a {
-        &:hover {
+      #credits {
+        font-size: 15px;
+        color: #262626;
+        font-style: italic;
+        padding: 0;
+        margin: 5px 0 0 0;
+        a, a:visited, a:hover {
+          color: inherit;
           text-decoration: underline;
         }
       }
     }
-    #plasmiq_logo {
-      position: relative;
-      top: -15px;
-      float: right;
+  }
+  
+  footer {
+    background: url("home_footer_strip.png");
+    width: 100%;
+    color: #9d9d9d;
+    font-family: Arial;
+    font-size: 12px;
+    .center {
+      padding-top: 50px;
+      span {
+        margin-left: 20px;
+        a {
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+      #plasmiq_logo {
+        position: relative;
+        top: -15px;
+        margin-right: 20px;
+        float: right;
+      }
     }
   }
 }
