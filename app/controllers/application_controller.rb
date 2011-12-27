@@ -7,7 +7,7 @@ class ApplicationController < ActionController::Base
  
   def current_user 
     persona = cookies["persona"]
-    if persona
+    if persona != "" 
       @current_user = persona
     else
       @current_user = "bad hacker and need to"
