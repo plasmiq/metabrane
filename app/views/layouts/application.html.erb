@@ -21,6 +21,9 @@
         <%= menu_element "l_create_weaves", "Create Weaves", {:controller => 'weaves', :action => "new"} %>
       </li>
     </ul>
+    <div id='persona_info'>
+      you are <%= @current_user %>, <%= link_to "logout", :controller => :personas, :action => :logout %>
+    </div>
     <div id="submenu">
       <div id="tagline"><%= link_to "weave a thread between ...", random_weaves_path, :placeholder => "click to lucky dip!" %></div>
       <!--

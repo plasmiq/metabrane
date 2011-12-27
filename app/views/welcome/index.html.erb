@@ -7,11 +7,19 @@
 <body id="welcome">
   <div id="wrap">
     <menu>
-      <div class="center">
+      <div id="header" class="center">
       <%= image_tag "metabrane_home_logo.png" %>
       <p>
         build narrative environments for idea discovery & creative interplay of meanings.
       </p>
+      </div>
+      <div id="login" class="center">
+        <p>“a fun way to creatively communicate your discoveries"</p>
+        <%= image_tag "start_here_tip.png", :id => "start_here" %>
+        <%= form_tag url_for(:controller => :personas, :action => :login), :method => :post do %>
+          <input placeholder="enter persona" autocomplete="off" name="persona" class="persona"/>
+          <%= submit_tag "", :class => "submit" %>
+        <% end %>
       </div>
     </menu>
     <div id="content">

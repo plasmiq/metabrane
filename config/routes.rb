@@ -1,5 +1,11 @@
 MetabraneCo::Application.routes.draw do
  #  get "weaves/create"
+  resources :personas do
+    collection do
+      post 'login'
+      get 'logout'
+    end
+  end
 
   # The priority is based upon order of creation:
   # first created -> highest priority.
