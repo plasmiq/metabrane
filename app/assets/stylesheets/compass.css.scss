@@ -39,6 +39,9 @@
     &.green {
       @include button(0, - 2 * $size, -39px, - 2 * $size);
     }
+    &.turquoise {
+      @include button(0, - 5 * $size, -39px, - 5 * $size);
+    }
     &.grey {
       @include button(0, - 3 * $size, -39px, - 3 * $size);
       .similar {
@@ -117,17 +120,17 @@
 .preview {
   width: 210px !important;
   height: 147px !important;
-  background: url("nav_compass_weavement_preview.png") no-repeat !important;
+  background: url("nav_compass_weavement_preview.png") no-repeat;
   color: white;
   font-size: 14px;
   &.green {
-    background-position: 0 -147px !important;
+    background-position: 0 -147px;
   }
   &.blue {
-    background-position: 0 -294px !important;
+    background-position: 0 -294px;
   }
   &.turquoise {
-    background-position: 0 -441px !important
+    background-position: 0 -441px !important;
   }
   .loader {
     background: url("loading_weaves.gif") no-repeat;
