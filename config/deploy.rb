@@ -6,7 +6,7 @@ set :scm, :git
 set :use_sudo, false
 set :app_symlinks, %w(config/database.yml)
 set :rvm_type, :user
-set :stages, %w(staging beta)
+set :stages, %w(staging production)
 set :default_stage, 'staging'
 
 require 'capistrano/ext/multistage'
