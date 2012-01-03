@@ -17,18 +17,18 @@ $(document).ready ->
   
   
     
-  $('.substrate_tab_edit').live 'click', (event) ->
-    side = (if $(this).closest(".object").hasClass("left") then "left" else "right");
-    oposite_side = (if side == "left" then "right" else "left");
-    direction = (if (side == "left") then 1 else -1);
+  #$('.substrate_tab_edit').live 'click', (event) ->
+    #side = (if $(this).closest(".object").hasClass("left") then "left" else "right");
+    #oposite_side = (if side == "left" then "right" else "left");
+    #direction = (if (side == "left") then 1 else -1);
     
-    container = $(this).closest(".container")
+    #container = $(this).closest(".container")
     
-    container.find(".content").animate( { left: direction * 380 }, { duration: 'slow' });
-    container.find(".substrate_delete."+side).show("slow");
-    container.find(".substrate_url."+side).show("slide",{direction: side }, 500);
-    container.find(".notification."+side).addClass("loaded");
-    container.find(".substrate_tab_zoom a").attr("value") 
+    #container.find(".content").animate( { left: direction * 380 }, { duration: 'slow' });
+    #container.find(".substrate_delete."+side).show("slow");
+    #container.find(".substrate_url."+side).show("slide",{direction: side }, 500);
+    #container.find(".notification."+side).addClass("loaded");
+    #container.find(".substrate_tab_zoom a").attr("value") 
     
   $(".substrate_delete").live "click", (event) ->
     side = (if $(this).hasClass("left") then "left" else "right");
