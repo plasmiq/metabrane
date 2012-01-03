@@ -46,7 +46,7 @@
       </div>
     </div>
     <div class="header">
-      <%= weave_options_tag pair, {:fav => true, :delete => true, :permalink => true} %>
+      <%= weave_options_tag pair, {:fav => false, :delete => true, :permalink => true} %>
       
       <% if pair.older.all.size > 0 || pair.newer.all.size > 0 %>
         <div class="timeline toggles">

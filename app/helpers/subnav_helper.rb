@@ -16,7 +16,7 @@ module SubnavHelper
   
   def weave_potential_tag weave
     html =  content_tag( :div, 
-      content_tag( :span, format_distance( weave.older.all.size ) ), 
+      content_tag( :span, format_distance( -weave.older.all.size ) ), 
       :class => "older")
     html += content_tag( :div, 
       content_tag( :span, format_distance( weave.newer.all.size ) ), 
