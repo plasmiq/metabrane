@@ -10,6 +10,12 @@
 }
 
 .weave {
+  &.open {
+    height: 879px;
+    .subnav {
+      display: block;
+    }    
+  }
   .subnav {
     display: none;
     width: 928px;
@@ -19,6 +25,7 @@
     position: relative;
     top: -217px;
     z-index: 0;
+    
     .shadow {
       background: url("weavement_slidePanelShadow.png") 0 0 no-repeat;
       height: 97px;

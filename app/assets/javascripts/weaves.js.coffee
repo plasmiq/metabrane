@@ -28,20 +28,20 @@ $(document).ready ->
   
   hide_relations = (event) ->
     event.stopImmediatePropagation();
-    $(this).unbind('click');
-    $(this).bind "click", show_relations
+    #$(this).unbind('click');
+    #$(this).bind "click", show_relations
     $(this).removeClass("hide_relations");
     $(this).addClass("more_relations");
     weave = $(this).closest(".weave");
     weave.find(".subnav").slideUp("slow","linear");
     weave.animate( { height: weave.find(".working_pair").height()  }, {duration: "slow"} );
-    $(this).bind "click", show_relations
+    #$(this).bind "click", show_relations
     
   show_relations = (event) ->
     if( !$(this).hasClass("submit") ) 
       event.stopImmediatePropagation();
-      $(this).unbind('click');
-      $(this).bind "click", hide_relations;
+      #$(this).unbind('click');
+      #$(this).bind "click", hide_relations;
       $(this).removeClass("more_relations");    
       $(this).addClass("hide_relations");
       weave = $(this).closest(".weave");
@@ -88,6 +88,8 @@ $(document).ready ->
     $('html, body').animate({scrollTop:0}, 'slow');
 
   $(".more_relations").live "click", show_relations
+  
+  $(".hide_relations").live "click", hide_relations
 
   $(".delete_weave")
     .bind "ajax:success", (event, data) ->

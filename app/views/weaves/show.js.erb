@@ -5,6 +5,10 @@ container.html(data);
 container.find(".working_pair").children().fadeOut(0);
 container.find(".working_pair").children().fadeIn(1000);
 container.find(".working_pair .loader").hide();
+container.find(".weave").addClass("open")
+container.find(".weave .more_relations").addClass("hide_relations")
+container.find(".weave .more_relations").removeClass("more_relations")
+
 make_images_zoomable();
 if( "<%= @container_id %>" != "<%= @home.id %>" ) {
   container.attr("id","container_<%= @wp.id %>");
