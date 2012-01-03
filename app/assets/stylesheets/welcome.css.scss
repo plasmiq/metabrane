@@ -1,21 +1,22 @@
 // Place all the styles related to the welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+#welcome {
+  #content {
+    overflow:auto;
+	  padding-bottom: 112px;
+  }
 
-#content {
-  overflow:auto;
-	padding-bottom: 112px;
-}
-
-#wrap {
-  min-height: 100%;
-}
-  
-footer {
-  position: relative;
-	margin-top: -112px;
-	height: 112px;
-	clear:both;
+  #wrap {
+    min-height: 100%;
+  }
+    
+  footer {
+    position: relative;
+	  margin-top: -112px;
+	  height: 112px;
+	  clear:both;
+  }
 }
 
 #welcome {
