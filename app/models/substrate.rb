@@ -10,6 +10,20 @@ class Substrate < ActiveRecord::Base
       :thumb => "62x72",
       :ultra_poster => "700x500>"
     }
+      
+  class << self
+    def random
+      WorkingPair.random.substrates[ rand(2) ]
+    end
+    
+    def with_metatags metatags
+    
+    end
+  end
+  
+  def metatags 
+    WorkingPair.with_substrate(self).map {|w| w.relation }
+  end
 
   def picture_from_url(url)
     self.image = open(url)

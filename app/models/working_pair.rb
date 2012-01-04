@@ -12,6 +12,14 @@ class WorkingPair < ActiveRecord::Base
     includes(:favorites)
     .where("favorites.working_pair_id = working_pairs.id") 
   }
+  
+  scope :with_metatags, lambda { |metatags|
+    where( "relation IN (?)", metatags )
+  }
+  
+  scope :with_substrate, lambda { |s| 
+    where( "substrate1_id = ? or substrate2_id = ?", s.id, s.id )
+  }
   scope :same_substrates, lambda { |substrate1, substrate2|
     where( 
       "((substrate1_id = ?) and (substrate2_id = ?)) or ((substrate1_id = ?) and (substrate2_id = ?))",
@@ -48,6 +56,13 @@ class WorkingPair < ActiveRecord::Base
     EXTENDED  => 'extended',
     TWEAKED   => 'tweaked'
   }
+  
+  class << self
+    def random
+      offset = rand(self.count)
+      self.first(:offset => offset)
+    end
+  end
 
   # just a helper method for the view
   def status_name
@@ -118,6 +133,10 @@ class WorkingPair < ActiveRecord::Base
   
   def newer
     related.newer_than( created_at, "created_at" )
+  end
+  
+  def substrates
+    [substrate1, substrate2]
   end
   
   def WorkingPair.clone weave
