@@ -20,6 +20,8 @@ MetabraneCo::Application.routes.draw do
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   match 'resonance_core/bind' => 'resonance_core#bind'
+  match 'resonance_core/highscore' => 'resonance_core#highscore'
+  
   resources :substrates do
     member do 
       put "update_metacode"

@@ -1,7 +1,7 @@
 class ResonanceCoreController < ApplicationController
   skip_before_filter :authentication_check
 
-  before_filter :verify_params
+  before_filter :verify_params, :except => ['highscore']
  
   def bind
     pivot = params["click_area"].to_i
@@ -58,6 +58,15 @@ class ResonanceCoreController < ApplicationController
     else
       render :text => {:error => "something went wrong"}.to_json
     end
+  end
+  
+  def highscore
+    count = NodeDeposit.group(:session).count(:limit => 5,:order => "count_all DESC")
+    render :text => {
+        :highscore => count.map {|x| 
+          x
+        }
+      }.to_json
   end
   
 private
