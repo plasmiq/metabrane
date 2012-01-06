@@ -20,6 +20,12 @@ class WorkingPair < ActiveRecord::Base
   scope :with_substrate, lambda { |s| 
     where( "substrate1_id = ? or substrate2_id = ?", s.id, s.id )
   }
+  
+  scope :without_substrates, lambda { |substrates| 
+    ids = substrates.map{|s| s.id } 
+    where( "(substrate1_id NOT IN (?)) and (substrate2_id NOT IN (?))", ids, ids ) unless ids.empty?
+  }
+  
   scope :same_substrates, lambda { |substrate1, substrate2|
     where( 
       "((substrate1_id = ?) and (substrate2_id = ?)) or ((substrate1_id = ?) and (substrate2_id = ?))",
@@ -137,6 +143,15 @@ class WorkingPair < ActiveRecord::Base
   
   def substrates
     [substrate1, substrate2]
+  end
+  
+  def random_substrate
+    substrates[ rand(2) ]
+  end
+  
+  def other_substrate substrate
+    index = substrates.index(substrate) == 0 ? 1 : 0
+    substrates[index]
   end
   
   def WorkingPair.clone weave

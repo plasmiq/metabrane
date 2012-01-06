@@ -15,10 +15,6 @@ class Substrate < ActiveRecord::Base
     def random
       WorkingPair.random.substrates[ rand(2) ]
     end
-    
-    def with_metatags metatags
-    
-    end
   end
   
   def metatags 

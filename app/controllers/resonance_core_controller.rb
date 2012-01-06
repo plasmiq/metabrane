@@ -6,22 +6,55 @@ class ResonanceCoreController < ApplicationController
   def bind
     pivot = params["click_area"].to_i
     
-    substrate = Substrate.find_by_id params["substrate_id"]
-    case pivot
-    when 1..9
-      substrate = Substrate.find_by_id params["substrate_id"]
-    else
-      substrate = Substrate.random
+    #LOOK IN THE PAST TO FIND HISTORY
+    node = NodeDeposit.find_last_by_session(params["user_session_id"]) || NodeDeposit.new
+    
+    #ENTRY POINT
+    weave = node.working_pair || WorkingPair.random 
+    substrate = node.substrate || weave.random_substrate
+    
+    unless node.new_record?
+      case pivot
+        when 1
+          weave = weave.travel_past(-1)
+        when 2
+          weave = weave.newer_metatags.first
+        when 3
+          weave = weave.travel_future(1)
+        when 4
+          weave = weave.travel_past(-1)
+        when 5
+          weave =  nil
+        when 6
+          weave = weave.travel_future(1)
+        when 7
+          weave = weave.travel_past(-1)
+        when 8
+          weave = weave.older_metatags.first 
+        when 9
+          weave = weave.travel_future(1) 
+        else 
+      end
     end
     
+    #JUMP SOMEWHERE IF NOTHING AHEAD
+    weave = WorkingPair.random unless weave
+    substrate = weave.random_substrate
+    
     if substrate
-      #NodeDeposit.create
-      #  :session => params["user_session_id"],
-      #  :pivot => pivot
-      #  "substrate_id" => substrate.id
+      #SAVE TRAVEL TO NODE DEPOSIT
+      NodeDeposit.create  :session => params["user_session_id"],
+                          :pivot => pivot,
+                          :substrate_id => substrate.id,
+                          :working_pair_id => weave.id#,
+                          #:clicked_at => Date.new( params["clicked_at"]  )
+      
       
       url = substrate.image.url(:ultra_poster)     
-      render :text => {:url => "http://" + request.host_with_port + url}.to_json
+      render :text => {
+        :url => "http://" + request.host_with_port + url,
+        :metatags => node.metatags
+      }.to_json
     else
       render :text => {:error => "something went wrong"}.to_json
     end
@@ -32,6 +65,7 @@ private
   def verify_params 
     raise "invalid session id" unless params["user_session_id"]
     raise "click area not provided" unless params["click_area"]
+    raise "click time not provided" unless params["clicked_at"]
   rescue => e
     render :text => {:error => "not this time lad..", :exception => e.inspect}.to_json
   end
