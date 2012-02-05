@@ -62,7 +62,14 @@ class ResonanceCoreController < ApplicationController
   
   def highscore
     current_travel = NodeDeposit.where(:session => params[:user_session_id]).order(:created_at)
-    count = NodeDeposit.group(:session).count(:limit => 5, :order => "count_all DESC")
+    count = NodeDeposit.group(:session).count(:order => "count_all DESC")
+    position = 0
+    count.each.with_index do |x, i|
+      if x[0].eql?(params[:user_session_id])
+        position = (i + 1)
+        break
+      end
+    end
     render :text => {
         :highscore => count.map {|x| 
           {
@@ -75,7 +82,8 @@ class ResonanceCoreController < ApplicationController
         :current => {
           :session_id => params[:user_session_id],
           :score => current_travel.size,
-          :time => current_travel.last.created_at.to_i - current_travel.first.created_at.to_i
+          :time => current_travel.last.created_at.to_i - current_travel.first.created_at.to_i,
+          :position => position
         }
       }.to_json
   end
