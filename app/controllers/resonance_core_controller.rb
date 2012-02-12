@@ -1,7 +1,35 @@
 class ResonanceCoreController < ApplicationController
   skip_before_filter :authentication_check
 
-  before_filter :verify_params, :except => ['highscore']
+  before_filter :verify_params, :except => ['highscore', 'get_entry_point']
+
+  def get_entry_point
+    node = NodeDeposit.new
+    weave = WorkingPair.find_by_id(params[:weave_id])
+    substrate = Substrate.find_by_id(params[:substrate_id])
+    if weave.blank? or substrate.blank?
+      weave = WorkingPair.random
+      substrate = weave.random_substrate
+    end
+
+    if substrate
+      #SAVE START TRAVEL TO NODE DEPOSIT
+      NodeDeposit.create(
+        :session => params["user_session_id"],
+        :pivot => 0,
+        :substrate_id => substrate.id,
+        :working_pair_id => weave.id
+      )
+
+      url = substrate.image.url(:ultra_poster)     
+      render :text => {
+        :url => "http://" + request.host_with_port + url,
+        :metatags => node.metatags
+      }.to_json
+    else
+      render :text => {:error => "something went wrong"}.to_json
+    end
+  end
  
   def bind
     pivot = params["click_area"].to_i

@@ -19,6 +19,7 @@ MetabraneCo::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
+  match 'resonance_core/get_entry_point' => 'resonance_core#get_entry_point'
   match 'resonance_core/bind' => 'resonance_core#bind'
   match 'resonance_core/highscore' => 'resonance_core#highscore'
   
