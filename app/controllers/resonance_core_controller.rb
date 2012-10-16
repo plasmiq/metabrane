@@ -1,7 +1,35 @@
 class ResonanceCoreController < ApplicationController
   skip_before_filter :authentication_check
 
-  before_filter :verify_params, :except => ['highscore']
+  before_filter :verify_params, :except => ['highscore', 'get_entry_point']
+
+  def get_entry_point
+    node = NodeDeposit.new
+    weave = WorkingPair.find_by_id(params[:weave_id])
+    substrate = Substrate.find_by_id(params[:substrate_id])
+    if weave.blank? or substrate.blank?
+      weave = WorkingPair.random
+      substrate = weave.random_substrate
+    end
+
+    if substrate
+      #SAVE START TRAVEL TO NODE DEPOSIT
+      NodeDeposit.create(
+        :session => params["user_session_id"],
+        :pivot => 0,
+        :substrate_id => substrate.id,
+        :working_pair_id => weave.id
+      )
+
+      url = substrate.image.url(:ultra_poster)     
+      render :text => {
+        :url => "http://" + request.host_with_port + url,
+        :metatags => node.metatags
+      }.to_json
+    else
+      render :text => {:error => "something went wrong"}.to_json
+    end
+  end
  
   def bind
     pivot = params["click_area"].to_i
@@ -61,10 +89,29 @@ class ResonanceCoreController < ApplicationController
   end
   
   def highscore
-    count = NodeDeposit.group(:session).count(:limit => 5,:order => "count_all DESC")
+    current_travel = NodeDeposit.where(:session => params[:user_session_id]).order(:created_at)
+    count = NodeDeposit.group(:session).count(:order => "count_all DESC")
+    position = 0
+    count.each.with_index do |x, i|
+      if x[0].eql?(params[:user_session_id])
+        position = (i + 1)
+        break
+      end
+    end
     render :text => {
         :highscore => count.map {|x| 
-          x
+          {
+            :session_id => x[0],
+            :count => x[1],
+            :time => NodeDeposit.where(:session => x[0]).order(:created_at).last.created_at.to_i -
+              NodeDeposit.where(:session => x[0]).order(:created_at).first.created_at.to_i
+          }
+        },
+        :current => {
+          :session_id => params[:user_session_id],
+          :score => current_travel.size,
+          :time => current_travel.last.created_at.to_i - current_travel.first.created_at.to_i,
+          :position => position
         }
       }.to_json
   end

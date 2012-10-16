@@ -71,12 +71,12 @@
           <tr>
             <td>
               <div class="object left">
-                <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.substrate1} %>
+                <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.substrate1, :pair => pair} %>
               </div>
             </td>
             <td>
               <div  class="object right">
-                <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.substrate2} %>
+                <%= render :partial => "substrates/substrate", :locals => {:substrate => pair.substrate2, :pair => pair} %>
               </div>
             </td>
           </tr>
