@@ -15,11 +15,11 @@
       <div id="header" class="center">
       <%= image_tag "metabrane_home_logo.png" %>
       <p>
-        build narrative environments for idea discovery & creative interplay of meanings.
+        create your own weavements with images and words to share an insight ...
       </p>
       </div>
       <div id="login" class="center">
-        <p>“a fun way to creatively communicate your discoveries"</p>
+        <p>‘ a visual communication engine to discover thoughts ...</p>
         <%= image_tag "start_here_tip.png", :id => "start_here" %>
         <%= form_tag url_for(:controller => :personas, :action => :login), :method => :post do %>
           <input placeholder="enter persona" autocomplete="off" name="persona" class="persona"/>
@@ -29,23 +29,36 @@
     </menu>
     <div id="content">
       <div class="center">
+        <%= image_tag "metabrane_home_intro.png" %>
+        <!--
         <div id="video">
           <%= image_tag "home_video_proxy.jpg", :id => "proxy" %>
           <iframe id="movie" src="http://player.vimeo.com/video/33302732?api=1&player_id=vimeoplayer" width="926" height="520" frameborder="0"></iframe> 
         </div>
         
         <p id="credits">video by <a href="http://notthisbody.com/" target="_blank">notthisbody</a></p>
+        -->
       </div>
     </div>
   </div>
   <footer>
     <div class="center">
-    <span>&copy; 2011 Metabrane</span>
+    <span>&copy; 2012 Metabrane</span>
+    <!--
     <span>About</span>
     <span>What's New</span>
     <span>Content Policy</span>
     <span>Terms of Service</span>
     <span>Privacy Policy</span>
+  -->
+      <span id="twitter-follow">
+        <a href="https://twitter.com/metabrane" class="twitter-follow-button" data-show-count="false" data-show-screen-name="false">Follow @metabrane</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </span>
+      <span id="twitter">
+        <a href="https://twitter.com/share" class="twitter-share-button" data-url="http://metabrane.co" data-text="‘ a visual communication engine to discover thoughts ..." data-hashtags="metabrane">Tweet</a>
+<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
+      </span>
     <%= link_to image_tag( "powered_by_plasmiq.png" ), "http://plasmiq.com/", :id => "plasmiq_logo" %>
     </div>
   </footer>
