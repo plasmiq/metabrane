@@ -37,12 +37,29 @@
         margin-top: 28px;
         margin-left: 30px;
       }
-      p {
+      ul {
+        display: block;
         float: right;
-        width: 500px;
+        width: 540px;
         padding: 22px 0;
-        margin: 16px 50px 0 0;
+        margin: 16px 20px 0 0;
         line-height: 1.2;
+        font-size:  28px;         
+        li {
+          display: list-item ;
+          width: auto;
+          font-size:  18px;
+          height: auto;
+          float: none;
+          margin-bottom: 10px;
+          list-style-type: disc !important;
+          span {
+             font-size:  28px;
+             position: relative;
+             top: 4px;
+          }
+        }
+        
       }
     }
     #login {
