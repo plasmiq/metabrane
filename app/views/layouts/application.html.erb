@@ -22,7 +22,7 @@
       </li>
     </ul>
     <div id='persona_info'>
-      you are <%= @current_user %>, <%= link_to "logout", :controller => :personas, :action => :logout %>
+      Hello <%= @current_user %>! - <%= link_to "logout", :controller => :personas, :action => :logout %>
     </div>
     <div id="submenu">
       <div id="tagline"><%= link_to "weave a thread between ...", random_weaves_path, :placeholder => "click to lucky dip!" %></div>

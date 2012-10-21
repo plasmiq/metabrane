@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
     if persona != "" 
       @current_user = persona
     else
-      @current_user = "bad hacker and need to"
+      @current_user = "anonymous"
     end 
   end
  
