@@ -6,7 +6,6 @@ gem 'rails', '3.1.0'
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3'
-gem 'passenger'
 gem 'paperclip'
 gem 'will_paginate'
 
@@ -43,4 +42,6 @@ end
 
 group :production do
   gem 'mysql'
+  gem 'unicorn'
+  #gem 'passenger'
 end

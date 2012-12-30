@@ -1,17 +1,16 @@
 #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
 require "rvm/capistrano"
-#require "rvm/capistrano"     
+require 'bundler/capistrano'
+require 'capistrano/ext/multistage'
 
 set :repository,  'git@178.63.75.143:metabrane'
 set :scm, :git
 set :use_sudo, false
-set :app_symlinks, %w(config/database.yml)
+set :app_symlinks, %w(config/database.yml config/unicorn.config)
 set :rvm_type, :user
 set :stages, %w(staging production)
 set :default_stage, 'staging'
 
-require 'bundler/capistrano'
-require 'capistrano/ext/multistage'
 
 role :web, '178.63.75.143'
 role :app, '178.63.75.143'
