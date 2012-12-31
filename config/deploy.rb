@@ -22,11 +22,3 @@ desc 'Symlinks the :app_symlinks'
     run "ln -nfs #{shared_path}/#{link} #{release_path}/#{link}"
   end
 end
-
-desc 'bundle install'
-task :bundle_install do
-  run "cd #{current_path}; bundle install"
-end
-
-after "deploy:restart", "deploy:precompile_assets"
-
