@@ -1,4 +1,6 @@
 #$:.unshift(File.expand_path('./lib', ENV['rvm_path']))
+load "deploy/assets"
+
 require "rvm/capistrano"
 require 'bundler/capistrano'
 require 'capistrano/ext/multistage'
@@ -8,6 +10,7 @@ set :scm, :git
 set :use_sudo, false
 set :app_symlinks, %w(config/database.yml config/unicorn.config)
 set :rvm_type, :user
+set :rvm_ruby_string, "1.9.3"
 set :stages, %w(staging production)
 set :default_stage, 'staging'
 
