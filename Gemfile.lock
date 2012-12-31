@@ -66,7 +66,7 @@ GEM
       treetop (~> 1.4.8)
     mime-types (1.19)
     multi_json (1.2.0)
-    mysql (2.9.0)
+    mysql2 (0.3.11)
     net-scp (1.0.4)
       net-ssh (>= 1.99.1)
     net-sftp (2.0.5)
@@ -152,7 +152,7 @@ DEPENDENCIES
   execjs
   jquery-rails
   libv8 (~> 3.11.8)
-  mysql
+  mysql2
   paperclip
   rails (= 3.1.8)
   rvm-capistrano

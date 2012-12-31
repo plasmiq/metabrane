@@ -42,7 +42,7 @@ end
 
 
 group :production do
-  gem 'mysql'
+  gem 'mysql2'
   gem 'unicorn'
   #gem 'passenger'
 end
