@@ -25,7 +25,7 @@
       Hello <%= @current_user %>! - <%= link_to "logout", :controller => :personas, :action => :logout %>
     </div>
     <div id="submenu">
-      <div id="tagline"><%= link_to "load a random weave ...", random_weaves_path, :placeholder => "click to lucky dip!" %></div>
+      <div id="tagline"><%= link_to "weave a thread between", random_weaves_path, :placeholder => "load a random weave" %></div>
       <!--
         <%= render :partial => "layouts/submenu_sorting" %>
       -->
