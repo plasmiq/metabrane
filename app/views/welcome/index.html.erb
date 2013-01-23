@@ -24,7 +24,7 @@
         <p>a visual communication engine to spread ideas and thoughts</p>
         <%= image_tag "start_here_tip.png", :id => "start_here" %>
         <%= form_tag url_for(:controller => :personas, :action => :login), :method => :post do %>
-          <input placeholder="enter persona" autocomplete="off" name="persona" class="persona"/>
+          <input placeholder="enter username" autocomplete="off" name="persona" class="persona"/>
           <%= submit_tag "", :class => "submit" %>
         <% end %>
       </div>

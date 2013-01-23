@@ -21,6 +21,19 @@
 
 #welcome {
   
+  ::-webkit-input-placeholder {
+      color:    #282828;
+  }
+  :-moz-placeholder {
+      color:    #282828;
+  }
+  ::-moz-placeholder {
+      color:    #282828;
+  }
+  :-ms-input-placeholder {
+      color:    #282828;
+  }
+
   .center {
     width: 926px;
     margin: 0 auto;
