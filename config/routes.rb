@@ -8,7 +8,7 @@ MetabraneCo::Application.routes.draw do
   end
 
 
-  match 'welcome/' => 'welcome#index'
+  match 'about/' => 'welcome#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
