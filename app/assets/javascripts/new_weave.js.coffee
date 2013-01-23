@@ -10,20 +10,22 @@ $(document).ready ->
       direction = (if (side == "left") then 1 else -1);
 
       $(this).show();
-      $(".object."+side).fadeTo("slow", 1);
-      $(".content").animate( { left: direction * 380 }, { duration: 'slow' });
-      $(".hint."+side).fadeOut();
-      $(".hint."+oposite_side).hide('slow'); 
-      $(".substrate_url."+oposite_side).hide('slow');
-      $(".notification."+side).addClass("loaded");
-      $(".substrate_delete."+side).show();
+      
+      unless $(this).hasClass("loaded") 
+        $(".object."+side).fadeTo("slow", 1);
+        $(".content").animate( { left: direction * 380 }, { duration: 'slow' });
+        $(".hint."+side).fadeOut();
+        $(".hint."+oposite_side).hide('slow'); 
+        $(".substrate_url."+oposite_side).hide('slow');
+        $(".notification."+side).addClass("loaded");
+        $(".substrate_delete."+side).show();
       
     $("#notification_image1, #notification_image2").click ->
       side = (if $(this).hasClass("left") then "left" else "right");
       oposite_side = (if side == "left" then "right" else "left");
       if( $(this).hasClass("loaded") ) 
+        $(".substrate_url."+side).hide();
         $(".content").animate( { left: 0 }, { duration: 'slow' });
-        $(".substrate_url."+side).hide("slide",{direction: side}, 500);
         if( ! $(".notification."+oposite_side).hasClass("loaded") )
           $(".substrate_url."+oposite_side).show('slow');
     
