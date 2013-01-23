@@ -1,7 +1,9 @@
-<div id="timeline_start" class="timeline_end">
-	<span>hello and welcome ... <em>create new weave</em></span>
-	<%= link_to "", {:controller => :weaves, :action => :new} %>
-</div>
+<% if @page == 1 %>
+  <div id="timeline_start" class="timeline_end">
+  	<span>hello and welcome ... <em>create new weave</em></span>
+  	<%= link_to "", {:controller => :weaves, :action => :new} %>
+  </div>
+<% end %>
 
 <% weaves.each do |weave| %>
   <div class="container" id="container_<%= weave.id %>">

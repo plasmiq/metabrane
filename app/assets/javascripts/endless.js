@@ -6,7 +6,10 @@ function checkScroll() {
     $(".weaves_loader").fadeIn();
     var select = $("#metatags_sorting");
     var order = select.val();
-    $.get( $(".endless").attr("data-action")+".js?page="+currentPage+"&order="+order );
+    $.ajax( {
+      url: $(".endless").attr("data-action")+"?page="+currentPage+"&order="+order,
+      dataType: "script"
+    } );
   } else {
     setTimeout(checkScroll, 250);
   }
