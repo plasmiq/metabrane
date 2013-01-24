@@ -8,7 +8,7 @@ MetabraneCo::Application.routes.draw do
   end
 
 
-  match 'about/' => 'welcome#index'
+  #match 'about/' => 'welcome#index'
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -32,7 +32,7 @@ MetabraneCo::Application.routes.draw do
     end
   end
   
-  resources :weaves, :path => '' do
+  resources :weaves do
     member do
       post 'favorite'
       get 'preview'
@@ -79,7 +79,7 @@ MetabraneCo::Application.routes.draw do
   #   end
 
   # You can have the root of your site routed with "root"
-  #root :to => "weaves#index"
+  root :to => "welcome#index"
   # just remember to delete public/index.html.
 
   # See how all your routes lay out with "rake routes"
