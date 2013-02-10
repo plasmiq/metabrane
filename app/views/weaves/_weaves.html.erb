@@ -1,8 +1,6 @@
 <% if @page == 1 %>
-  <div id="timeline_start" class="timeline_end">
-  	<span>hello and welcome ... <em>create new weave</em></span>
-  	<%= link_to "", {:controller => :weaves, :action => :new} %>
-  </div>
+  <%= render :partial => 'layouts/new_weave_belt', 
+            :locals => { :elementid => "timeline_start"} %>
 <% end %>
 
 <% weaves.each do |weave| %>
@@ -14,9 +12,8 @@
   <span>loading weaves ... </span>
   <%= image_tag "loading_weaves.gif" %>
 </div>
+
 <% if @per_page and weaves.size < @per_page %>
-  <div id="timeline_end" class="timeline_end">
-    <span>hello and welcome ... <em>create new weave</em></span>
-    <%= link_to "", {:controller => :weaves, :action => :new} %>
-  </div>
+  <%= render :partial => 'layouts/new_weave_belt', 
+            :locals => { :elementid => "timeline_end"} %>
 <% end %>

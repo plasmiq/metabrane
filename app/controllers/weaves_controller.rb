@@ -35,6 +35,8 @@ class WeavesController < ApplicationController
     @container_id = params[:container_id] || @home.id
     #show open graph API preview
     @ogimage = true
+
+    @title = @home.relation
         
     if params[:direction]    
       @direction = params[:direction].to_i

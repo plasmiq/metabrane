@@ -3,7 +3,11 @@
       xmlns:og="http://ogp.me/ns#"
       xmlns:fb="https://www.facebook.com/2008/fbml">
 <head>
-  <title>Metabrane.co - Weave a thread between ...</title>
+  <% unless @title %>
+    <title>Metabrane.co - Weave a thread between ...</title>
+  <% else %>
+    <title><%= @title %> - The Metabrane.co</title>
+  <% end %>
   <%= render :partial => "layouts/head_includes" %>
   <% if @ogimage %>
     <meta property="og:image" content="<%= image_path 'metabrane_home_intro.jpg' %>" />
