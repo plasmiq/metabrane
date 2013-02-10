@@ -4,6 +4,8 @@ class WorkingPair < ActiveRecord::Base
   has_many :favorites
   
   validates :relation, :presence => true
+  validates :substrate1, :presence => true
+  validates :substrate2, :presence => true
   
   scope :newest, order("working_pairs.created_at DESC")
   scope :oldest, order("working_pairs.created_at ASC")  
