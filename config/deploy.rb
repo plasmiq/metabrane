@@ -19,8 +19,7 @@ role :web, '178.63.75.143'
 role :app, '178.63.75.143'
 role :db,  '178.63.75.143', :primary => true
 
-desc 'Symlinks the :app_symlinks'
-  task :after_update_code do
+before "deploy:assets:precompile" do
   app_symlinks.each do |link|
     run "ln -nfs #{shared_path}/#{link} #{release_path}/#{link}"
   end
