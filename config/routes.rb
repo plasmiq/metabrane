@@ -36,6 +36,7 @@ MetabraneCo::Application.routes.draw do
     member do
       post 'favorite'
       get 'preview'
+      get 'image'
     end
     
     collection do

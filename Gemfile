@@ -8,6 +8,7 @@ gem 'rails', '3.1.8'
 gem 'sqlite3'
 gem 'paperclip'
 gem 'will_paginate'
+gem 'rmagick'
 
 
 # Gems used only for assets and not required

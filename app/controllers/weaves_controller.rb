@@ -1,3 +1,5 @@
+require 'RMagick'
+
 class WeavesController < ApplicationController
   def create
     @wp = WorkingPair.new(params[:working_pair])
@@ -22,6 +24,30 @@ class WeavesController < ApplicationController
     else 
       render :new
     end
+  end
+
+  def image
+    id = params[:id].to_i
+    @wp = WorkingPair.find(id)
+
+    canvas = Magick::Image.new(662, 400){ self.background_color = '#212121' }
+    img1 = Magick::Image.read( @wp.substrate1.image.path( :poster ) ).first
+    img2 = Magick::Image.read( @wp.substrate2.image.path( :poster ) ).first
+    gc = Magick::Draw.new
+    gc.fill('white')
+    gc.font = ("lib/fonts/FePIrm27C.otf")
+    gc.pointsize = 30.0
+    
+    gc.text_align(Magick::CenterAlign)
+    gc.text(331, 385, @wp.relation)
+    
+    canvas.composite!(img1, 10+(316-img1.columns)/2, 10+(332-img1.rows)/2, Magick::OverCompositeOp)
+    canvas.composite!(img2, 336+(316-img2.columns)/2, 10+(332-img2.rows)/2, Magick::OverCompositeOp)
+
+    gc.draw(canvas)
+    canvas.format = 'png'
+    
+    render :text => canvas.to_blob, :status => 200, :content_type => 'image/png'
   end
   
   def show
